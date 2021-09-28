@@ -11,5 +11,9 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+<form action="/app/coffee",method="get">
+	<input type="submit" value="coffee">
+</form>
+
 </body>
 </html>

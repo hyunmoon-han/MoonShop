@@ -81,7 +81,7 @@
         height: 10%;
         font-size: 14px;
         text-align: center;
-        background-color: indigo;
+        background-color: #c9a7e2;
     }
     #cap{
     	width: 30%;
@@ -129,11 +129,11 @@
                <ul style="width: 100%;">
                    <li>
                        <dl>
-                           <dt>
-                               1
+                           <dt id="oo">
+                               <img width="150" height="150" src="	http://www.megacoffee.me/images/menu/smoothie/11s.jpg" border="0" title="">
                            </dt>
                            <dd>
-                               123
+                              	플레인퐁크러쉬
                            </dd>
                        </dl>
                     </li>
