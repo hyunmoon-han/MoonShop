@@ -2,6 +2,7 @@ package com.moon.app;
 
 import java.lang.ProcessBuilder.Redirect;
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -32,6 +33,7 @@ public class HomeController {
 		return "board_update";
 		
 	}
+	//게시물 저장
 	@RequestMapping(value="/board_Save",method=RequestMethod.POST)
 	public String board_Save(HttpServletRequest hsr) {
 		String writer=hsr.getParameter("writer");
@@ -41,9 +43,9 @@ public class HomeController {
 		String created=hsr.getParameter("created");
 		String updated=hsr.getParameter("updated");
 		//이미지 추가 예정
-		System.out.println(writer+"-"+title+"-"+content+"-"+passcode+"-"+created+"-"+updated);
-//		BoardService boardService=sqlSession.getMapper(BoardService.class);
-//		boardService.bbs_All(writer,title,content,passcode,created,updated);
+		//System.out.println(writer+"-"+title+"-"+content+"-"+passcode+"-"+created+"-"+updated);
+		BoardService boardService=sqlSession.getMapper(BoardService.class);
+		boardService.bbs_insert(writer,title,content,passcode,created,updated);
 		
 		return "redirect:/board_list";
 	}
@@ -54,13 +56,19 @@ public class HomeController {
 	}
 	
 	@RequestMapping("/board_view")
-	public String board_view(@RequestParam("c")String c) {
-		System.out.println(c);
+	public String board_view(@RequestParam("bbs_id")int bbs_id,Model model) {
+		System.out.println(bbs_id);
+		BoardService boardService=sqlSession.getMapper(BoardService.class);
+		Board board=boardService.bbs_view(bbs_id);
+		model.addAttribute("board",board);
 		return "board_view";
 		
 	}
 	@RequestMapping("/board_list")
-	public String board_list() {
+	public String board_list(Model model) {
+		BoardService boardService=sqlSession.getMapper(BoardService.class);
+		ArrayList<Board> boardVO= boardService.bbs_All();
+		model.addAttribute("boardVO",boardVO);
 		return "board_list";
 		
 	}

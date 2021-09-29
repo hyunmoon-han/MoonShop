@@ -97,28 +97,45 @@
         </div>
         <div id="main" style="font-size:15px">
             <h3 style="text-align: center; background-color: lightgreen;">게시물 보기</h3>
-            <div class="container" >
-	            <table class="table table-hover text-center table-striped" >
-	            	<tr>
-	            		<th>번호</th>
-	            		<th>제목</th>
-	            		<th>글쓴이</th>
-	            		<th>조회수</th>
-	            	</tr>
-	            	<tr>
-	            		<td>1</td>
-	            		<td>2</td>
-	            		<td>3</td>
-	            		<td>4</td>
-	            	</tr>
-	            	<tr>
-	            		<td>1</td>
-	            		<td>2</td>
-	            		<td>3</td>
-	            		<td>4</td>
-	            	</tr>
-	            </table>
-             </div>
+             <div class="container">
+	           <table  style="padding-top:50px" align = center width=850 border=1 cellpadding=2 >
+                	<tr>
+                		<td height=20 align= center bgcolor=#ccc><font color=white> 보기</font></td>
+               		</tr>
+                	<tr>
+               			<td bgcolor=white>
+               				<table class = "table2">
+	                     	<tr>
+		                        <td style="width: 130px">작성자</td>
+		                        <td><input class="" type = text name = writer size=20 value="${board.writer}"></td>
+	                     	</tr>
+		                     <tr>
+		                        <td>제목</td>
+		                        <td><input  class="" type = text name = title size=70 value="${board.title}"></td>
+		                     </tr>
+	                        <tr>
+		                        <td>내용</td>
+		                        <td><textarea  class="form-control" name = content cols="50" rows="5">${board.content}</textarea></td>
+	                        </tr>
+	                        <tr>
+		                        <td>등록일</td>
+		                        <td><input type="text" class="" name ="created"  value="${board.created}"></input></td>
+	                        </tr>
+	                        <tr>
+		                        <td>수정일</td>
+		                        <td><input type="text" class="" name ="updated"  value="${board.updated}"></input></td>
+	                        </tr>
+	                        <tr>
+		                        <td>비밀번호</td>
+		                        <td><input class="" type = password name = passcode size=10 maxlength=10 value="${board.passcode}"></td>
+	                        </tr>
+                        </table>
+               			
+                		
+	                	</td>
+                	</tr>
+        		</table>
+             </div >
              <input  id="update" type="button" value="수정">
              <input id="list" type="button" value="목록" >  
         </div>

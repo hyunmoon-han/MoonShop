@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -99,27 +101,24 @@
             <h3 style="text-align: center; background-color: lightgreen;">공지사항</h3>
             <div class="container" >
 	            <table id="tbl1" class="table table-hover text-center table-striped" >
-	            	<tr st>
+	            	<tr >
 	            		<th>번호</th>
 	            		<th>제목</th>
+	            		<th>내용</th>
 	            		<th>글쓴이</th>
 	            		<th>생성일</th>
 	            		<th>수정일</th>
 	            	</tr>
-	            	<tr>
-	            		<td>1</td>
-	            		<td>2</td>
-	            		<td>3</td>
-	            		<td>4</td>
-	            		<td>5</td>
-	            	</tr>
-	            	<tr>
-	            		<td>6</td>
-	            		<td>7</td>
-	            		<td>8</td>
-	            		<td>9</td>
-	            		<td>10</td>
-	            	</tr>
+	            	<c:forEach items="${boardVO}" var="boardVO">
+	            		<tr>
+	            			<td>${boardVO.bbs_id}</td>
+	            			<td>${boardVO.title}</td>
+	            			<td>${boardVO.content}</td>
+	            			<td>${boardVO.writer}</td>
+	            			<td>${boardVO.created}</td>
+	            			<td>${boardVO.updated}</td>
+	            		</tr>
+	            	</c:forEach>
 	            </table>
              </div>
              <input id="insert" type="button" value="글쓰기" >  
@@ -139,7 +138,7 @@
 		code=$(this).find("td:eq(0)").text();
 		$("#bbsCode").val(code);
 		//console.log(a);
-		location.replace('/app/board_view?c='+1);
+		location.replace('/app/board_view?bbs_id='+code);
 		
 	})
 	.on("click","#insert",function(){
