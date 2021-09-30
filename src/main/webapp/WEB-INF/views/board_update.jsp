@@ -104,40 +104,43 @@
                		</tr>
                 	<tr>
                			<td bgcolor=white>
-               			<form id="from_Ist" action="/app/board_Save" method="post">
+               			<form id="from_Ut" action="/app/board_update" method="post">
                				<table class = "table2">
 	                     	<tr>
 		                        <td style="width: 130px">작성자</td>
-		                        <td><input class="form-control form-control-sm" type = text name = writer size=20> </td>
+		                        <td><input class="" type = text name ="writer" size=20 value="${board.writer}" readonly="readonly"> </td>
 	                     	</tr>
 		                     <tr>
 		                        <td>제목</td>
-		                        <td><input  class="form-control" type = text name = title size=70></td>
+		                        <td><input  class="form-control" type = text name ="title" size=70 value="${board.title}"></td>
 		                     </tr>
 	                        <tr>
 		                        <td>내용</td>
-		                        <td><textarea  class="form-control" name = content cols="50" rows="5"></textarea></td>
+		                        <td><textarea  class="form-control" name ="content" cols="50" rows="5">${board.content}</textarea></td>
 	                        </tr>
 	                        <tr>
 		                        <td>등록일</td>
-		                        <td><input type="text" class="" name ="created"  ></input></td>
+		                        <td><input type="text" class="" name ="created"  value="${board.created}" readonly="readonly"></input></td>
 	                        </tr>
 	                        <tr>
 		                        <td>수정일</td>
-		                        <td><input type="text" class="" name ="updated"  ></input></td>
+		                        <td><input type="text" class="" name ="updated"  value="${board.updated}" readonly="readonly"></input></td>
 	                        </tr>
 	                        <tr>
 		                        <td>비밀번호</td>
-		                        <td><input class="form-control" type = password name = passcode size=10 maxlength=10></td>
+		                        <td><input class="" type = password name = passcode size=10 maxlength=10 value="${board.passcode}"> </td>
 	                        </tr>
                         </table>
+                        <input id="bbs_id" name="bbs_id" type="text" value="${board.bbs_id}">
                			</form>
                 		
 	                	</td>
                 	</tr>
         		</table>
+        		
              </div >
              <input id="update" type="button" value="등록" >
+             <input id="bbs_Del" type="button" value="삭제">
              <input id="list" type="button" value="취소" >  
         </div>
     </section>
@@ -147,11 +150,25 @@
 	.ready(function(){
 		
 	})
+	//게시물 업데이트 서밋
 	.on("click","#update",function(){
-		location.href="/app/board_list";
+		$("#from_Ut").submit();
 	})
+	//게시물 리스트 페이지이동
 	.on("click","#list",function(){
 		location.href="/app/board_list";
+	})
+	//게시물 삭제
+	.on("click","#bbs_Del",function(){
+		check=confirm("정말로 삭제하시겠습니까?");
+		if(check){
+			$("#from_Ut").attr("action","/app/board_Del");
+			$("#from_Ut").attr("method","post")
+			$("#from_Ut").submit();
+		}else{
+			return false;
+		}
+		
 	})
 </script>
 </html>

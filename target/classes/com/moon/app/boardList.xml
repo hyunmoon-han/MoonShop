@@ -2,8 +2,19 @@
 <!DOCTYPE mapper
  	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
 <mapper namespace="com.moon.app.BoardService">
-
+	
+	
+	<!-- 게시물 삭제하기 -->
+	<delete id="bbs_Del">
+		delete from bbs where bbs_id=#{param1}
+	</delete>
+	<!-- 게시물 수정하기 -->
+	<update id="bbs_Ut">
+		update bbs set title=#{param1},content=#{param2},passcode=#{param3} where bbs_id=#{param4}
+	
+	</update>
 	<!-- 게시물 리스트 -->
 	<select id="bbs_All" resultType="com.moon.app.Board">
 		select bbs_id,title,content,writer,created,updated from bbs order by bbs_id
@@ -16,7 +27,9 @@
 	<!-- 게시물 추가 -->
 	<insert id="bbs_insert">
 		insert into bbs (bbs_id,writer,title,content,passcode,created,updated)
-		values(seq_bbs_id.nextval,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
+		values(seq_bbs_id.nextval,#{param1},#{param2},#{param3},#{param4},to_char(sysdate,'YYYY/MM/DD'),to_char(sysdate,'YYYY/MM/DD'))
 	</insert>
+	<select id="">
+	</select>
 
 </mapper>	

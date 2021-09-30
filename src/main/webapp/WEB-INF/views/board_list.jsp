@@ -99,28 +99,32 @@
         </div>
         <div id="main" style="font-size:15px">
             <h3 style="text-align: center; background-color: lightgreen;">공지사항</h3>
+            
             <div class="container" >
 	            <table id="tbl1" class="table table-hover text-center table-striped" >
-	            	<tr >
-	            		<th>번호</th>
-	            		<th>제목</th>
-	            		<th>내용</th>
-	            		<th>글쓴이</th>
-	            		<th>생성일</th>
-	            		<th>수정일</th>
+	            	<tr>
+	            		<th style="width:70px">번호</th>
+	            		<th style="width:200px">제목</th>
+	            		<th >내용</th>
+	            		<th style="width:80px">글쓴이</th>
+	            		<th style="width:55px">생성일</th>
+	            		<th style="width:55px">수정일</th>
 	            	</tr>
 	            	<c:forEach items="${boardVO}" var="boardVO">
-	            		<tr>
+	            		<tr class="table-warning">
 	            			<td>${boardVO.bbs_id}</td>
 	            			<td>${boardVO.title}</td>
 	            			<td>${boardVO.content}</td>
 	            			<td>${boardVO.writer}</td>
 	            			<td>${boardVO.created}</td>
 	            			<td>${boardVO.updated}</td>
+	            			di
 	            		</tr>
 	            	</c:forEach>
 	            </table>
+
              </div>
+             
              <input id="insert" type="button" value="글쓰기" >  
            	<input id="bbsCode"type="text">
             
@@ -138,7 +142,7 @@
 		code=$(this).find("td:eq(0)").text();
 		$("#bbsCode").val(code);
 		//console.log(a);
-		location.replace('/app/board_view?bbs_id='+code);
+		location.replace('/app/board_view?bbs_id='+code+"&vill="+0);
 		
 	})
 	.on("click","#insert",function(){

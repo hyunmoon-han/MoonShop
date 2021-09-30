@@ -107,36 +107,37 @@
                				<table class = "table2">
 	                     	<tr>
 		                        <td style="width: 130px">작성자</td>
-		                        <td><input class="" type = text name = writer size=20 value="${board.writer}"></td>
+		                        <td><input class="" type = text name = writer size=20 value="${board.writer}" readonly="readonly"></td>
 	                     	</tr>
 		                     <tr>
 		                        <td>제목</td>
-		                        <td><input  class="" type = text name = title size=70 value="${board.title}"></td>
+		                        <td><input  class="" type = text name = title size=70 value="${board.title}"readonly="readonly"></td>
 		                     </tr>
 	                        <tr>
 		                        <td>내용</td>
-		                        <td><textarea  class="form-control" name = content cols="50" rows="5">${board.content}</textarea></td>
+		                        <td><textarea  class="form-control" name = content cols="50" rows="5" readonly="readonly">${board.content}</textarea></td>
 	                        </tr>
 	                        <tr>
 		                        <td>등록일</td>
-		                        <td><input type="text" class="" name ="created"  value="${board.created}"></input></td>
+		                        <td><input type="text" class="" name ="created"  value="${board.created}"readonly="readonly"></input></td>
 	                        </tr>
 	                        <tr>
 		                        <td>수정일</td>
-		                        <td><input type="text" class="" name ="updated"  value="${board.updated}"></input></td>
+		                        <td><input type="text" class="" name ="updated"  value="${board.updated}"readonly="readonly"></input></td>
 	                        </tr>
 	                        <tr>
+	                        	
 		                        <td>비밀번호</td>
-		                        <td><input class="" type = password name = passcode size=10 maxlength=10 value="${board.passcode}"></td>
+		                        <td><input class="" type = password name = passcode size=10 maxlength=10 value="${board.passcode}"readonly="readonly"></td>
 	                        </tr>
                         </table>
-               			
+               			<input type="text" value="${board.bbs_id}">
                 		
 	                	</td>
                 	</tr>
         		</table>
              </div >
-             <input  id="update" type="button" value="수정">
+             <input  id="update_View" type="button" value="수정페이지 이동">
              <input id="list" type="button" value="목록" >  
         </div>
     </section>
@@ -146,8 +147,8 @@
 	.ready(function(){
 		
 	})
-	.on("click","#update",function(){
-		location.href="/app/board_update";
+	.on("click","#update_View",function(){
+		location.href="/app/board_view?bbs_id=${board.bbs_id}+&vill="+1;
 	})
 	.on("click","#list",function(){
 		location.href="/app/board_list";

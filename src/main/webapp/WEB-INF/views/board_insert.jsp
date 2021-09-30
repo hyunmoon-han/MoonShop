@@ -108,7 +108,7 @@
                				<table class = "table2">
 	                     	<tr>
 		                        <td style="width: 130px">작성자</td>
-		                        <td><input class="form-control form-control-sm" type = text name = writer size=20> </td>
+		                        <td><input class="" type = text name = writer size=20> </td>
 	                     	</tr>
 		                     <tr>
 		                        <td>제목</td>
@@ -120,15 +120,15 @@
 	                        </tr>
 	                        <tr>
 		                        <td>등록일</td>
-		                        <td><input type="text" class="" name ="created"  ></input></td>
+		                        <td><input type="text" class="" name ="created" readonly="readonly"></input></td>
 	                        </tr>
 	                        <tr>
 		                        <td>수정일</td>
-		                        <td><input type="text" class="" name ="updated"  ></input></td>
+		                        <td><input type="text" class="" name ="updated"  readonly="readonly"></input></td>
 	                        </tr>
 	                        <tr>
 		                        <td>비밀번호</td>
-		                        <td><input class="form-control" type = password name = passcode size=10 maxlength=10></td>
+		                        <td><input class="" type = password name = passcode size=10 maxlength=10></td>
 	                        </tr>
                         </table>
                			</form>
