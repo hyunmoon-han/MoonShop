@@ -57,6 +57,13 @@
         height: 100%;
         background-color: white;
     }
+    #main_m{
+    	width: 590px;
+	   	height: 500px;
+	    background-color: blanchedalmond;
+	    position: absolute;
+	    left: 35%;
+    }
     #cap{
     	width: 30%;
     	height: 5%;
@@ -98,67 +105,37 @@
             </div>
         </div>
         <div id="main" style="font-size:15px">
-            <h3 style="text-align: center; background-color: lightgreen;">공지사항</h3>
-            
-            <div class="container" >
-	            <table id="tbl1" class="table table-hover text-center table-striped" >
-	            	<thead style="background-color:#958e8e3b;">
-		            	<tr>
-		            		<th style="width:70px">번호</th>
-		            		<th style="width:230px">제목</th>
-		            		<th >내용</th>
-		            		<th style="width:80px">글쓴이</th>
-		            		<th style="width:55px">생성일</th>
-		            		<th style="width:55px">수정일</th>
-		            	</tr>
-		            </thead>	
-	            	<tbody>
-	            		<c:forEach items="${boardVO}" var="boardVO">
-	            		<tr class="table-warning">
-	            			<td>${boardVO.bbs_id}</td>
-	            			<td class="tit">${boardVO.title}</td>
-	            			<td class="con">${boardVO.content}</td>
-	            			<td>${boardVO.writer}</td>
-	            			<td>${boardVO.created}</td>
-	            			<td>${boardVO.updated}</td>
-	            		</tr>
-	            	</c:forEach>
-	            	</tbody>
-	            	
-	            </table>
-             </div>
-             
-             <input id="insert" type="button" value="글쓰기" style="float: right; margin-right: 90px" >  
-           	<input id="bbsCode"type="text">
-            
+            <h3 style="text-align: center; background-color: lightgreen;">회원가입</h3>
+            <div id="main_m">
+            	 <div class="mb-3 row">
+				    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+				    <div class="col-sm-10">
+				      <input type="text"  class="form-control-plaintext" id="staticEmail" value="email@example.com">
+				    </div>
+				  </div>
+				  <div class="mb-3 row">
+				    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+				    <div class="col-sm-10">
+				      <input type="password" class="form-control" id="inputPassword">
+				    </div> 
+				  </div>
+				  <div class="mb-3 row">
+				    <label for="inputPassword" class="col-sm-2 col-form-label">Password check</label>
+				    <div class="col-sm-10">
+				      <input type="password" class="form-control" id="inputPassword">
+				    </div> 
+				  </div>
+            </div>
+    
+           
         </div>
-        
     </section>
 </body>
 <script>
 	$(document)
 	.ready(function(){
-		$(".con").each(function(){
-			if($(this).text().length>50){
-				$(this).html($(this).text().substr(0,50)+"....");
-			}
-		}),
-		$(".tit").each(function(){
-			if($(this).text().length>15){
-				$(this).html($(this).text().substr(0,15)+"....");
-			}
-		})
-	})
-	.on("click","#tbl1 tbody tr",function(){
-		//location.href="/app/board_view";
-		code=$(this).find("td:eq(0)").text();
-		$("#bbsCode").val(code);
-		//console.log(a);
-		location.replace('/app/board_view?bbs_id='+code+"&vill="+0);
 		
 	})
-	.on("click","#insert",function(){
-		location.href="/app/board_insert";
-	})
+	
 </script>
 </html>

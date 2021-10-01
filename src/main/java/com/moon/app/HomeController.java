@@ -28,6 +28,11 @@ public class HomeController {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	//회원가입 페이지 이동
+	@RequestMapping("/newbie")
+	public String newbie() {
+		return "newbie";
+	}
 	@RequestMapping(value="/board_Del",method=RequestMethod.POST)
 	public String board_Del(HttpServletRequest hsr) {
 		int bbs_id=Integer.parseInt(hsr.getParameter("bbs_id"));
@@ -93,10 +98,13 @@ public class HomeController {
 		return "board_list";
 		
 	}
+	
+	//카페 메뉴 상세보기
 	@RequestMapping("/menu")
 	public String munu() {
 		return "menu";
 	}
+	//카페 메뉴 리스트
 	@RequestMapping("/coffee")
 	public String coffee() {
 		return "coffee";

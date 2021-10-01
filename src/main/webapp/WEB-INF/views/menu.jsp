@@ -177,7 +177,7 @@
         <div id="sub" class="">
             <div id="nav">
                 <ul>
-                    <li>Coffee</li>
+                    <li><a href="/app/coffee">Coffee</a></li>
                     <li>2</li>
                     <li>3</li>
                     <li>4</li>
@@ -190,7 +190,7 @@
             </div>
             <div>
             	<ul>
-	                <li>notice</li>
+	                <li><a href="/app/board_list">notice</a></li>
 	                <li> Q & A</li>
 	                <li>Review</li>
 	                <li style="text-decoration-line: underline;">search</li>

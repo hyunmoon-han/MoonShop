@@ -116,7 +116,7 @@
             </div>
             <div>
             	<ul>
-	                <li>notice</li>
+	                <li><a href="/app/board_list">notice</a></li>
 	                <li> Q & A</li>
 	                <li>Review</li>
 	                <li style="text-decoration-line: underline;">search</li>
@@ -232,4 +232,13 @@
         
     </section>
 </body>
+<script>
+$(document)
+.ready(function(){
+	
+})
+.on("click","#main_m ul li",function(){
+	location.href="/app/menu";
+})
+</script>
 </html>

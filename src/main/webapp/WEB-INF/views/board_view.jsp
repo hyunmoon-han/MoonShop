@@ -15,6 +15,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">    
+
     <title>Moon</title>
 </head>
 <style>
@@ -98,24 +100,27 @@
         <div id="main" style="font-size:15px">
             <h3 style="text-align: center; background-color: lightgreen;">게시물 보기</h3>
              <div class="container">
-	           <table  style="padding-top:50px" align = center width=850 border=1 cellpadding=2 >
+	           <table  style="padding-top:50px" align = center width=95% border=1 cellpadding=2 >
                 	<tr>
-                		<td height=20 align= center bgcolor=#ccc><font color=white> 보기</font></td>
+                		<td height=20 align= center bgcolor=#ccc><font color=white> 보기</font><input type="text" style="float:left;border: none;" value="2021-10-20"></td>
                		</tr>
                 	<tr>
                			<td bgcolor=white>
-               				<table class = "table2">
+               				<table class = "table2" style="width: 90%">
 	                     	<tr>
 		                        <td style="width: 130px">작성자</td>
 		                        <td><input class="" type = text name = writer size=20 value="${board.writer}" readonly="readonly"></td>
 	                     	</tr>
 		                     <tr>
 		                        <td>제목</td>
-		                        <td><input  class="" type = text name = title size=70 value="${board.title}"readonly="readonly"></td>
+		                        <td><input class="form-control" type = text name = title size=10 value="${board.title}" readonly="readonly"
+		                        style="font-size:17px;padding: 10px 15px;height: 50px"></td> 
+		                        
 		                     </tr>
 	                        <tr>
 		                        <td>내용</td>
-		                        <td><textarea  class="form-control" name = content cols="50" rows="5" readonly="readonly">${board.content}</textarea></td>
+		                        <td><textarea  class="form-control" name = content cols="50" rows="5" readonly="readonly"
+		                        style="padding: 10px 15px;font-size: 17px;height: 300px">${board.content}</textarea></td>
 	                        </tr>
 	                        <tr>
 		                        <td>등록일</td>
@@ -137,8 +142,12 @@
                 	</tr>
         		</table>
              </div >
-             <input  id="update_View" type="button" value="수정페이지 이동">
-             <input id="list" type="button" value="목록" >  
+             <br>
+             <br>
+             <div style="position: absolute; left: 50%">
+             	<input  id="update_View" type="button" value="수정페이지">
+             	<input id="list" type="button" value="목록" >
+           	</div>  
         </div>
     </section>
 </body>

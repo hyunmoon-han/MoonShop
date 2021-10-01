@@ -98,25 +98,28 @@
         <div id="main" style="font-size:15px">
             <h3 style="text-align: center; background-color: lightgreen;">게시물 수정</h3>
             <div class="container">
-	           <table  style="padding-top:50px" align = center width=850 border=1 cellpadding=2 >
+	           <table  style="padding-top:50px" align = center width=95% border=1 cellpadding=2 >
                 	<tr>
                 		<td height=20 align= center bgcolor=#ccc><font color=white> 글쓰기</font></td>
                		</tr>
                 	<tr>
                			<td bgcolor=white>
                			<form id="from_Ut" action="/app/board_update" method="post">
-               				<table class = "table2">
+               				<table class = "table2" style="width: 90%">
 	                     	<tr>
 		                        <td style="width: 130px">작성자</td>
-		                        <td><input class="" type = text name ="writer" size=20 value="${board.writer}" readonly="readonly"> </td>
+		                        <td><input class="" type = text name ="writer" size=20 value="${board.writer}" readonly="readonly" > </td>
 	                     	</tr>
 		                     <tr>
 		                        <td>제목</td>
-		                        <td><input  class="form-control" type = text name ="title" size=70 value="${board.title}"></td>
+		                        <td><input id="tit" class="form-control" type = text name ="title" size=70 value="${board.title}" 
+		                        
+		                        style="font-size: 17px" placeholder="제목을 입력하세요." ></td>
 		                     </tr>
 	                        <tr>
 		                        <td>내용</td>
-		                        <td><textarea  class="form-control" name ="content" cols="50" rows="5">${board.content}</textarea></td>
+		                        <td><textarea  class="form-control" name ="content" cols="50" rows="5" 
+		                        style="font-size: 17px;height: 280px;padding: 10px 15px;" placeholder="내용을 입력하세요.">${board.content}</textarea></td>
 	                        </tr>
 	                        <tr>
 		                        <td>등록일</td>
@@ -139,9 +142,12 @@
         		</table>
         		
              </div >
-             <input id="update" type="button" value="등록" >
-             <input id="bbs_Del" type="button" value="삭제">
-             <input id="list" type="button" value="취소" >  
+             <br>
+             <div style="position: absolute;left: 50%">
+             	<input id="update" type="button" value="등록" >
+             	<input id="bbs_Del" type="button" value="삭제">
+             	<input id="list" type="button" value="취소" >
+           	</div>  
         </div>
     </section>
 </body>
@@ -152,6 +158,10 @@
 	})
 	//게시물 업데이트 서밋
 	.on("click","#update",function(){
+		if($("#tit").val()==""){
+			alert("제목을 입력하세요.");
+			return false;
+		}
 		$("#from_Ut").submit();
 	})
 	//게시물 리스트 페이지이동

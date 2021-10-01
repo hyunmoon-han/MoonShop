@@ -75,7 +75,7 @@
         <div id="sub" class="">
             <div id="nav">
                 <ul>
-                    <li>Coffee</li>
+                    <li><a href="/app/coffee">Coffee</a></li>
                     <li>2</li>
                     <li>3</li>
                     <li>4</li>
@@ -98,27 +98,28 @@
         <div id="main" style="font-size:15px">
             <h3 style="text-align: center; background-color: lightgreen;">게시물 작성</h3>
             <div class="container">
-	           <table  style="padding-top:50px" align = center width=850 border=1 cellpadding=2 >
+	           <table  style="padding-top:50px" align = center width=95% border=1 cellpadding=2 >
                 	<tr>
                 		<td height=20 align= center bgcolor=#ccc><font color=white> 글쓰기</font></td>
                		</tr>
                 	<tr>
                			<td bgcolor=white>
                			<form id="from_Ist" action="/app/board_Save" method="post">
-               				<table class = "table2">
+               				<table class = "table2" style="width:90%">
 	                     	<tr>
 		                        <td style="width: 130px">작성자</td>
-		                        <td><input class="" type = text name = writer size=20> </td>
+		                        <td><input id="userN" class="" type = text name = writer size=20> </td>
 	                     	</tr>
 		                     <tr>
 		                        <td>제목</td>
-		                        <td><input  class="form-control" type = text name = title size=70></td>
+		                        <td><input id="title" class="form-control" type = text name = title size=70 style="font-size: 17px;padding: 10px 15px;" placeholder="제목을 입력하세요."></td>
 		                     </tr>
 	                        <tr>
 		                        <td>내용</td>
-		                        <td><textarea  class="form-control" name = content cols="50" rows="5"></textarea></td>
+		                        <td><textarea id="content"  class="form-control" name = content cols="50" rows="5"  placeholder="내용을 입력하세요."
+		                        style="font-size: 17px;height: 290px;white-space: pre-line;padding: 10px 15px;"></textarea></td>
 	                        </tr>
-	                        <tr>
+	                       <!--  <tr>
 		                        <td>등록일</td>
 		                        <td><input type="text" class="" name ="created" readonly="readonly"></input></td>
 	                        </tr>
@@ -126,9 +127,9 @@
 		                        <td>수정일</td>
 		                        <td><input type="text" class="" name ="updated"  readonly="readonly"></input></td>
 	                        </tr>
-	                        <tr>
+	                        <tr> -->
 		                        <td>비밀번호</td>
-		                        <td><input class="" type = password name = passcode size=10 maxlength=10></td>
+		                        <td><input id="passcode" class="" type = password name = passcode size=10 maxlength=10></td>
 	                        </tr>
                         </table>
                			</form>
@@ -136,9 +137,11 @@
 	                	</td>
                 	</tr>
         		</table>
-             </div >
-             <input id="bbs_ist" type="button" value="등록" >
-             <input id="bbs_Lst" type="button" value="취소" >
+             </div ><br><br>
+             <div style="position: absolute; left: 50%">
+	             <input id="bbs_ist" type="button" value="등록" >
+	             <input id="bbs_Lst" type="button" value="취소" >
+	         </div>    
             
         </div>
     </section>
@@ -150,10 +153,20 @@
 	})
 	.on("click","#bbs_ist",function(){
 		//location.href="/app/board_list";
+		userN=$("#userN").val();
+		title=$("#title").val();
+		content=$("#content").val();
+		passcode=$("#passcode").val();
+		//console.log(userN,title,content,passcode);
+		if(userN==''|| title==''||content==''||passcode==''){
+			alert("빈 정보가 존재합니다.입력해주세요!");
+			return false;
+		}
 		$("#from_Ist").submit();
 	})
 	.on("click","#bbs_Lst",function(){
 		location.href="/app/board_list";
 	})
+	
 </script>
 </html>
