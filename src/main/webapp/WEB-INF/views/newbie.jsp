@@ -107,23 +107,31 @@
         <div id="main" style="font-size:15px">
             <h3 style="text-align: center; background-color: lightgreen;">회원가입</h3>
             <div id="main_m">
-            	 <div class="mb-3 row">
-				    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-				    <div class="col-sm-10">
-				      <input type="text"  class="form-control-plaintext" id="staticEmail" value="email@example.com">
-				    </div>
+            
+            	<div class="mb-3 row">
+				    <label for="inputPassword" class="col-sm-2 col-form-label">이름</label>
+				      <input type="password" class="form-control" id="inputPassword" style="height:40px;width:120px;font-size:10px">
 				  </div>
 				  <div class="mb-3 row">
+				    <label for="inputPassword" class="col-sm-2 col-form-label">ID</label>
+				      <input type="password" class="form-control" id="inputPassword" style="height:40px;width:120px;font-size:10px">
+				  </div>
+            	 <div class="mb-3 row">
+				    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+				      <input type="text"  class="form-control id="staticEmail" placeholder="email@exampleg.com" style="height:40px;width:250px;font-size:17px">
+				  </div>
+				  <div class="mb-3 row">
+				    <label for="inputPassword" class="col-sm-2 col-form-label">전화번호</label>
+				      <input type="password" class="form-control" id="inputPassword" style="height:40px;width:120px;font-size:10px">
+				  </div>
+				 
+				  <div class="mb-3 row">
 				    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-				    <div class="col-sm-10">
-				      <input type="password" class="form-control" id="inputPassword">
-				    </div> 
+				      <input type="password" class="form-control" id="inputPassword" style="height:40px;width:120px;font-size:10px">
 				  </div>
 				  <div class="mb-3 row">
 				    <label for="inputPassword" class="col-sm-2 col-form-label">Password check</label>
-				    <div class="col-sm-10">
-				      <input type="password" class="form-control" id="inputPassword">
-				    </div> 
+				      <input type="password" class="form-control" id="inputPassword" style="height:40px;width:120px;font-size:10px">
 				  </div>
             </div>
     

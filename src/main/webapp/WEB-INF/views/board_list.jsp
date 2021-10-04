@@ -72,9 +72,10 @@
 			 <span style="text-align: center;position: absolute; left: 14%; top: 15px;font-size: 40px">1854<br>
 			<span style="font-size: 28px;position: absolute;top: 28px;left: 20px;">Shop</span></span>
 		</div>
+		<input id="logout"type="button" value="로그아웃" style="float: right;">
     </header>
     <section>
-        <div id="sub" class="">
+        <div id="sub" class="">		
             <div id="nav">
                 <ul>
                     <li><a href="/app/coffee">Coffee</a></li>
@@ -108,8 +109,8 @@
 		            		<th style="width:230px">제목</th>
 		            		<th >내용</th>
 		            		<th style="width:80px">글쓴이</th>
-		            		<th style="width:55px">생성일</th>
-		            		<th style="width:55px">수정일</th>
+		            		<th style="width:100px">생성일</th>
+		            		<th style="width:100px">수정일</th>
 		            	</tr>
 		            </thead>	
 	            	<tbody>
@@ -139,8 +140,8 @@
 	$(document)
 	.ready(function(){
 		$(".con").each(function(){
-			if($(this).text().length>50){
-				$(this).html($(this).text().substr(0,50)+"....");
+			if($(this).text().length>35){
+				$(this).html($(this).text().substr(0,35)+"....");
 			}
 		}),
 		$(".tit").each(function(){
@@ -159,6 +160,9 @@
 	})
 	.on("click","#insert",function(){
 		location.href="/app/board_insert";
+	})
+	.on("click","#logout",function(){
+		location.replace("/app/logout");
 	})
 </script>
 </html>

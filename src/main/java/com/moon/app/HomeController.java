@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -17,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Handles requests for the application home page.
@@ -28,6 +30,59 @@ public class HomeController {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	
+	//로그아웃
+	@RequestMapping("/logout")
+	public String logout(HttpServletRequest hsr) {
+		HttpSession session=hsr.getSession();
+		session.invalidate();
+		return "redirect:/login";
+	}
+	//로그인 페이지 이동
+	
+	//로그인 검사
+	@ResponseBody
+	@RequestMapping(value="/check_user",method=RequestMethod.POST)
+	public String check_user(HttpServletRequest hsr) {
+		String userid=hsr.getParameter("userid");
+		String passcode=hsr.getParameter("passcode");
+		MemberService memberService=sqlSession.getMapper(MemberService.class);
+		int n=memberService.memberCheck(userid, passcode);
+		if(n>0) {
+			HttpSession session=hsr.getSession();
+			session.setAttribute("userid", userid);
+			return "1";
+		}else {
+			return "0";
+		}
+	
+	}
+	//로그인
+	@RequestMapping("/login")
+	public String loing() {
+		return "login";
+	}
+	//회원가입 
+	@RequestMapping(value="/member",method=RequestMethod.POST)
+	public String member(HttpServletRequest hsr) {
+		String name=hsr.getParameter("name");
+		String gender=hsr.getParameter("gender");
+		String userid=hsr.getParameter("userid");
+		String email=hsr.getParameter("email");
+		String mobile=hsr.getParameter("mobile");
+		String passcode=hsr.getParameter("passcode");
+		System.out.println("디버깅:"+name+"-"+gender+"-"+userid+"-"+email+"-"+mobile+"-"+passcode);
+
+		MemberService memberService=sqlSession.getMapper(MemberService.class);
+		memberService.memberInt(name, gender, userid, email, mobile, passcode);
+
+		return "redirect:/newbie2";
+	}
+	
+	@RequestMapping("/newbie2")
+	public String newbie2() {
+		return "newbie2";
+	}
 	//회원가입 페이지 이동
 	@RequestMapping("/newbie")
 	public String newbie() {
@@ -91,11 +146,18 @@ public class HomeController {
 	}
 	//게시물 리스트 출력
 	@RequestMapping("/board_list")
-	public String board_list(Model model) {
-		BoardService boardService=sqlSession.getMapper(BoardService.class);
-		ArrayList<Board> boardVO= boardService.bbs_All();
-		model.addAttribute("boardVO",boardVO);
-		return "board_list";
+	public String board_list(HttpServletRequest hsr,Model model) {
+		HttpSession session=hsr.getSession();
+		String userid = (String) session.getAttribute("userid");
+		if (userid.equals("") ||userid==null) {
+			return "redirect:/login";
+		}else {
+			BoardService boardService=sqlSession.getMapper(BoardService.class);
+			ArrayList<Board> boardVO= boardService.bbs_All();
+			model.addAttribute("boardVO",boardVO);
+			return "board_list";
+		}
+		
 		
 	}
 	

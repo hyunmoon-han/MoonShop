@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.moon.app.MemberService">
+
+	<!-- 로그인 체크-->
+	<select id="memberCheck" resultType="int">
+		select count(*)from member10 where userid=#{param1} and passcode=#{param2}		
+	</select>
+
+	<!-- 회원 가입 -->
+	<insert id="memberInt">
+		insert into member10 (name,gender,userid,email,mobile,passcode)values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
+	</insert>
+
+</mapper>	
