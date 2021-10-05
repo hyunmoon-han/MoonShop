@@ -108,12 +108,12 @@
 		${userid}님환영합니다.
             <div class="container" >
             	<form action="/app/selBtn" method="post" >
-		            <select id="selCheck" name="test1">
-		           		<option  value="title" selected="selected">제목</option>
-		           		<option value="writer">작성자</option>
-		           		<option value="userid">ID</option>
+		            <select id="selCheck" name="search_type">
+		            	<option  value="D" selected="selected">전체 검색</option>
+		           		<option  value="T" >제목</option>
+		           		<option value="W">작성자</option>
 		            </select>
-		            <input  id="selText" type="text" name="test2">
+		            <input  id="selText" type="text" name="search_keyword">
 		            <input  id="selBtn" type="submit" value="검색">
             	</form>
 	            <table id="tbl1" class="table table-hover text-center table-striped" >
@@ -122,7 +122,7 @@
 		            		<th style="width:70px">번호</th>
 		            		<th style="width:230px">제목</th>
 		            		<th >내용</th>
-		            		<th style="width:80px">글쓴이</th>
+		            		<th style="width:80px">작성자</th>
 		            		<th style="width:100px">생성일</th>
 		            		<th style="width:100px">수정일</th>
 		            	</tr>
@@ -154,8 +154,8 @@
 	$(document)
 	.ready(function(){
 		$(".con").each(function(){
-			if($(this).text().length>35){
-				$(this).html($(this).text().substr(0,35)+"....");
+			if($(this).text().length>30){
+				$(this).html($(this).text().substr(0,30)+"....");
 			}
 		}),
 		$(".tit").each(function(){
@@ -180,6 +180,10 @@
 	})
 	//-------------검색 기능
 	//검색버튼 처리
-	
+	.on("click","#selBtn",function(){
+		if($("#selCheck").val()=='D'){
+			$("#selText").val('');
+		}
+	})
 </script>
 </html>

@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,15 +34,12 @@ public class HomeController {
 	
 	//----검색기능---
 	@RequestMapping(value="/selBtn",method=RequestMethod.POST)
-	public String selBtn(HttpServletRequest hsr,Model model) {
-		String test1=hsr.getParameter("test1");
-		String test2=hsr.getParameter("test2");
-		System.out.println("찾아:"+test1+"-"+test2);
-		System.out.println("zzz:"+"where"+test1+"='+test2+'");
-
+	public String selBtn(HttpServletRequest hsr,Model model,@ModelAttribute("pageVO")PageVO paveVO) {
+		String keyword=hsr.getParameter("search_keyword");
 		BoardService boardService=sqlSession.getMapper(BoardService.class);
-		ArrayList<Board> list=boardService.btnSel(test1,test2);
+		ArrayList<Board> list=boardService.btnSel(paveVO);
 		model.addAttribute("listVO",list);
+		model.addAttribute("pageVO", paveVO);
 
 		return "list";
 	}
@@ -148,11 +146,12 @@ public class HomeController {
 	}
 	//게시물 view페이지
 	@RequestMapping("/board_view")
-	public String board_view(@RequestParam("bbs_id")int bbs_id,@RequestParam("vill")int vill,Model model) {
+	public String board_view(@RequestParam("bbs_id")int bbs_id,@RequestParam("vill")int vill,Model model,@ModelAttribute("board")Board board) {
 		System.out.println(bbs_id);
 		BoardService boardService=sqlSession.getMapper(BoardService.class);
-		Board board=boardService.bbs_view(bbs_id);
-		model.addAttribute("board",board);
+//		Board board=boardService.bbs_view(board);
+//		model.addAttribute("board",board);
+		model.addAttribute("board",boardService.bbs_view(board));
 		if(vill==1) {
 			return "board_update";
 		}

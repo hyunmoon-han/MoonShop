@@ -6,9 +6,15 @@
 <mapper namespace="com.moon.app.BoardService">
 	
 	<select id="btnSel" resultType="com.moon.app.Board">
-		select * from bbs where 
-		<if test="#{param1}=='title'.toString()">
-			title like '%'||#{param2}||'%'
+		select * from bbs  
+		<if test="search_type=='D'.toString()">
+			order by bbs_id
+		</if>
+		<if test="search_type=='T'.toString()">
+			where title like '%'||#{search_keyword}||'%'
+		</if>
+		<if test="search_type=='W'.toString()">
+			where writer like '%'||#{search_keyword}||'%'
 		</if>
 			
 	</select>
@@ -28,7 +34,7 @@
 	
 	<!-- 게시물 view -->
 	<select id="bbs_view" resultType="com.moon.app.Board">
-		select * from bbs where bbs_id=#{param1}
+		select * from bbs where bbs_id=#{bbs_id}
 	</select>
 	<!-- 게시물 추가 -->
 	<insert id="bbs_insert">

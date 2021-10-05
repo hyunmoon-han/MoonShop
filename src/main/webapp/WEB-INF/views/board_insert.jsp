@@ -108,7 +108,7 @@
                				<table class = "table2" style="width:90%">
 	                     	<tr>
 		                        <td style="width: 130px">작성자</td>
-		                        <td><input id="userN" class="" type = text name = writer size=20> </td>
+		                        <td><input id="userN" class="" type = text name = writer size=20 readonly="readonly" value="${userid}"> </td>
 	                     	</tr>
 		                     <tr>
 		                        <td>제목</td>
