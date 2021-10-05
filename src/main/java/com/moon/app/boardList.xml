@@ -5,7 +5,13 @@
 	
 <mapper namespace="com.moon.app.BoardService">
 	
-	
+	<select id="btnSel" resultType="com.moon.app.Board">
+		select * from bbs where 
+		<if test="#{param1}=='title'.toString()">
+			title like '%'||#{param2}||'%'
+		</if>
+			
+	</select>
 	
 	<!-- 게시물 삭제하기 -->
 	<delete id="bbs_Del">

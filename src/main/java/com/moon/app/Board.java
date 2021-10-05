@@ -10,6 +10,12 @@ public class Board {
 	private String updated;
 	private String img_loc;
 	
+	@Override
+	public String toString() {
+		return "Board [bbs_id=" + bbs_id + ", title=" + title + ", content=" + content + ", writer=" + writer
+				+ ", passcode=" + passcode + ", created=" + created + ", updated=" + updated + ", img_loc=" + img_loc
+				+ "]";
+	}
 	public Board() {
 		
 	}

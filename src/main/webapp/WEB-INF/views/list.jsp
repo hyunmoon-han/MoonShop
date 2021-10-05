@@ -110,7 +110,7 @@
             	<form action="/app/selBtn" method="post" >
 		            <select id="selCheck" name="test1">
 		           		<option  value="title" selected="selected">제목</option>
-		           		<option value="writer">작성자</option>
+		           		<option value="name">작성자</option>
 		           		<option value="userid">ID</option>
 		            </select>
 		            <input  id="selText" type="text" name="test2">
@@ -128,23 +128,22 @@
 		            	</tr>
 		            </thead>	
 	            	<tbody>
-	            		<c:forEach items="${boardVO}" var="boardVO">
+	            		<c:forEach items="${listVO}" var="listVO">
 	            		<tr class="table-warning">
-	            			<td>${boardVO.bbs_id}</td>
-	            			<td class="tit">${boardVO.title}</td>
-	            			<td class="con">${boardVO.content}</td>
-	            			<td>${boardVO.writer}</td>
-	            			<td>${boardVO.created}</td>
-	            			<td>${boardVO.updated}</td>
+	            			<td>${listVO.bbs_id}</td>
+	            			<td class="tit">${listVO.title}</td>
+	            			<td class="con">${listVO.content}</td>
+	            			<td>${listVO.writer}</td>
+	            			<td>${listVO.created}</td>
+	            			<td>${listVO.updated}</td>
 	            		</tr>
 	            	</c:forEach>
 	            	</tbody>
 	            	
 	            </table>
              </div>
-             
              <input id="insert" type="button" value="글쓰기" style="float: right; margin-right: 90px" >  
-           	<input id="bbsCode"type="text">
+           	<input id="bbsCode"type="text" >
             
         </div>
         

@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,6 +31,20 @@ public class HomeController {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	//----검색기능---
+	@RequestMapping(value="/selBtn",method=RequestMethod.POST)
+	public String selBtn(HttpServletRequest hsr,Model model) {
+		String test1=hsr.getParameter("test1");
+		String test2=hsr.getParameter("test2");
+		System.out.println("찾아:"+test1+"-"+test2);
+		System.out.println("zzz:"+"where"+test1+"='+test2+'");
+
+		BoardService boardService=sqlSession.getMapper(BoardService.class);
+		ArrayList<Board> list=boardService.btnSel(test1,test2);
+		model.addAttribute("listVO",list);
+
+		return "list";
+	}
 	
 	//로그아웃
 	@RequestMapping("/logout")
@@ -149,7 +164,8 @@ public class HomeController {
 	public String board_list(HttpServletRequest hsr,Model model) {
 		HttpSession session=hsr.getSession();
 		String userid = (String) session.getAttribute("userid");
-		if (userid.equals("") ||userid==null) {
+		System.out.println( "oo버딩="+userid);
+		if (userid==null) {
 			return "redirect:/login";
 		}else {
 			BoardService boardService=sqlSession.getMapper(BoardService.class);
