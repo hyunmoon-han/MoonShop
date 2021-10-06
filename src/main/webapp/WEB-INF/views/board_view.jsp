@@ -17,7 +17,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">    
-
+	<!-- 부트스트랩 js -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" 
+	integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" 
+	crossorigin="anonymous"></script>
     <title>Moon</title>
 </head>
 <style>
@@ -65,6 +68,39 @@
     }
     .page-link {
      padding: 0rem 0rem;
+	}
+	.modal{
+	 position:absolute; 
+	 width:100%;
+	 height:100%; 
+	 background: rgba(0,0,0,0.8); 
+	 top:0; left:0; 
+	 display:none; 
+	 }
+	.modal_content{
+	font-size:17px;
+	width: 50%;
+    height: 80%;
+    background: #fff;
+    border-radius: 10px;
+    position: relative;
+    top: 15%;
+    left: 42%;	
+    margin-top: -100px;
+    margin-left: -200px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 7px 18px;
+    line-height: 23px;
+    cursor: pointer;
+	}
+	.x{
+	position:relative;
+	left:78%;
+	background-color: white;
+	}
+	.dropup .dropdown-toggle::after {
+    vertical-align: 1.255em;
 	}
 </style>
 <body>
@@ -146,6 +182,7 @@
            		<tr>
            			<td><textarea id="repl" rows="5" cols="60"></textarea></td>
            			<td><input id="btnRe" type="button" value="댓글등록"></td>
+           			<td><input  id="replyALL"type=button value="댓글 보기"></td>
            		</tr>
            	</table>  
              </div >
@@ -157,9 +194,64 @@
              </c:if>
              	<input id="list" type="button" value="목록" >
            	</div>
-           	<input id="d" type=button value="수정">
-           	<input id="u"type=button value="삭제">
+           	<input id="d" type=button value="삭제">
+           	<input id="u"type=button value="수정">
         </div>
+        <!-- 모달창 -->
+        <div class="modal"> 	
+				<button class="btn-close x" aria-label="Close" ></button>
+				<div class="modal_content" > 
+					<%-- <table style="width: 100%" id="tbl5">
+						<h4>댓글</h4>
+						<c:forEach var="replyVO" items="${replyVO}">
+							<tr style="height: 40px" >
+								<td style="width: 20px">${replyVO.reply_id}.</td>
+								<td id="zzz"><input type="text" value="${replyVO.content}" style="width: 100%"></td>
+								<td style="width: 157px">${replyVO.writer}[${replyVO.created}]</td>
+								<td style="width: 30px">
+								<div class="btn-group dropend">
+								  <button type="button" id="btnC" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0">
+								    down
+								  </button>
+								  <ul class="dropdown-menu" style="min-width: 90px; padding: 7px;font-size:15px;">
+								  <li class="u">수정</li>
+								  <li><hr style="margin: 5px"></li>
+								  <li class="d">삭제</li>
+								  </ul>
+								</div>
+								</td>
+							</tr>	
+						</c:forEach>
+					</table> --%>
+					<table style="width: 100%;font-size:15px" id="tbl5">
+						<h4>댓글</h4>
+						<c:forEach var="replyVO" items="${replyVO}">
+							<tr>
+								<td style="width: 45px">내용:</td>
+								<td><textarea rows="2" cols="40" style="width: 100%">${replyVO.content}</textarea> </td>
+								<td style="width: 45px"><input type="hidden" value="${replyVO.reply_id}"></td>
+							</tr>
+							<tr>
+								<td><input type="hidden" value="${replyVO.reply_id}"></td>
+								<td style="text-align: left;">${replyVO.writer}[${replyVO.created}]</td>
+								<td>
+									<div class="btn-group dropend">
+									  <button type="button" id="btnC" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0">
+									    down
+									  </button>
+									  <ul class="dropdown-menu" style="min-width: 90px; padding: 7px;font-size:15px;">
+									  <li class="u">수정</li>
+									  <li><hr style="margin: 5px"></li>
+									  <li class="d">삭제</li>
+									  </ul>
+									</div>
+								</td>
+							</tr>
+						</c:forEach>
+					</table> 
+					<input type="text" id="oo">
+				</div> 
+			</div>
     </section>
 </body>
 <script>
@@ -174,29 +266,87 @@
 		location.href="/app/board_list";
 	})
 	.on("click","#btnRe",function(){
-		let pstr=$("#repl").val();
-		pstr=$.trim(pstr);
-		console.log(pstr);
-		if(pstr=='') return false;
-		$.post('http://localhost:8080/app/ReplyControl',
-				{optrype:'add',content:pstr,bbs_id:$("#bbs_id").val(),writer:$("#writer").val()},
-				function(result){
-					console.log(result);
-				},'text')
+		k=confirm("댓글을 등록하시겠습니까?");
+		if(k){
+			let pstr=$("#repl").val();
+			pstr=$.trim(pstr);
+			console.log(pstr);
+			if(pstr=='') return false;
+			$.post('http://localhost:8080/app/ReplyControl',
+					{optrype:'add',content:pstr,bbs_id:$("#bbs_id").val(),writer:$("#writer").val()},
+					function(result){
+						console.log(result);
+						$("#repl").val('');
+						location.reload();
+					},'text');
+		}else return false;
+		
 	})
-	.on("click","#d",function(){
-		$.post('http://localhost:8080/app/ReplyControl',
-				{optrype:'delete',content:$("#repl").val(),bbs_id:$("#bbs_id").val(),writer:$("#writer").val()},
-				function(result){
-					console.log(result);
-				},'text')
+	.on("click",".d",function(){
+		check=confirm("댓글을 삭제하시겠습니까?");
+		if(check){
+			 $.post('http://localhost:8080/app/ReplyControl',
+					{optrype:'delete',reply_id:$("#oo").val()},
+					function(result){
+						console.log(result);
+					},'text');
+			$("#tbl5 tr").each(function(){
+				let Son=$(this).find("td:eq(2) input").val();
+				if(Son==$("#oo").val()){
+					$(this).remove();
+					 $("#tbl5 tr").each(function(){
+						let Con=$(this).find("td:eq(0) input").val();
+						if(Con==$("#oo").val()){
+							$(this).remove();
+						}
+						
+					}) 
+				}
+			}) 
+		}else return false;
 	})
-	.on("click","#u",function(){
-		$.post('http://localhost:8080/app/ReplyControl',
-				{optrype:'update',content:$("#repl").val(),bbs_id:$("#bbs_id").val(),writer:$("#writer").val()},
-				function(result){
-					console.log(result);
-				},'text')
+	.on("click",".u",function(){
+		check=confirm("댓글을 수정하시겠습니까?");
+		if(check){
+			$("#tbl5 tr").each(function(){
+				let Con=$(this).find("td:eq(2) input").val();
+				if(Con==$("#oo").val()){
+					c=$(this).find("td:eq(1) textarea").val();
+					console.log("content="+c); 
+					  $.post('http://localhost:8080/app/ReplyControl',
+					{optrype:'update',content:c,reply_id:$("#oo").val()},
+					function(result){
+						if(result=='OK'){
+							alert("수정을 성공했습니다.");
+						}
+					},'text')  
+				}
+			}) 
+		}else return false;
+		
+		
+		
+		
 	})
+	.on("click","#tbl5 tr",function(){
+		$(this).each(function(){
+			let Con=$(this).find("td:eq(0) input").val();
+			$("#oo").val(Con); 
+		})	
+	})
+	//모달창----
+	//x버튼 모달창 닫기
+	
+		$("#replyALL").click(function(){
+			$(".modal").fadeIn(); 
+		});
+		$(".x").click(function(){ 
+			$(".modal").fadeOut(); 
+		});
+		//모달창 닫기 버튼으로 모달창 닫기
+		$(".y").click(function(){ 
+			$(".modal").fadeOut(); 
+		})
+	
 </script>
 </html>

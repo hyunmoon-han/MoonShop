@@ -35,11 +35,13 @@ public class HomeController {
 	@ResponseBody
 	@RequestMapping(value="/ReplyControl",method=RequestMethod.POST)
 	public String ReplyControl(HttpServletRequest hsr,ReplyVO replyVO) {
-		String a=hsr.getParameter("optrype");
-		String b=hsr.getParameter("content");
-		String writer=hsr.getParameter("writer");
-		int bbs_id=Integer.parseInt(hsr.getParameter("bbs_id"));
-		System.out.println("댓글 디버깅:"+a+"-"+b+"-"+bbs_id+"-"+writer);
+		
+		  String a=hsr.getParameter("optrype"); 
+		  //String b=hsr.getParameter("content");
+		  /* String writer=hsr.getParameter("writer"); int
+		 * bbs_id=Integer.parseInt(hsr.getParameter("bbs_id"));
+		 * System.out.println("댓글 디버깅:"+a+"-"+b+"-"+bbs_id+"-"+writer);
+		 */
 		ReplyService replyService=sqlSession.getMapper(ReplyService.class);
 		if(a.equals("add")) {
 			  replyService.ReplyInt(replyVO);
@@ -168,9 +170,10 @@ public class HomeController {
 	public String board_view(@RequestParam("bbs_id")int bbs_id,@RequestParam("vill")int vill,Model model,@ModelAttribute("board")Board board) {
 		System.out.println(bbs_id);
 		BoardService boardService=sqlSession.getMapper(BoardService.class);
-//		Board board=boardService.bbs_view(board);
-//		model.addAttribute("board",board);
 		model.addAttribute("board",boardService.bbs_view(board));
+		ReplyService replyService=sqlSession.getMapper(ReplyService.class);
+		ArrayList<ReplyVO> replyVO=replyService.ReplyAll(bbs_id);
+		model.addAttribute("replyVO",replyVO);
 		if(vill==1) {
 			return "board_update";
 		}

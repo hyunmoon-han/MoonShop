@@ -3,13 +3,18 @@
  	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.moon.app.ReplyService">
+	
+	<!-- 댓글 ALL 검색 -->
+		<select id="ReplyAll" resultType="com.moon.app.ReplyVO">
+			select reply_id,bbs_id,content,writer,created,updated from reply where bbs_id=#{param1}
+		</select>
 	<!-- 댓글 수정 -->
 	<update id="ReplyUp">
-		update reply set content=#{content},updated=to_char(sysdate,'YYYY/MM/DD') where bbs_id=#{bbs_id}
+		update reply set content=#{content},updated=to_char(sysdate,'YYYY/MM/DD') where reply_id=#{reply_id}
 	</update>
 	<!-- 댓글 삭제 -->
 	<delete id="ReplyDel">
-		delete from reply where bbs_id=#{bbs_id}
+		delete from reply where reply_id=#{reply_id}
 	</delete>
 	<!-- 댓글 추가 -->
 	<insert id="ReplyInt">
