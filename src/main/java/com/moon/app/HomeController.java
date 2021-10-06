@@ -31,15 +31,34 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@Autowired
 	private SqlSession sqlSession;
-	
+	//댓글기능
+	@ResponseBody
+	@RequestMapping(value="/ReplyControl",method=RequestMethod.POST)
+	public String ReplyControl(HttpServletRequest hsr,ReplyVO replyVO) {
+		String a=hsr.getParameter("optrype");
+		String b=hsr.getParameter("content");
+		String writer=hsr.getParameter("writer");
+		int bbs_id=Integer.parseInt(hsr.getParameter("bbs_id"));
+		System.out.println("댓글 디버깅:"+a+"-"+b+"-"+bbs_id+"-"+writer);
+		ReplyService replyService=sqlSession.getMapper(ReplyService.class);
+		if(a.equals("add")) {
+			  replyService.ReplyInt(replyVO);
+			 
+		}else if(a.equals("delete")) {
+			replyService.ReplyDel(replyVO);
+		}else if(a.equals("update")) {
+			replyService.ReplyUp(replyVO);
+		}
+		return "OK";
+	}
 	//----검색기능---
 	@RequestMapping(value="/selBtn",method=RequestMethod.POST)
-	public String selBtn(HttpServletRequest hsr,Model model,@ModelAttribute("pageVO")PageVO paveVO) {
+	public String selBtn(HttpServletRequest hsr,Model model,@ModelAttribute("pageVO")PageVO pageVO) {
 		String keyword=hsr.getParameter("search_keyword");
 		BoardService boardService=sqlSession.getMapper(BoardService.class);
-		ArrayList<Board> list=boardService.btnSel(paveVO);
+		ArrayList<Board> list=boardService.btnSel(pageVO);
 		model.addAttribute("listVO",list);
-		model.addAttribute("pageVO", paveVO);
+		model.addAttribute("pageVO", pageVO);
 
 		return "list";
 	}

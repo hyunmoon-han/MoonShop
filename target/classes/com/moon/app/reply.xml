@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.moon.app.ReplyService">
+	<!-- 댓글 수정 -->
+	<update id="ReplyUp">
+		update reply set content=#{content},updated=to_char(sysdate,'YYYY/MM/DD') where bbs_id=#{bbs_id}
+	</update>
+	<!-- 댓글 삭제 -->
+	<delete id="ReplyDel">
+		delete from reply where bbs_id=#{bbs_id}
+	</delete>
+	<!-- 댓글 추가 -->
+	<insert id="ReplyInt">
+		insert into reply (reply_id,bbs_id,content,writer,created,updated)
+		values(seq_reply_id.nextval,#{bbs_id},#{content},#{writer},to_char(sysdate,'YYYY/MM/DD'),to_char(sysdate,'YYYY/MM/DD'))
+	</insert>
+
+</mapper>	
+	

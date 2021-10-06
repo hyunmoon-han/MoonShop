@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -109,7 +110,7 @@
                				<table class = "table2" style="width: 90%">
 	                     	<tr>
 		                        <td style="width: 130px">작성자</td>
-		                        <td><input class="" type = text name = writer size=20 value="${board.writer}" readonly="readonly"></td>
+		                        <td><input id="writer" class="" type = text name = writer size=20 value="${board.writer}" readonly="readonly"></td>
 	                     	</tr>
 		                     <tr>
 		                        <td>제목</td>
@@ -136,18 +137,28 @@
 		                        <td><input class="" type = password name = passcode size=10 maxlength=10 value="${board.passcode}"readonly="readonly"></td>
 	                        </tr>
                         </table>
-               			<input type="text" value="${board.bbs_id}">
+               			<input  id="bbs_id" type="text" value="${board.bbs_id}">
                 		
 	                	</td>
                 	</tr>
         		</table>
+        		<table style="width: 450px">
+           		<tr>
+           			<td><textarea id="repl" rows="5" cols="60"></textarea></td>
+           			<td><input id="btnRe" type="button" value="댓글등록"></td>
+           		</tr>
+           	</table>  
              </div >
              <br>
              <br>
              <div style="position: absolute; left: 50%">
+             <c:if test="${userid eq board.writer}">
              	<input  id="update_View" type="button" value="수정페이지">
+             </c:if>
              	<input id="list" type="button" value="목록" >
-           	</div>  
+           	</div>
+           	<input id="d" type=button value="수정">
+           	<input id="u"type=button value="삭제">
         </div>
     </section>
 </body>
@@ -161,6 +172,31 @@
 	})
 	.on("click","#list",function(){
 		location.href="/app/board_list";
+	})
+	.on("click","#btnRe",function(){
+		let pstr=$("#repl").val();
+		pstr=$.trim(pstr);
+		console.log(pstr);
+		if(pstr=='') return false;
+		$.post('http://localhost:8080/app/ReplyControl',
+				{optrype:'add',content:pstr,bbs_id:$("#bbs_id").val(),writer:$("#writer").val()},
+				function(result){
+					console.log(result);
+				},'text')
+	})
+	.on("click","#d",function(){
+		$.post('http://localhost:8080/app/ReplyControl',
+				{optrype:'delete',content:$("#repl").val(),bbs_id:$("#bbs_id").val(),writer:$("#writer").val()},
+				function(result){
+					console.log(result);
+				},'text')
+	})
+	.on("click","#u",function(){
+		$.post('http://localhost:8080/app/ReplyControl',
+				{optrype:'update',content:$("#repl").val(),bbs_id:$("#bbs_id").val(),writer:$("#writer").val()},
+				function(result){
+					console.log(result);
+				},'text')
 	})
 </script>
 </html>

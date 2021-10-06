@@ -7,7 +7,7 @@
 	
 	<select id="btnSel" resultType="com.moon.app.Board">
 		select * from bbs  
-		<if test="search_type=='D'.toString()">
+		 <if test="search_type =='D'.toString()">
 			order by bbs_id
 		</if>
 		<if test="search_type=='T'.toString()">
@@ -15,8 +15,7 @@
 		</if>
 		<if test="search_type=='W'.toString()">
 			where writer like '%'||#{search_keyword}||'%'
-		</if>
-			
+		</if> 
 	</select>
 	
 	<!-- 게시물 삭제하기 -->

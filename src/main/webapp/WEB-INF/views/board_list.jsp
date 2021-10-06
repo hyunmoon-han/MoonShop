@@ -30,6 +30,7 @@
         width: 100%;
         height: 12%;
         background-color: blanchedalmond;
+        position: relative;
     }
     section{
         height: 88%;
@@ -67,12 +68,12 @@
 	}
 </style>
 <body>
-    <header>
+    <header >
     	<div style="background-color: #fff8ed; width: 120px;height: 100%;position: relative; left: 12%; border-radius: 70px">
 			 <span style="text-align: center;position: absolute; left: 14%; top: 15px;font-size: 40px">1854<br>
 			<span style="font-size: 28px;position: absolute;top: 28px;left: 20px;">Shop</span></span>
 		</div>
-		<input id="logout"type="button" value="로그아웃" style="float: right;">
+		<input id="logout"type="button" value="로그아웃" style="float: right;position: absolute;right: 10px;top: 20px;">
 		
     </header>
     <section>
@@ -110,7 +111,7 @@
             	<form action="/app/selBtn" method="post" >
 		            <select id="selCheck" name="search_type">
 		            	<option  value="D" selected="selected">전체 검색</option>
-		           		<option  value="T" >제목</option>
+		           		<option  value="title" >제목</option>
 		           		<option value="W">작성자</option>
 		            </select>
 		            <input  id="selText" type="text" name="search_keyword">
