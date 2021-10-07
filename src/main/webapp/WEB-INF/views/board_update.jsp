@@ -70,6 +70,7 @@
 			 <span style="text-align: center;position: absolute; left: 14%; top: 15px;font-size: 40px">1854<br>
 			<span style="font-size: 28px;position: absolute;top: 28px;left: 20px;">Shop</span></span>
 		</div>
+		<input id="logout"type="button" value="로그아웃" style="float: right;position: absolute;right: 10px;top: 20px;">
     </header>
     <section>
         <div id="sub" class="">
@@ -98,56 +99,44 @@
         <div id="main" style="font-size:15px">
             <h3 style="text-align: center; background-color: lightgreen;">게시물 수정</h3>
             <div class="container">
+               <p style="margin: 0;padding-left:30px;font-size:18px">day: &nbsp;${board.created}&nbsp;&nbsp;~&nbsp;&nbsp;${board.updated}</p>
 	           <table  style="padding-top:50px" align = center width=95% border=1 cellpadding=2 >
                 	<tr>
                 		<td height=20 align= center bgcolor=#ccc><font color=white> 글쓰기</font></td>
                		</tr>
                 	<tr>
-               			<td bgcolor=white>
-               			<form id="from_Ut" action="/app/board_update" method="post">
-               				<table class = "table2" style="width: 90%">
-	                     	<tr>
-		                        <td style="width: 130px">작성자</td>
-		                        <td><input class="" type = text name ="writer" size=20 value="${board.writer}" readonly="readonly" > </td>
-	                     	</tr>
-		                     <tr>
-		                        <td>제목</td>
-		                        <td><input id="tit" class="form-control" type = text name ="title" size=70 value="${board.title}" 
-		                        
-		                        style="font-size: 17px" placeholder="제목을 입력하세요." ></td>
-		                     </tr>
-	                        <tr>
-		                        <td>내용</td>
-		                        <td><textarea  class="form-control" name ="content" cols="50" rows="5" 
-		                        style="font-size: 17px;height: 280px;padding: 10px 15px;" placeholder="내용을 입력하세요.">${board.content}</textarea></td>
-	                        </tr>
-	                        <tr>
-		                        <td>등록일</td>
-		                        <td><input type="text" class="" name ="created"  value="${board.created}" readonly="readonly"></input></td>
-	                        </tr>
-	                        <tr>
-		                        <td>수정일</td>
-		                        <td><input type="text" class="" name ="updated"  value="${board.updated}" readonly="readonly"></input></td>
-	                        </tr>
-	                        <tr>
-		                        <td>비밀번호</td>
-		                        <td><input class="" type = password name = passcode size=10 maxlength=10 value="${board.passcode}"> </td>
-	                        </tr>
-                        </table>
-                        <input id="bbs_id" name="bbs_id" type="text" value="${board.bbs_id}">
-               			</form>
-                		
+               			<td>
+               				<form id="from_Ut" action="/app/board_update" method="post">
+               				<table class = "table2" style="width:90%">
+	                     		<tr>
+			                        <td style="width: 130px">작성자</td>
+			                        <td><input class="" type = text name ="writer" size=20 value="${board.writer}" readonly="readonly" > </td>
+		                     	</tr>
+			                     <tr>
+			                        <td>제목</td>
+			                        <td><input id="tit" class="form-control" type = text name ="title" size=70 value="${board.title}" 
+			                        
+			                        style="font-size: 15px;padding-left: 7px" placeholder="제목을 입력하세요." ></td>
+			                     </tr>
+		                        <tr>
+			                        <td>내용</td>
+			                        <td><textarea  class="form-control" name ="content" cols="50" rows="5" 
+			                        style="font-size: 17px;height: 280px;padding: 10px 15px;padding-left: 7px" placeholder="내용을 입력하세요.">${board.content}</textarea></td>
+		                        </tr>
+	                        </table>
+	                        <input id="bbs_id" name="bbs_id" type="text" value="${board.bbs_id}">
+	                        <div style="text-align: center;">
+				             	<input id="update" type="button" value="등록" >
+				             	<input id="bbs_Del" type="button" value="삭제">
+				             	<input id="list" type="button" value="목록" >
+				           	</div>  
+	               			</form>
 	                	</td>
                 	</tr>
         		</table>
-        		
              </div >
              <br>
-             <div style="position: absolute;left: 50%">
-             	<input id="update" type="button" value="등록" >
-             	<input id="bbs_Del" type="button" value="삭제">
-             	<input id="list" type="button" value="취소" >
-           	</div>  
+             
         </div>
     </section>
 </body>
@@ -167,6 +156,10 @@
 	//게시물 리스트 페이지이동
 	.on("click","#list",function(){
 		location.href="/app/board_list";
+	})
+	//로그아웃 페이지 이동
+	.on("click","#logout",function(){
+		location.replace("/app/logout");
 	})
 	//게시물 삭제
 	.on("click","#bbs_Del",function(){

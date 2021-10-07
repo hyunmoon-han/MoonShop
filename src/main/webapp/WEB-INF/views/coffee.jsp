@@ -98,6 +98,7 @@
 			 <span style="text-align: center;position: absolute; left: 14%; top: 15px;font-size: 40px">1854<br>
 			<span style="font-size: 28px;position: absolute;top: 28px;left: 20px;">Shop</span></span>
 		</div>
+		<input id="logout"type="button" value="로그아웃" style="float: right;position: absolute;right: 10px;top: 20px;">
     </header>
     <section>
         <div id="sub" class="">
@@ -240,5 +241,8 @@ $(document)
 .on("click","#main_m ul li",function(){
 	location.href="/app/menu";
 })
+.on("click","#logout",function(){
+		location.replace("/app/logout");
+	})
 </script>
 </html>

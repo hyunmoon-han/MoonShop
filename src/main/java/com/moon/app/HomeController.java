@@ -135,11 +135,10 @@ public class HomeController {
 	public String board_update(HttpServletRequest hsr,Model model) {
 		String title=hsr.getParameter("title");
 		String content=hsr.getParameter("content");
-		String passcode=hsr.getParameter("passcode");
 		int bbs_id=Integer.parseInt(hsr.getParameter("bbs_id"));
-		System.out.println("업데이트 디버깅:"+title+"-"+content+"-"+passcode+"-"+bbs_id);
+		System.out.println("업데이트 디버깅:"+title+"-"+content+"-"+bbs_id);
 		BoardService boardService=sqlSession.getMapper(BoardService.class);
-		boardService.bbs_Ut(title, content, passcode, bbs_id);
+		boardService.bbs_Ut(title, content, bbs_id);
 		return "redirect:/board_list";
 		
 	}
@@ -149,13 +148,10 @@ public class HomeController {
 		String writer=hsr.getParameter("writer");
 		String title=hsr.getParameter("title");
 		String content=hsr.getParameter("content");
-		String passcode=hsr.getParameter("passcode");
-//		String created=hsr.getParameter("created");
-//		String updated=hsr.getParameter("updated");
 		//이미지 추가 예정
-		//System.out.println(writer+"-"+title+"-"+content+"-"+passcode);
+		//System.out.println(writer+"-"+title+"-"+content);
 		BoardService boardService=sqlSession.getMapper(BoardService.class);
-		boardService.bbs_insert(writer,title,content,passcode);
+		boardService.bbs_insert(writer,title,content);
 		
 		return "redirect:/board_list";
 	}

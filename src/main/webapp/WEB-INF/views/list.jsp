@@ -159,8 +159,8 @@
 			}
 		}),
 		$(".tit").each(function(){
-			if($(this).text().length>15){
-				$(this).html($(this).text().substr(0,15)+"....");
+			if($(this).text().length>13){
+				$(this).html($(this).text().substr(0,13)+"....");
 			}
 		}),
 		$("#selCheck").val('${pageVO.search_type}').prop("selected",true);

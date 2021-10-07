@@ -104,19 +104,20 @@
             <h3 style="text-align: center; background-color: lightgreen;">공지사항</h3>
             <% 
 			String userid=(String)session.getAttribute("userid");
-			out.println("안녕하세요"+userid+"님 환영합니다.");
+			out.println(userid+"님 환영합니다.");
 		%>
-		${userid}님환영합니다.
             <div class="container" >
-            	<form action="/app/selBtn" method="post" >
-		            <select id="selCheck" name="search_type">
-		            	<option  value="D" selected="selected">전체 검색</option>
-		           		<option  value="title" >제목</option>
-		           		<option value="W">작성자</option>
-		            </select>
-		            <input  id="selText" type="text" name="search_keyword">
-		            <input  id="selBtn" type="submit" value="검색">
-            	</form>
+           		<div style="float: right;">
+	            	<form action="/app/selBtn" method="post" >
+			            <select id="selCheck" name="search_type">
+			            	<option  value="D" selected="selected">전체 검색</option>
+			           		<option  value="title" >제목</option>
+			           		<option value="W">작성자</option>
+			            </select>
+			            <input  id="selText" type="text" name="search_keyword">
+			            <input  id="selBtn" type="submit" value="검색">
+	            	</form>
+            	</div>
 	            <table id="tbl1" class="table table-hover text-center table-striped" >
 	            	<thead style="background-color:#958e8e3b;">
 		            	<tr>
@@ -160,8 +161,8 @@
 			}
 		}),
 		$(".tit").each(function(){
-			if($(this).text().length>15){
-				$(this).html($(this).text().substr(0,15)+"....");
+			if($(this).text().length>13){
+				$(this).html($(this).text().substr(0,13)+"....");
 			}
 		})
 	})

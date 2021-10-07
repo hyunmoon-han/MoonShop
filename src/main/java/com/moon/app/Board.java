@@ -5,27 +5,20 @@ public class Board {
 	private String title;
 	private String content;
 	private String writer;
-	private String passcode;
 	private String created;
 	private String updated;
 	private String img_loc;
 	
-	@Override
-	public String toString() {
-		return "Board [bbs_id=" + bbs_id + ", title=" + title + ", content=" + content + ", writer=" + writer
-				+ ", passcode=" + passcode + ", created=" + created + ", updated=" + updated + ", img_loc=" + img_loc
-				+ "]";
-	}
+	
 	public Board() {
 		
 	}
-	public Board(int bbs_id, String title, String content, String writer, String passcode, String created,
+	public Board(int bbs_id, String title, String content, String writer, String created,
 			String updated, String img_loc) {
 		this.bbs_id = bbs_id;
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
-		this.passcode = passcode;
 		this.created = created;
 		this.updated = updated;
 		this.img_loc = img_loc;
@@ -41,9 +34,6 @@ public class Board {
 	}
 	public String getWriter() {
 		return writer;
-	}
-	public String getPasscode() {
-		return passcode;
 	}
 	public String getCreated() {
 		return created;
@@ -65,9 +55,6 @@ public class Board {
 	}
 	public void setWriter(String writer) {
 		this.writer = writer;
-	}
-	public void setPasscode(String passcode) {
-		this.passcode = passcode;
 	}
 	public void setCreated(String created) {
 		this.created = created;

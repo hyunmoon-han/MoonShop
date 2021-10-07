@@ -109,6 +109,7 @@
 			 <span style="text-align: center;position: absolute; left: 14%; top: 15px;font-size: 40px">1854<br>
 			<span style="font-size: 28px;position: absolute;top: 28px;left: 20px;">Shop</span></span>
 		</div>
+		<input id="logout"type="button" value="로그아웃" style="float: right;position: absolute;right: 10px;top: 20px;">
     </header>
     <section>
         <div id="sub" class="">
@@ -137,9 +138,10 @@
         <div id="main" style="font-size:15px">
             <h3 style="text-align: center; background-color: lightgreen;">게시물 보기</h3>
              <div class="container">
+             <p style="margin: 0;padding-left:30px;font-size:18px">day: &nbsp;${board.created}&nbsp;&nbsp;~&nbsp;&nbsp;${board.updated}</p>
 	           <table  style="padding-top:50px" align = center width=95% border=1 cellpadding=2 >
                 	<tr>
-                		<td height=20 align= center bgcolor=#ccc><font color=white> 보기</font><input type="text" style="float:left;border: none;" value="2021-10-20"></td>
+                		<td height=20 align= center bgcolor=#ccc><font color=white> 보기</font></td>
                		</tr>
                 	<tr>
                			<td bgcolor=white>
@@ -159,43 +161,44 @@
 		                        <td><textarea  class="form-control" name = content cols="50" rows="5" readonly="readonly"
 		                        style="padding: 10px 15px;font-size: 17px;height: 300px">${board.content}</textarea></td>
 	                        </tr>
-	                        <tr>
+	                        <%-- <tr>
 		                        <td>등록일</td>
 		                        <td><input type="text" class="" name ="created"  value="${board.created}"readonly="readonly"></input></td>
 	                        </tr>
 	                        <tr>
 		                        <td>수정일</td>
 		                        <td><input type="text" class="" name ="updated"  value="${board.updated}"readonly="readonly"></input></td>
-	                        </tr>
-	                        <tr>
-	                        	
-		                        <td>비밀번호</td>
-		                        <td><input class="" type = password name = passcode size=10 maxlength=10 value="${board.passcode}"readonly="readonly"></td>
-	                        </tr>
+	                        </tr> --%>
                         </table>
                			<input  id="bbs_id" type="text" value="${board.bbs_id}">
-                		
+               			<input  id="userid" type="text" value="${userid}">
+                		<div style="text-align: center;">
+			             <c:if test="${userid eq board.writer}">
+			             	<input id="update_View" type="button" value="수정페이지">	
+			             </c:if>
+			             	<input id="list" type="button" value="목록" >
+			           	</div>
 	                	</td>
+	                	
                 	</tr>
+                	
         		</table>
-        		<table style="width: 450px">
-           		<tr>
-           			<td><textarea id="repl" rows="5" cols="60"></textarea></td>
-           			<td><input id="btnRe" type="button" value="댓글등록"></td>
-           			<td><input  id="replyALL"type=button value="댓글 보기"></td>
-           		</tr>
-           	</table>  
-             </div >
-             <br>
-             <br>
-             <div style="position: absolute; left: 50%">
-             <c:if test="${userid eq board.writer}">
-             	<input  id="update_View" type="button" value="수정페이지">
-             </c:if>
-             	<input id="list" type="button" value="목록" >
-           	</div>
-           	<input id="d" type=button value="삭제">
-           	<input id="u"type=button value="수정">
+        		<input type="button" value="댓글" id="Rbtn">
+        		<table style="width: 70%" id="tbl10">
+	           		<tr>
+	           			<td style="width:40px;padding-bottom: 90px">댓글:</td>
+	           			<td ><textarea id="repl" rows="5" cols="60" style="width: 100%" placeholder="댓글을 입력해주세요."></textarea></td>
+	           			<td style="width: 40px;padding-bottom: 95px"><input type="button" value="x" id="RbtnC"></td>
+	           		</tr>
+	           		<tr>
+	           			<td></td>
+	           			<td style="text-align: right;"><input id="btnRe" type="button" value="댓글등록"><input  id="replyALL"type=button value="댓글 보기" style="margin-left: 7px"></td>
+	           			<td></td>
+	           		</tr>
+           		</table>  
+             </div >	
+             
+             
         </div>
         <!-- 모달창 -->
         <div class="modal"> 	
@@ -228,13 +231,21 @@
 						<c:forEach var="replyVO" items="${replyVO}">
 							<tr>
 								<td style="width: 45px">내용:</td>
-								<td><textarea rows="2" cols="40" style="width: 100%">${replyVO.content}</textarea> </td>
+								<c:if test="${userid eq replyVO.writer}">
+									<td colspan="2"><textarea rows="2" cols="40" style="width: 100%" >${replyVO.content}</textarea> </td>
+								</c:if>
+								<c:if test="${userid ne replyVO.writer}">
+									<td colspan="2"><textarea rows="2" cols="40" style="width: 100%" disabled="disabled" >${replyVO.content}</textarea> </td>
+								</c:if>
+								
 								<td style="width: 45px"><input type="hidden" value="${replyVO.reply_id}"></td>
 							</tr>
 							<tr>
 								<td><input type="hidden" value="${replyVO.reply_id}"></td>
-								<td style="text-align: left;">${replyVO.writer}[${replyVO.created}]</td>
+								<td style="text-align: left;width: 100px">ID:${replyVO.writer}</td>
+								<td style="text-align: left;">Day:${replyVO.created}</td>
 								<td>
+								<c:if test="${userid eq replyVO.writer}">
 									<div class="btn-group dropend">
 									  <button type="button" id="btnC" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0">
 									    down
@@ -244,12 +255,17 @@
 									  <li><hr style="margin: 5px"></li>
 									  <li class="d">삭제</li>
 									  </ul>
-									</div>
+									</div>		
+								</c:if>
+								<c:if test="${userid eq replyVO.writer}">
+								
+								</c:if>	
 								</td>
 							</tr>
 						</c:forEach>
 					</table> 
-					<input type="text" id="oo">
+					<input type="hidden" id="oo">
+					<input type="hidden" id="uu">
 				</div> 
 			</div>
     </section>
@@ -257,13 +273,16 @@
 <script>
 	$(document)
 	.ready(function(){
-		
+		$("#tbl10").hide();
 	})
 	.on("click","#update_View",function(){
 		location.href="/app/board_view?bbs_id=${board.bbs_id}+&vill="+1;
 	})
 	.on("click","#list",function(){
 		location.href="/app/board_list";
+	})
+	.on("click","#logout",function(){
+		location.replace("/app/logout");
 	})
 	.on("click","#btnRe",function(){
 		k=confirm("댓글을 등록하시겠습니까?");
@@ -273,11 +292,15 @@
 			console.log(pstr);
 			if(pstr=='') return false;
 			$.post('http://localhost:8080/app/ReplyControl',
-					{optrype:'add',content:pstr,bbs_id:$("#bbs_id").val(),writer:$("#writer").val()},
+					{optrype:'add',content:pstr,bbs_id:$("#bbs_id").val(),writer:$("#userid").val()},
 					function(result){
-						console.log(result);
-						$("#repl").val('');
-						location.reload();
+						if(result=='OK'){
+							alert("댓글 등록이 완료되었습니다.");
+							location.reload();
+						}else{
+							alert("댓글 등록에 실패했습니다.잠시 후 이용해주세요.");
+							location.reload();
+							}
 					},'text');
 		}else return false;
 		
@@ -289,6 +312,12 @@
 					{optrype:'delete',reply_id:$("#oo").val()},
 					function(result){
 						console.log(result);
+						if(result=="OK"){
+							alert("댓글 삭제가 완료됬습니다.");
+						}else{
+							alert("댓글 삭제에 실패했습니다.잠시 후 이용해주세요.");
+							location.reload();
+						}
 					},'text');
 			$("#tbl5 tr").each(function(){
 				let Son=$(this).find("td:eq(2) input").val();
@@ -329,11 +358,27 @@
 		
 	})
 	.on("click","#tbl5 tr",function(){
+		userid=$("#userid").val();
 		$(this).each(function(){
 			let Con=$(this).find("td:eq(0) input").val();
+			let L=$(this).find("td:eq(1)").text();
+			L=L.replace("ID:","");
 			$("#oo").val(Con); 
+			$("#uu").val(L);
 		})	
 	})
+	//버튼 클릭시 작성자 비교해서 content활성화
+	.on("click","#btnC",function(){
+		
+	})
+	.on("click","#Rbtn",function(){
+		$(this).hide();
+		$("#tbl10").show();
+	})
+	.on("click","#RbtnC",function(){
+		$("#tbl10").hide();
+		$("#Rbtn").show();
+	}) 
 	//모달창----
 	//x버튼 모달창 닫기
 	

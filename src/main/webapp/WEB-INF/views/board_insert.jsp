@@ -70,6 +70,7 @@
 			 <span style="text-align: center;position: absolute; left: 14%; top: 15px;font-size: 40px">1854<br>
 			<span style="font-size: 28px;position: absolute;top: 28px;left: 20px;">Shop</span></span>
 		</div>
+		<input id="logout"type="button" value="로그아웃" style="float: right;position: absolute;right: 10px;top: 20px;">
     </header>
     <section>
         <div id="sub" class="">
@@ -100,7 +101,7 @@
             <div class="container">
 	           <table  style="padding-top:50px" align = center width=95% border=1 cellpadding=2 >
                 	<tr>
-                		<td height=20 align= center bgcolor=#ccc><font color=white> 글쓰기</font></td>
+                		<td height=20 align= center bgcolor=#ccc colspan="4"><font color=white> 글쓰기</font></td>
                		</tr>
                 	<tr>
                			<td bgcolor=white>
@@ -117,31 +118,22 @@
 	                        <tr>
 		                        <td>내용</td>
 		                        <td><textarea id="content"  class="form-control" name = content cols="50" rows="5"  placeholder="내용을 입력하세요."
-		                        style="font-size: 17px;height: 290px;white-space: pre-line;padding: 10px 15px;"></textarea></td>
+		                        style="font-size: 17px;height: 330px;white-space: pre-line;padding: 10px 15px;"></textarea></td>
 	                        </tr>
-	                       <!--  <tr>
-		                        <td>등록일</td>
-		                        <td><input type="text" class="" name ="created" readonly="readonly"></input></td>
-	                        </tr>
-	                        <tr>
-		                        <td>수정일</td>
-		                        <td><input type="text" class="" name ="updated"  readonly="readonly"></input></td>
-	                        </tr>
-	                        <tr> -->
-		                        <td>비밀번호</td>
-		                        <td><input id="passcode" class="" type = password name = passcode size=10 maxlength=10></td>
-	                        </tr>
-                        </table>
                			</form>
-                		
-	                	</td>
-                	</tr>
+	               			<tr>
+	               				<td colspan="4"></td>
+	               			<tr>
+		                	<tr>
+			                	<td style="text-align: center;" colspan="4">
+			                		<input id="bbs_ist" type="button" value="등록" >
+				             		<input id="bbs_Lst" type="button" value="목록" >
+				             	</td>
+			             	</tr>
+	             
         		</table>
              </div ><br><br>
-             <div style="position: absolute; left: 50%">
-	             <input id="bbs_ist" type="button" value="등록" >
-	             <input id="bbs_Lst" type="button" value="취소" >
-	         </div>    
+             
             
         </div>
     </section>
@@ -166,6 +158,9 @@
 	})
 	.on("click","#bbs_Lst",function(){
 		location.href="/app/board_list";
+	})
+	.on("click","#logout",function(){
+		location.replace("/app/logout");
 	})
 	
 </script>
