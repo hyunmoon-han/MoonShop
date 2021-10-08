@@ -73,8 +73,13 @@
 			 <span style="text-align: center;position: absolute; left: 14%; top: 15px;font-size: 40px">1854<br>
 			<span style="font-size: 28px;position: absolute;top: 28px;left: 20px;">Shop</span></span>
 		</div>
-		<input id="logout"type="button" value="로그아웃" style="float: right;position: absolute;right: 10px;top: 20px;">
-		
+		<input id="logout"type="button" value="로그아웃" style="float: right;position: absolute;right: 10px;top: 20px;width: 90px;height: 25px;font-size: 15px;">
+		<div style="position: absolute;position: absolute;top: 50px;font-size: 15px;right: 175px;">
+			 <% 
+				String userid=(String)session.getAttribute("userid");
+				out.println(userid+"님 환영합니다.");
+			%>
+		</div>
     </header>
     <section>
         <div id="sub" class="">		
@@ -102,23 +107,19 @@
         </div>
         <div id="main" style="font-size:15px">
             <h3 style="text-align: center; background-color: lightgreen;">공지사항</h3>
-            <% 
-			String userid=(String)session.getAttribute("userid");
-			out.println(userid+"님 환영합니다.");
-		%>
             <div class="container" >
            		<div style="float: right;">
 	            	<form action="/app/selBtn" method="post" >
 			            <select id="selCheck" name="search_type">
-			            	<option  value="D" selected="selected">전체 검색</option>
-			           		<option  value="title" >제목</option>
+			            	<option  value="D" selected="selected">전체</option>
+			           		<option  value="T" >제목</option>
 			           		<option value="W">작성자</option>
 			            </select>
-			            <input  id="selText" type="text" name="search_keyword">
+			            <input  id="selText" type="text" name="search_keyword" disabled="disabled" placeholder="검색어를 입력하세요.">
 			            <input  id="selBtn" type="submit" value="검색">
 	            	</form>
             	</div>
-	            <table id="tbl1" class="table table-hover text-center table-striped" >
+	            <table id="tbl1" class="table table-hover text-center table-striped" style="cursor: pointer;">
 	            	<thead style="background-color:#958e8e3b;">
 		            	<tr>
 		            		<th style="width:70px">번호</th>
@@ -185,6 +186,13 @@
 	.on("click","#selBtn",function(){
 		if($("#selCheck").val()=='D'){
 			$("#selText").val('');
+		}
+	})
+	.on("mouseout","#selCheck",function(){
+		if($("#selCheck").val()=='D'){
+			$("#selText").attr("disabled",true);
+		}else{
+			$("#selText").attr("disabled",false);
 		}
 	})
 </script>

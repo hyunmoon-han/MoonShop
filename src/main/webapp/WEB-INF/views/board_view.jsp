@@ -92,7 +92,6 @@
     box-sizing: border-box;
     padding: 7px 18px;
     line-height: 23px;
-    cursor: pointer;
 	}
 	.x{
 	position:relative;
@@ -109,7 +108,13 @@
 			 <span style="text-align: center;position: absolute; left: 14%; top: 15px;font-size: 40px">1854<br>
 			<span style="font-size: 28px;position: absolute;top: 28px;left: 20px;">Shop</span></span>
 		</div>
-		<input id="logout"type="button" value="로그아웃" style="float: right;position: absolute;right: 10px;top: 20px;">
+		<input id="logout"type="button" value="로그아웃" style="float: right;position: absolute;right: 10px;top: 20px;width: 90px;height: 25px;font-size: 15px;">
+		<div style="position: absolute;position: absolute;top: 50px;font-size: 15px;right: 175px;">
+			 <% 
+				String userid=(String)session.getAttribute("userid");
+				out.println(userid+"님 환영합니다.");
+			%>
+		</div>
     </header>
     <section>
         <div id="sub" class="">
@@ -159,7 +164,14 @@
 	                        <tr>
 		                        <td>내용</td>
 		                        <td><textarea  class="form-control" name = content cols="50" rows="5" readonly="readonly"
-		                        style="padding: 10px 15px;font-size: 17px;height: 300px">${board.content}</textarea></td>
+		                        style="padding: 10px 15px;font-size: 17px;height: 300px">${board.content}</textarea><br>
+		                        </td>
+	                        </tr>
+	                        <tr>
+	                        	<td>이미지</td>
+	                        	<td><c:if test="${board.img_loc  ne ''}">
+		                        	<img alt="" src="/app/resources/${board.img_loc}" width="100px" height="100px"> 
+		                        </c:if></td>
 	                        </tr>
 	                        <%-- <tr>
 		                        <td>등록일</td>
@@ -250,8 +262,8 @@
 									  <button type="button" id="btnC" class="btn btn-secondary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 0">
 									    down
 									  </button>
-									  <ul class="dropdown-menu" style="min-width: 90px; padding: 7px;font-size:15px;">
-									  <li class="u">수정</li>
+									  <ul class="dropdown-menu" style="min-width: 90px; padding: 7px;font-size:15px;cursor: pointer;">
+									  <li class="u" style="">수정</li>
 									  <li><hr style="margin: 5px"></li>
 									  <li class="d">삭제</li>
 									  </ul>

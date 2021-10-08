@@ -63,6 +63,31 @@
     .page-link {
      padding: 0rem 0rem;
 	}
+	#bbs_ist{
+	    display: block;
+	    width: 111px;
+	    height: 28px;
+	    line-height: 28px;
+	    background: #006633;
+	    font-size: 12px;
+	    color: #fff;
+	    text-align: center;
+	    border-radius: 5px;
+	    margin:0 auto;
+	}
+	#bbs_Lst{
+	    width: 90px;
+	    height: 28px;
+	    line-height: 28px;
+	    background: #f13737ba;
+	    font-size: 12px;
+	    color: #fff;
+	    text-align: center;
+	    border-radius: 5px;	
+	    float: right;
+	    /* position: relative;
+	    top: -32px; */
+	}
 </style>
 <body>
     <header>
@@ -70,7 +95,13 @@
 			 <span style="text-align: center;position: absolute; left: 14%; top: 15px;font-size: 40px">1854<br>
 			<span style="font-size: 28px;position: absolute;top: 28px;left: 20px;">Shop</span></span>
 		</div>
-		<input id="logout"type="button" value="로그아웃" style="float: right;position: absolute;right: 10px;top: 20px;">
+		<input id="logout"type="button" value="로그아웃" style="float: right;position: absolute;right: 10px;top: 20px;width: 90px;height: 25px;font-size: 15px;">
+		<div style="position: absolute;position: absolute;top: 50px;font-size: 15px;right: 175px;">
+			 <% 
+				String userid=(String)session.getAttribute("userid");
+				out.println(userid+"님 환영합니다.");
+			%>
+		</div>
     </header>
     <section>
         <div id="sub" class="">
@@ -105,7 +136,7 @@
                		</tr>
                 	<tr>
                			<td bgcolor=white>
-               			<form id="from_Ist" action="/app/board_Save" method="post">
+               			<form id="from_Ist" action="/app/board_Save" method="post" enctype="multipart/form-data">
                				<table class = "table2" style="width:90%">
 	                     	<tr>
 		                        <td style="width: 130px">작성자</td>
@@ -119,6 +150,10 @@
 		                        <td>내용</td>
 		                        <td><textarea id="content"  class="form-control" name = content cols="50" rows="5"  placeholder="내용을 입력하세요."
 		                        style="font-size: 17px;height: 330px;white-space: pre-line;padding: 10px 15px;"></textarea></td>
+	                        </tr>
+	                        <tr>
+	                        	<td>업로드</td>
+	                        	<td><input type="file" name="img_log" id="img_log"></td>
 	                        </tr>
                			</form>
 	               			<tr>
@@ -154,7 +189,15 @@
 			alert("빈 정보가 존재합니다.입력해주세요!");
 			return false;
 		}
-		$("#from_Ist").submit();
+		check=confirm("게시물을 등록하시겠습니까?");
+		if(check){
+			$("#from_Ist").submit();
+			alter("게시물이 등록 되었습니다.");
+		}else {
+			alter("게시물 등록이 되지않았습니다. 잠시 후 이용해주세요.")
+			return false;
+		}
+		
 	})
 	.on("click","#bbs_Lst",function(){
 		location.href="/app/board_list";

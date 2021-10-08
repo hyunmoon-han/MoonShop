@@ -1,11 +1,13 @@
 package com.moon.app;
 
+import java.io.File;
 import java.lang.ProcessBuilder.Redirect;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -15,12 +17,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Handles requests for the application home page.
@@ -143,15 +147,38 @@ public class HomeController {
 		
 	}
 	//게시물 저장
+	@Resource(name="uploadPath")
+    String uploadPath;
 	@RequestMapping(value="/board_Save",method=RequestMethod.POST)
-	public String board_Save(HttpServletRequest hsr) {
+	public String board_Save(HttpServletRequest hsr,MultipartFile img_log) {
+		//이미지 업로드 파일
+		  String fileName = img_log.getOriginalFilename();
+		  System.out.println("filename["+fileName+"]");
+	        File target = new File(uploadPath, fileName);
+	        
+	        //경로 생성
+	        if ( ! new File(uploadPath).exists()) {
+	            new File(uploadPath).mkdirs();
+	        }
+	        //파일 복사
+	        try {
+	            FileCopyUtils.copy(img_log.getBytes(), target);
+	      //      mv.addObject("file", file);
+	        } catch(Exception e) {
+	            e.printStackTrace();
+	        //    mv.addObject("file", "error");
+	        }
+	        //View 위치 설정
+	     //   mv.setViewName("post/test_upload.basic");
+		
+		
 		String writer=hsr.getParameter("writer");
 		String title=hsr.getParameter("title");
 		String content=hsr.getParameter("content");
-		//이미지 추가 예정
+		
 		//System.out.println(writer+"-"+title+"-"+content);
 		BoardService boardService=sqlSession.getMapper(BoardService.class);
-		boardService.bbs_insert(writer,title,content);
+		boardService.bbs_insert(writer,title,content,fileName);
 		
 		return "redirect:/board_list";
 	}

@@ -40,8 +40,8 @@
 	</select>
 	<!-- 게시물 추가 -->
 	<insert id="bbs_insert">
-		insert into bbs (bbs_id,writer,title,content,created,updated)
-		values(seq_bbs_id.nextval,#{param1},#{param2},#{param3},to_char(sysdate,'YYYY/MM/DD'),to_char(sysdate,'YYYY/MM/DD'))
+		insert into bbs (bbs_id,writer,title,content,created,updated,img_loc)
+		values(seq_bbs_id.nextval,#{param1},#{param2},#{param3},to_char(sysdate,'YYYY/MM/DD'),to_char(sysdate,'YYYY/MM/DD'),#{param4})
 	</insert>
 	<select id="">
 	</select>

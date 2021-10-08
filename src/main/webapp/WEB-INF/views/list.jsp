@@ -72,8 +72,13 @@
 			 <span style="text-align: center;position: absolute; left: 14%; top: 15px;font-size: 40px">1854<br>
 			<span style="font-size: 28px;position: absolute;top: 28px;left: 20px;">Shop</span></span>
 		</div>
-		<input id="logout"type="button" value="로그아웃" style="float: right;">
-		
+		<input id="logout"type="button" value="로그아웃" style="float: right;position: absolute;right: 10px;top: 20px;width: 90px;height: 25px;font-size: 15px;">
+		 <div style="position: absolute;position: absolute;top: 50px;font-size: 15px;right: 175px;">
+			 <% 
+				String userid=(String)session.getAttribute("userid");
+				out.println(userid+"님 환영합니다.");
+			%>
+		</div>
     </header>
     <section>
         <div id="sub" class="">		
@@ -101,22 +106,20 @@
         </div>
         <div id="main" style="font-size:15px">
             <h3 style="text-align: center; background-color: lightgreen;">공지사항</h3>
-            <% 
-			String userid=(String)session.getAttribute("userid");
-			out.println("안녕하세요"+userid+"님 환영합니다.");
-		%>
-		${userid}님환영합니다.
+           
             <div class="container" >
-            	<form action="/app/selBtn" method="post" >
-		            <select id="selCheck" name="search_type">
-		           		<option  value="D" selected="selected">전체 선택</option>
-		           		<option  value="T">제목</option>
-		           		<option value="W">작성자</option>
-		            </select>
-		            <input  id="selText" type="text" name="search_keyword" placeholder="검색어를 입력해주세요." value="${pageVO.search_keyword}">
-		            <input  id="selBtn" type="submit" value="검색">
-            	</form>
-	            <table id="tbl1" class="table table-hover text-center table-striped" >
+            	<div style="float: right;">
+	            	<form action="/app/selBtn" method="post" >
+			            <select id="selCheck" name="search_type">
+			           		<option  value="D" selected="selected">전체 </option>
+			           		<option  value="T">제목</option>
+			           		<option value="W">작성자</option>
+			            </select>
+			            <input  id="selText" type="text" name="search_keyword" placeholder="검색어를 입력해주세요." value="${pageVO.search_keyword}">
+			            <input  id="selBtn" type="submit" value="검색">
+	            	</form>
+            	</div>
+	            <table id="tbl1" class="table table-hover text-center table-striped" style="cursor: pointer;" >
 	            	<thead style="background-color:#958e8e3b;">
 		            	<tr>
 		            		<th style="width:70px">번호</th>
@@ -182,11 +185,17 @@
 	.on("click","#logout",function(){
 		location.replace("/app/logout");
 	})
+	.on("mouseout","#selCheck",function(){
+		if($("#selCheck").val()=='D'){
+			$("#selText").attr("disabled",true);
+			$("#selText").val("");
+		}else{
+			$("#selText").attr("disabled",false);
+		}
+	})
 	//-------------검색 기능
 	//검색버튼 처리
-	.on("click","#selCheck option",function(){
-		a=$("#selCheck").val();
-		console.log(a);
-	})
+	
+	
 </script>
 </html>

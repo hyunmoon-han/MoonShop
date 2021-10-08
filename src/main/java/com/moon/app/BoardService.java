@@ -7,7 +7,7 @@ public interface BoardService {
 	public ArrayList<Board> btnSel(PageVO pageVO);
 	
 	//게시물 추가
-	public void bbs_insert(String writer,String title,String content);
+	public void bbs_insert(String writer,String title,String content,String img_loc);
 	//게시물 리스트
 	public ArrayList<Board> bbs_All();
 	//게시물 view
