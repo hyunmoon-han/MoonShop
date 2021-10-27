@@ -35,7 +35,7 @@
     section{
         height: 88%;
         display: grid;
-        grid-template-columns: 1fr 7fr;
+        grid-template-columns: 0.7fr 7fr;
         background-color: rgba(144, 88, 88, 0.319); 
     }
     ul li{
@@ -106,23 +106,23 @@
             </div>
         </div>
         <div id="main" style="font-size:15px">
-            <h3 style="text-align: center; background-color: lightgreen;">공지사항</h3>
+            <h3 style="text-align: center; background-color: lightgreen;">자유 게시판</h3>
             <div class="container" >
            		<div style="float: right;">
 	            	<form action="/app/selBtn" method="post" >
 			            <select id="selCheck" name="search_type">
-			            	<option  value="D" selected="selected">전체</option>
+			            	<option  value="D" selected="selected" >전체</option>
 			           		<option  value="T" >제목</option>
 			           		<option value="W">작성자</option>
 			            </select>
-			            <input  id="selText" type="text" name="search_keyword" disabled="disabled" placeholder="검색어를 입력하세요.">
+			            <input  id="selText" type="text" name="search_keyword" disabled="disabled" placeholder="검색어를 입력하세요." style="width: 230px;">
 			            <input  id="selBtn" type="submit" value="검색">
 	            	</form>
             	</div>
 	            <table id="tbl1" class="table table-hover text-center table-striped" style="cursor: pointer;">
 	            	<thead style="background-color:#958e8e3b;">
 		            	<tr>
-		            		<th style="width:70px">번호</th>
+		            		<th style="width:70px">NO.</th>
 		            		<th style="width:230px">제목</th>
 		            		<th >내용</th>
 		            		<th style="width:80px">작성자</th>

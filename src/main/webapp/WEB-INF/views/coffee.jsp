@@ -32,7 +32,7 @@
     section{
         height: 88%;
         display: grid;
-        grid-template-columns: 1fr 7fr;
+        grid-template-columns: 0.7fr 7fr;
         background-color: rgba(144, 88, 88, 0.319); 
     }
     ul li{

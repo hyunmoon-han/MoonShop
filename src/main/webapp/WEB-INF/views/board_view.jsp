@@ -38,7 +38,7 @@
     section{
         height: 88%;
         display: grid;
-        grid-template-columns: 1fr 7fr;
+        grid-template-columns: 0.7fr 7fr;
         background-color: rgba(144, 88, 88, 0.319); 
     }
     ul li{
@@ -80,11 +80,11 @@
 	.modal_content{
 	font-size:17px;
 	width: 50%;
-    height: 80%;
+    height: 90%;
     background: #fff;
     border-radius: 10px;
     position: relative;
-    top: 15%;
+    top: 8%;
     left: 42%;	
     margin-top: -100px;
     margin-left: -200px;
@@ -95,7 +95,8 @@
 	}
 	.x{
 	position:relative;
-	left:78%;
+	left:82%;
+	top:2%;
 	background-color: white;
 	}
 	.dropup .dropdown-toggle::after {
@@ -182,8 +183,8 @@
 		                        <td><input type="text" class="" name ="updated"  value="${board.updated}"readonly="readonly"></input></td>
 	                        </tr> --%>
                         </table>
-               			<input  id="bbs_id" type="text" value="${board.bbs_id}">
-               			<input  id="userid" type="text" value="${userid}">
+               			<input  id="bbs_id" type="hidden" value="${board.bbs_id}">
+               			<input  id="userid" type="hidden" value="${userid}">
                 		<div style="text-align: center;">
 			             <c:if test="${userid eq board.writer}">
 			             	<input id="update_View" type="button" value="수정페이지">	

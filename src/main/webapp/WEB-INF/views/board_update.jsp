@@ -32,7 +32,7 @@
     section{
         height: 88%;
         display: grid;
-        grid-template-columns: 1fr 7fr;
+        grid-template-columns: 0.7fr 7fr;
         background-color: rgba(144, 88, 88, 0.319); 
     }
     ul li{
@@ -129,8 +129,16 @@
 			                        <td><textarea  class="form-control" name ="content" cols="50" rows="5" 
 			                        style="font-size: 17px;height: 280px;padding: 10px 15px;padding-left: 7px" placeholder="내용을 입력하세요.">${board.content}</textarea></td>
 		                        </tr>
+		                        <tr>
+		                        	<td>이미지</td>
+		                        	<td><c:if test="${board.img_loc  ne ''}">
+		                        	<img alt="" src="/app/resources/${board.img_loc}" width="100px" height="100px"> 
+		                        </c:if>
+		                        <input type="file" value="${board.img_loc}">
+		                        </td>
+		                        </tr>
 	                        </table>
-	                        <input id="bbs_id" name="bbs_id" type="text" value="${board.bbs_id}">
+	                        <input id="bbs_id" name="bbs_id" type="hidden" value="${board.bbs_id}">
 	                        <div style="text-align: center;">
 				             	<input id="update" type="button" value="등록" >
 				             	<input id="bbs_Del" type="button" value="삭제">
@@ -161,7 +169,10 @@
 	})
 	//게시물 리스트 페이지이동
 	.on("click","#list",function(){
-		location.href="/app/board_list";
+		check=confirm("수정된 내용은 저장이 되지않습니다.목록으로 이동하시겠습니까?");
+		if(check){
+			location.href="/app/board_list";
+		}else return false;
 	})
 	//로그아웃 페이지 이동
 	.on("click","#logout",function(){

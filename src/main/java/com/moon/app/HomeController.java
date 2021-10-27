@@ -147,8 +147,8 @@ public class HomeController {
 		
 	}
 	//게시물 저장
-	@Resource(name="uploadPath")
-    String uploadPath;
+	//@Resource(name="uploadPath")
+	String uploadPath="C:\\eclipseno\\workspace\\MoonShop\\src\\main\\webapp\\resources";
 	@RequestMapping(value="/board_Save",method=RequestMethod.POST)
 	public String board_Save(HttpServletRequest hsr,MultipartFile img_log) {
 		//이미지 업로드 파일
@@ -231,6 +231,7 @@ public class HomeController {
 	public String coffee() {
 		return "coffee";
 	}
+	//@DateTimeFormat
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);

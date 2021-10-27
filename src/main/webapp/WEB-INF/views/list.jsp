@@ -34,7 +34,7 @@
     section{
         height: 88%;
         display: grid;
-        grid-template-columns: 1fr 7fr;
+        grid-template-columns: 0.7fr 7fr;
         background-color: rgba(144, 88, 88, 0.319); 
     }
     ul li{
@@ -131,18 +131,23 @@
 		            	</tr>
 		            </thead>	
 	            	<tbody>
+	            	<c:if test="${empty listVO}">
+	            			<tr>
+	            				<td colspan="6">검색된 정보에 대한 게시물이 존재하지 않습니다.</td>
+	            			</tr>
+	            			
+	            	</c:if>
 	            		<c:forEach items="${listVO}" var="listVO">
-	            		<tr class="table-warning">
-	            			<td>${listVO.bbs_id}</td>
-	            			<td class="tit">${listVO.title}</td>
-	            			<td class="con">${listVO.content}</td>
-	            			<td>${listVO.writer}</td>
-	            			<td>${listVO.created}</td>
-	            			<td>${listVO.updated}</td>
-	            		</tr>
-	            	</c:forEach>
+		            		<tr class="table-warning">
+		            			<td>${listVO.bbs_id}</td>
+		            			<td class="tit">${listVO.title}</td>
+		            			<td class="con">${listVO.content}</td>
+		            			<td>${listVO.writer}</td>
+		            			<td>${listVO.created}</td>
+		            			<td>${listVO.updated}</td>
+		            		</tr>
+	            		</c:forEach>
 	            	</tbody>
-	            	
 	            </table>
              </div>
              <input id="insert" type="button" value="글쓰기" style="float: right; margin-right: 90px" >  
@@ -173,6 +178,11 @@
 	})
 	.on("click","#tbl1 tbody tr",function(){
 		//location.href="/app/board_view";
+		if(${empty listVO}){
+			//pointer-events: none !important;
+			$(this).css("pointer-event","none !important");
+			return false;
+		}
 		code=$(this).find("td:eq(0)").text();
 		$("#bbsCode").val(code);
 		//console.log(a);
