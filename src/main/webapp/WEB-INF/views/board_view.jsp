@@ -254,7 +254,7 @@
 								<td style="width: 45px"><input type="hidden" value="${replyVO.reply_id}"></td>
 							</tr>
 							<tr>
-								<td><input type="hidden" value="${replyVO.reply_id}"></td>
+								<td><input type="hidden" value="${replyVO.reply_id}"><button class="btnRRl" style="font-size: 10px">답글</button></td>
 								<td style="text-align: left;width: 100px">ID:${replyVO.writer}</td>
 								<td style="text-align: left;">Day:${replyVO.created}</td>
 								<td>
@@ -270,15 +270,39 @@
 									  </ul>
 									</div>		
 								</c:if>
-								<c:if test="${userid eq replyVO.writer}">
-								
-								</c:if>	
 								</td>
 							</tr>
 						</c:forEach>
+						
 					</table> 
-					<input type="hidden" id="oo">
-					<input type="hidden" id="uu">
+					<table style="width:100%" id="tblRR">
+						<tr>
+							<td><input type="hidden" id="rCount" value="0"></td>
+							<td style="width: 70px">${userid }</td>
+							<td colspan="2"><input type="text" style="width: 100%" placeholder="공개 댓글 추가..."></td>
+						</tr>
+						<tr>
+							<td>${board.bbs_id}</td>
+							<td><input type="text" id="kk" style="width: 70px;"></td>
+							<td colspan="2"><div style="float:right;"><input type="button" value="취소" ><input type="button" value="답글"></div></td>
+						</tr>
+					</table>
+					<br>
+					<table style="width:100%" id="tblRS"> 
+									<tr>
+										<td>1</td>
+										<td style="width: 70px">ID</td>
+										<td style="text-align: left;">DAY</td>
+										<td>1</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td colspan="3"><input type="text" style="width:100%"></td>
+									</tr>
+									
+								</table>
+					<input type="text" id="oo">
+					<input type="text" id="uu">
 				</div> 
 			</div>
     </section>
@@ -287,6 +311,8 @@
 	$(document)
 	.ready(function(){
 		$("#tbl10").hide();
+		$("#tblRR").hide();
+		$("#tblRS").hide();
 	})
 	.on("click","#update_View",function(){
 		location.href="/app/board_view?bbs_id=${board.bbs_id}+&vill="+1;
@@ -378,6 +404,7 @@
 			L=L.replace("ID:","");
 			$("#oo").val(Con); 
 			$("#uu").val(L);
+			$("#kk").val($("#oo").val());
 		})	
 	})
 	//버튼 클릭시 작성자 비교해서 content활성화
@@ -404,7 +431,20 @@
 		//모달창 닫기 버튼으로 모달창 닫기
 		$(".y").click(function(){ 
 			$(".modal").fadeOut(); 
+		});
+		$(".btnRRl").click(function(){
+			//$("#kk").val($("#oo").val());
+			a=Number($("#rCount").val());
+			b=a+1;
+			$("#rCount").val(b);
+			console.log($("#rCount").val());
+			 if($("#rCount").val()%2==0){
+				$("#tblRR").hide();
+				$("#tblRS").hide();
+			}else{
+				$("#tblRR").show();
+				$("#tblRS").show();
+			} 
 		})
-	
 </script>
 </html>
