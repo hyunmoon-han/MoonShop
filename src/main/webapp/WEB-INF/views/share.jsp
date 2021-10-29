@@ -42,50 +42,54 @@
   	position: relative;
   }
   #mainA_1{
-  	width:370px;
-  	height:380px;
+  	/* width:370px;
+  	height:380px; */
+  	width:85%;
+  	height:60%;
   	background-color: blue;
   	position: absolute;
-  	left: -150px;
-  	top:128px;
+  	left: -120px;
+  	top:170px;
   }
   #mainB_1{
-  	width: 370px;
-  	height: 380px;
+  	width:85%;
+  	height:60%;
   	background-color:black ;
   	position: absolute;
-  	left: -159px;
-  	top:9px;
+  	left: -170px;
+  	top:-5px;
   	z-index:5;
   }
   #mainB_2{
-  	width: 370px;
-  	height: 380px;
+  	width:85%;
+  	height:60%;
   	background-color: red;
   	position: absolute;
-  	right: -192px;
-  	top:170px;
+  	right: -150px;
+  	top:195px;
   	z-index:10;
   }
   #mainC_1{
-  	width: 370px;
-  	height: 380px;
+  	width:85%;
+  	height:60%;
   	background-color: gray;
   	position: absolute;
-  	left: 120px;
-  	top:8px;
+  	left: 165px;
+  	top:-8px;
   	z-index:5;
   }
   #mainD_1{
-  	width: 250px;
-  	height: 380px;
+  	/* width: 250px;
+  	height: 380px; */
+  	width:74%;
+  	height:60%;
   	background-color: lime;
   	position: absolute;
   	right:0;
-  	top:115px;
+  	top:155px;
   }
  #cur:hover{
- 	transform:scale(1.8);
+ 	transform:scale(1.2);
  }
  .pass:hover,#mainB_2:hover,#mainB_1:hover,#mainD_1:hover{
  	transform:scale(1.1);
@@ -143,7 +147,7 @@
        			<div style="height: 10%;background: white;">
        				H.moon <br>South Korea
        			</div>
-       				<svg id="cur" style="width:35%; height: 35%;position: absolute;left:35%;top:30%" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+       				<svg id="cur" style="width:35%; height: 35%;position: absolute;left:31%;top:37%" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
 					  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 					  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
 					</svg>
