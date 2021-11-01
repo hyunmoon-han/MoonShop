@@ -51,6 +51,7 @@ td{
 	<input type="submit" value="coffee">
 </form>
 <input type="button" value="Login" id="login">
+<input type="button" value="sList" id="sList">
 </body>
 <script>
 $(document)
@@ -81,6 +82,9 @@ $(document)
 		//console.log($("#tbl2 tr:eq(0)").find("td:eq(1) textarea").val());
 		$("#tbl2 tr:eq(0)").find("td:eq(1) textarea").attr("disabled",false);
 	}
+})
+.on("click","#sList",function(){
+	location.href="/app/sList";
 })
 </script>
 </html>

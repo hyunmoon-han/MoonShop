@@ -29,79 +29,74 @@
     header{
         width: 100%;
         height: 12%;
-        background-color: #d3c9c9;
+        background-color: #f3efef;
         position: relative;
     }
     section{
         height: 88%;
+        width:100%;
         display: grid;
-        grid-template-columns:1fr 1fr 1fr 1fr;
-        background-color: #d3c9c9; 
+        grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+        background-color: #f3efef; 
+        font-size:18px;
     }
-  #mainA,#mainB,#mainC,#mainD{
+   #mainA,#mainB,#mainC,#mainD,#mainE{
   	position: relative;
+  	padding-right: 10px;
   }
+  
   #mainA_1{
-  	/* width:370px;
-  	height:380px; */
-  	width:85%;
-  	height:60%;
-  	background-color: blue;
   	position: absolute;
-  	left: -120px;
-  	top:170px;
+  	height: 50%;
+  	width: 100%;
+  	right:37px;
+  	top:72px;
   }
   #mainB_1{
-  	width:85%;
-  	height:60%;
-  	background-color:black ;
   	position: absolute;
-  	left: -170px;
-  	top:-5px;
-  	z-index:5;
-  }
-  #mainB_2{
-  	width:85%;
-  	height:60%;
-  	background-color: red;
-  	position: absolute;
-  	right: -150px;
-  	top:195px;
-  	z-index:10;
+  	height:55%;
+  	width:102%;
+  	right:15px;
+  	top:110px;
   }
   #mainC_1{
-  	width:85%;
-  	height:60%;
-  	background-color: gray;
-  	position: absolute;
-  	left: 165px;
-  	top:-8px;
-  	z-index:5;
-  }
-  #mainD_1{
-  	/* width: 250px;
-  	height: 380px; */
-  	width:74%;
-  	height:60%;
-  	background-color: lime;
-  	position: absolute;
-  	right:0;
+  	height:65%;
+  	width:107%;
+  	position:absolute;
   	top:155px;
   }
- #cur:hover{
+  #mainD_1{
+  	position: absolute;
+  	height: 55%;
+  	width: 102%;
+  	left: 35px;
+  	top: 110px;
+  }
+  #mainE_1{
+  	position: absolute;
+  	height: 50%;
+  	width: 80%;
+  	top:72px;
+  	left:52px;
+  	background: aliceblue;
+  	
+  }
+ .pass:hover,#cur:hover{
  	transform:scale(1.2);
+ 	cursor: pointer;
  }
- .pass:hover,#mainB_2:hover,#mainB_1:hover,#mainD_1:hover{
+ #mainB_1:hover,#mainC_1:hover,#mainD_1:hover{
  	transform:scale(1.1);
  	z-index:12;
+ 	cursor: pointer;
  }
  #mainA_1:hover{
- 	transform:scale(1.1);
- 	z-index:12;
- 	 transform: translateX( 200px );
+ 	 z-index:12;
+ 	 transform: translateX( 120px );
+ 	 cursor: pointer;
  }
 </style>
-<body>
+<body >
     <header >
     	<div style="background-color: #fff8ed; width: 120px;height: 100%;position: relative; left: 2%; border-radius: 70px">
 			 <span style="text-align: center;position: absolute; left: 14%; top: 15px;font-size: 40px">1854<br>
@@ -116,61 +111,97 @@
 		</div>
     </header>
     <section>
-       <div id="mainA" >1
-       			<svg  class="pass" style="width: 17%;height:10%;position: absolute;top: 50% ;left: 0;z-index:15" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
+     <div id="mainA" >1
+       			<svg  class="pass" style="width: 17%;height:10%;position: absolute;top: 70% ;left: 0;z-index:15" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
 				  <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/>
 				</svg>
 			 <div id="mainA_1">
-			 	<div style="height: 10%;background: white;">
-       				이름 등등...
+			 	<div style="height: 12%;background: white;position: relative;">
+			 		<div style="width: 11%;height: 75%;background: black;border-radius: 50%;position: absolute;left: 5%;top:12%;"></div>
+      				<div><span style="position: absolute;left: 18%;top:15%;font-size: 20px;">H.moon</span><br><span style="position: absolute;left: 30%;top:62%;font-size: 13px;">South Korean jeju</span></div>
+      				<svg style="width: 8%;height:50%;position: absolute;right: 12px;top:30%;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+					  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+					</svg>
+       				<svg style="width: 9%;height:12%;position: absolute;right: 12px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+					  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+					</svg>
        			</div>
-       			<img alt="" src="./resources/IU2.jpg" style ="width: 100%;height: 90%">
+       			<img id="mainA_V" alt="3" src="./resources/IU2.jpg" style ="width: 100%;height: 92%">
 				
 			</div>
        </div>
-       <div id="mainB" >2
+     <div id="mainB" >2
        		<div id="mainB_1" >
-				 <div style="height: 10%;background: white;">
-       				이름 등등...
+				 <div style="height: 12%;background: white;position: relative;">
+					 <div style="width: 11%;height: 75%;background: black;border-radius: 50%;position: absolute;left: 5%;top:12%;"></div>
+      				<div><span style="position: absolute;left: 18%;top:15%;font-size: 20px;">H.moon</span><br><span style="position: absolute;left: 30%;top:62%;font-size: 13px;">South Korean jeju</span></div>
+      				<svg style="width: 8%;height:50%;position: absolute;right: 12px;top:30%;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+					  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+					</svg>
+       				<svg style="width: 9%;height:12%;position: absolute;right: 12px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+					  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+					</svg>
        			</div>
-       			<img alt="" src="./resources/IU3.jpg" style ="width: 100%;height: 90%">
+       			<img id="mainB_V" alt="2" src="./resources/IU3.jpg" style ="width: 100%;height: 92%" title="2">
 			</div>
-       		<div id="mainB_2">
-       			<div style="height: 10%;background: white;">
-       				<p style="font-size:12px">H.moon<br>South KOREA</p>
+       </div>
+     <div id="mainC">3
+	     <div id="mainC_1">
+	     <c:forEach items="${boardList}" var="boardList">
+      			<div style="height: 12%;background: white;position: relative;">
+      				<div style="width: 11%;height: 75%;background: black;border-radius: 50%;position: absolute;left: 5%;top:12%;"></div>
+      				<div><span style="position: absolute;left: 18%;top:15%;font-size: 20px;">${boardList.writer}</span><br><span style="position: absolute;left: 30%;top:62%;font-size: 13px;">${boardList.address }</span></div>
+      				<svg style="width: 8%;height:50%;position: absolute;right: 12px;top:30%;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+					  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+					</svg>
+					
+      			</div>
+      			<img id="mainC_V" alt="1" src="./resources/${boardList.img_1}" style ="width: 100%;height: 92%" title="${boardList.sbbs_id}">
+    	</div>
+    	  </c:forEach>
+    </div>
+     <div id="mainD">4
+       		<div id="mainD_1">
+       			<div style="height: 12%;background: white;position: relative;">
+       				<div style="width: 11%;height: 75%;background: black;border-radius: 50%;position: absolute;left: 5%;top:12%;"></div>
+      				<div><span style="position: absolute;left: 18%;top:15%;font-size: 20px;">H.moon</span><br><span style="position: absolute;left: 30%;top:62%;font-size: 13px;">South Korean jeju</span></div>
+      				<svg style="width: 8%;height:50%;position: absolute;right: 12px;top:30%;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+					  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+					</svg>
+       				<svg style="width: 9%;height:12%;position: absolute;right: 12px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+					  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+					</svg> 
        			</div>
-       			<img alt="" src="./resources/IU.jpg" style ="width: 100%;height: 90%">
+       			<img id="mainD_V" alt="4" src="./resources/IU4.jpg" style ="width: 100%;height: 92%">
        		</div>
        </div>
-       <div id="mainC" >3
-       		<div id="mainC_1">
-       			<div style="height: 10%;background: white;">
-       				H.moon <br>South Korea
+    <div id="mainE">5
+       		<svg class="pass" style="width: 20%;height:10%;position: absolute;right:5;top:70%;z-index:15 " xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+				  <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
+			</svg>
+       		<div id="mainE_1">
+       			<div style="height: 12%;background: white;">
+       				...
        			</div>
-       				<svg id="cur" style="width:35%; height: 35%;position: absolute;left:31%;top:37%" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+       			<div style="height: 92%;position: relative;">
+       				<svg id="cur" style="width:35%; height: 35%;position: absolute;left:35%;top:27%" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
 					  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
 					  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-					</svg>
-       			
-       		</div>
-       </div>
-       <div id="mainD">
-       		<svg class="pass" style="width: 20%;height:10%;position: absolute;right:0;top:50%;z-index:15 " xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
-				  <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
-				</svg>
-       		<div id="mainD_1">
-       			<div style="height: 10%;background: white;">
-       				이름 등등...
+					</svg> 
        			</div>
-       			
        		</div>
-       </div>
-    </section>	
+       </div> 
+    </section>
 </body>
 <script>
 	$(document)
 	.ready(function(){
 		
+	})
+	.on("click","#mainC_V,#mainB_V,#mainA_V,#mainD_V",function(){
+		al=$(this).attr("alt");
+		location.href="/app/shareView/"+al+"";
+		//console.log($(this).attr("alt"));
 	})
 </script>
 </html>
