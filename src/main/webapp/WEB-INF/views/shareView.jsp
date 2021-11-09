@@ -118,9 +118,11 @@
 						좋아요 15개
 					</div>
 					<div style="font-size: 17px;margin-left: 10px;margin-top:3px">
-						<span style="padding-right:12px">${boardView.writer}</span><span>${boardView.content}</span><a id="l"href="#scrollspyHeading1">더보기</a>
+						<span style="padding-right:12px">${boardView.writer}</span><span id="content">${boardView.content}ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</span>
+						<span id="contentH">${boardView.content}ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</span>
+						<a id="l"href="#scrollspyHeading1">더보기</a>
+						<h6 id="scrollspyHeading1">#제주도,#여행</h6>
 					</div>
-					<h4 id="scrollspyHeading1">ㅋㅋㅋㅋㅋㅋㅋㅋㅋ</h4>
 					<div style="margin-left:10px;margin-top:3px;font-size:15px">
 						<a id="reY" href="#scrollspyHeading2">댓글 100개 모두 보기</a>
 					</div>
@@ -130,7 +132,7 @@
 								<td rowspan="2" style="width:15%"><div style="width: 80%;height: 80%;background: black;border-radius: 50%;margin-left:5px"></div>
 								</td>
 								<td style="width:12%;padding-top: 8px;">H.moon</td>
-								<td colspan="3" style="padding-top: 15px">떠나요 둘이서 모든걸 훌훌 버리고~</td>
+								<td colspan="3" style="padding-top: 15px">떠나요 둘이서 모든걸 훌훌 버리고 제주도 안에 도시의 소음이 싫어요 </td>
 								<td style="width:5%">1</td>
 							</tr>
 							<tr style="font-size: 13px">
@@ -177,10 +179,15 @@ $(document)
 	$("#img3").hide();
 	$("#img4").hide();
 	$("#img5").hide();
+	if($("#content").text().length>15){
+		$("#content").html($("#content").text().substr(0,15)+"....");
+	}
+	$("#contentH").hide();
 })
 .on("click","#heart1",function(){
 	$(this).hide();
 	$("#heart2").show();
+	alert($("#content").text());
 })
 .on("click","#heart2",function(){
 	$(this).hide();
@@ -190,8 +197,14 @@ $(document)
 	//$("#scrollspyHeading1").show();
 	 if($("#scrollspyHeading1").is(":visible")){
 		$("#scrollspyHeading1").hide();
+		$("#contentH").hide();
+		$("#content").show();
+		$(this).html("더보기");
 	}else{
 		$("#scrollspyHeading1").show();
+		$("#content").hide();
+		$("#contentH").show();
+		$(this).html("줄이기");
 	} 
 })
 .on("click","#reY",function(){		
@@ -240,5 +253,6 @@ $(document)
 	}  
 	
 })
+
 </script>
 </html>
