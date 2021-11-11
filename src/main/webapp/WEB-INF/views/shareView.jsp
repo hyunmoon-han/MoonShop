@@ -135,7 +135,7 @@
 							<tr style="font-size: 15px">
 								<td rowspan="2" style="width:15%"><div style="width: 80%;height: 80%;background: black;border-radius: 50%;margin-left:5px"></div>
 								</td>
-								<td style="width:12%;padding-top: 8px;">${boardReply.writer}</td>
+								<td style="width:12%;padding-top: 8px;text-align: center;">${boardReply.writer}</td>
 								<td colspan="3" style="padding-top: 15px">${boardReply.content}</td>
 								<td style="width:5%">${boardReply.sreply_id }</td>
 							</tr>

@@ -21,7 +21,16 @@ public class ShareController {
 	private static final Logger logger = LoggerFactory.getLogger(ShareController.class);
 	@Autowired
 	private SqlSession sqlSession;
-	
+	@RequestMapping("/shareUpdate")
+	public String shareUpdate() {
+		
+		return "shareUpdate";
+	}
+	@RequestMapping("/shareInsert")
+	public String shareInsert() {
+		
+		return "shareInsert";
+	}
 	@RequestMapping(value="/shareReply",method=RequestMethod.POST)
 	public String shareReply() {
 		return "";

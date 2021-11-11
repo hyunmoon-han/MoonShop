@@ -145,14 +145,14 @@
 					</svg>
        			</div>
        			<img id="mainB_V" alt="${boardList.sbbs_id}" src="./resources/${boardList.img_1}" style ="width: 100%;height: 92%" title="${boardList.sbbs_id}">
+				</c:if>
+	    	  </c:forEach>
 			</div>
-			</c:if>
-    	  </c:forEach>
        </div>
      <div id="mainC">3
 	     <div id="mainC_1">
 	     <c:forEach items="${boardList}" var="boardList">
-	     <c:if test="${boardList.sbbs_id eq 1}">
+	     	<c:if test="${boardList.sbbs_id eq 1}">
 	     
       			<div style="height: 12%;background: white;position: relative;">
       				<div style="width: 11%;height: 75%;background: black;border-radius: 50%;position: absolute;left: 5%;top:12%;"></div>
@@ -163,9 +163,9 @@
 					
       			</div>
       			<img id="mainC_V" alt="${boardList.sbbs_id}" src="./resources/${boardList.img_1}" style ="width: 100%;height: 92%" title="${boardList.sbbs_id}">
-    	</div>
-    	</c:if>
+    		</c:if>
     	  </c:forEach>
+    	</div>
     </div>
      <div id="mainD">4
        		<div id="mainD_1">
@@ -209,6 +209,9 @@
 		sbbs_id=$(this).attr("alt");
 		location.href="/app/shareView/"+sbbs_id+"";
 		//console.log($(this).attr("alt"));
+	})
+	.on("click","#cur",function(){
+		location.href="/app/shareInsert";
 	})
 </script>
 </html>
