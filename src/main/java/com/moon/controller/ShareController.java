@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.moon.app.ShareBoardService;
 import com.moon.app.ShareBoardVO;
+import com.moon.app.ShareReplyVO;
 
 @Controller
 public class ShareController {
@@ -21,11 +22,17 @@ public class ShareController {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	@RequestMapping(value="/shareView/{al}",method=RequestMethod.GET)
-	public String shareView(@PathVariable("al") int al,Model model) {
-		System.out.println(al);
+	@RequestMapping(value="/shareReply",method=RequestMethod.POST)
+	public String shareReply() {
+		return "";
+	}
+	@RequestMapping(value="/shareView/{sbbs_id}",method=RequestMethod.GET)
+	public String shareView(@PathVariable("sbbs_id") int sbbs_id,Model model) {
 		ShareBoardService shareBoardService=sqlSession.getMapper(ShareBoardService.class);
-		model.addAttribute("boardView", shareBoardService.sBoardView(al));
+		//댓글
+		ArrayList<ShareReplyVO> boardReply=shareBoardService.ShareReply(sbbs_id);
+		model.addAttribute("boardReply", boardReply);
+		model.addAttribute("boardView", shareBoardService.sBoardView(sbbs_id));
 		return "shareView";
 	}
 	@RequestMapping(value="/shareView",method=RequestMethod.GET)

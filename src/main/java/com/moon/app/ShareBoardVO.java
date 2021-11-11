@@ -11,9 +11,11 @@ public class ShareBoardVO {
 	private String img_3;
 	private String img_4;
 	private String img_5;
-	public ShareBoardVO() {};
+	private int heart;
+	public ShareBoardVO() {}
+	
 	public ShareBoardVO(int sbbs_id, String content, String writer, String created, String address, String img_1,
-			String img_2, String img_3, String img_4, String img_5) {
+			String img_2, String img_3, String img_4, String img_5, int heart) {
 		this.sbbs_id = sbbs_id;
 		this.content = content;
 		this.writer = writer;
@@ -24,7 +26,9 @@ public class ShareBoardVO {
 		this.img_3 = img_3;
 		this.img_4 = img_4;
 		this.img_5 = img_5;
+		this.heart = heart;
 	}
+
 	public int getSbbs_id() {
 		return sbbs_id;
 	}
@@ -85,6 +89,12 @@ public class ShareBoardVO {
 	public void setImg_5(String img_5) {
 		this.img_5 = img_5;
 	}
+	public int getHeart() {
+		return heart;
+	}
+	public void setHeart(int heart) {
+		this.heart = heart;
+	};
 	
 	
 }

@@ -78,9 +78,12 @@
 				out.println(userid+"님 환영합니다.");
 			%>
 		</div>
+		
     </header>
     <section>
+    
 	     <div id="mainA" style="position: relative;">
+	     <input id="list" type="button" value="목록"> 
      		<svg  class="pass" id="p1"  style="width: 15%;height:10%;position: absolute;top: 40% ;right: 0;z-index:15" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
 			  <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/>
 			</svg>	
@@ -92,7 +95,7 @@
       				<div style="width: 10%;height: 75%;background: black;border-radius: 50%;position: absolute;left: 5%;top:12%;"></div>
       				<div><span style="position: absolute;left: 18%;top:25%;font-size: 25px;">${boardView.writer}</span><br><span style="position: absolute;left: 25%;top:70%;font-size: 15px;">${boardView.address}</span></div>
       			</div>
-      			<img id="img1" alt="" src="../resources/${boardView.img_1}" style ="width: 100%;height: 92%">
+   				<img id="img1" alt="" src="../resources/${boardView.img_1}"style =" width: 100%;height: 92%">
       			<img id="img2" alt="" src="../resources/${boardView.img_2}" style ="width: 100%;height: 92%">
       			<img id="img3" alt="" src="../resources/${boardView.img_3}" style ="width: 100%;height: 92%">
       			<img id="img4" alt="" src="../resources/${boardView.img_4}" style ="width: 100%;height: 92%">
@@ -115,7 +118,7 @@
 						</svg>
       				</div>	
 					<div style="font-size: 15px;margin-top:10px;margin-left:10px">
-						좋아요 15개
+						좋아요 ${boardView.heart}개
 					</div>
 					<div style="font-size: 17px;margin-left: 10px;margin-top:3px">
 						<span style="padding-right:12px">${boardView.writer}</span><span id="content">${boardView.content}ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</span>
@@ -128,18 +131,19 @@
 					</div>
 					<div id="scrollspyHeading2">
 						<table id="tbl1" style="background: antiquewhite;width:95%;margin-left:10px;height: 75px;font-size: 17px;">
+						<c:forEach items="${boardReply}" var="boardReply">
 							<tr style="font-size: 15px">
 								<td rowspan="2" style="width:15%"><div style="width: 80%;height: 80%;background: black;border-radius: 50%;margin-left:5px"></div>
 								</td>
-								<td style="width:12%;padding-top: 8px;">H.moon</td>
-								<td colspan="3" style="padding-top: 15px">떠나요 둘이서 모든걸 훌훌 버리고 제주도 안에 도시의 소음이 싫어요 </td>
-								<td style="width:5%">1</td>
+								<td style="width:12%;padding-top: 8px;">${boardReply.writer}</td>
+								<td colspan="3" style="padding-top: 15px">${boardReply.content}</td>
+								<td style="width:5%">${boardReply.sreply_id }</td>
 							</tr>
 							<tr style="font-size: 13px">
 								<td style="text-align: right;">2일 전</td>
-								<td style="padding-left: 15px;width: 100px">좋아요 2개</td>
+								<td style="padding-left: 15px;width: 100px">좋아요 ${boardReply.heart}개</td>
 								<td>답글달기</td>
-								<td>5</td>
+								<td>${boardReply.sreply_ids}</td>
 								<td>
 									<svg id="heartS1" style="width: 15px;height: 15px;margin-bottom:5px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
 									  <path  d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
@@ -149,6 +153,8 @@
 									</svg> 
 								</td>
 							</tr>
+						</c:forEach>
+							
 						</table>
 					</div>
 					
@@ -187,7 +193,6 @@ $(document)
 .on("click","#heart1",function(){
 	$(this).hide();
 	$("#heart2").show();
-	alert($("#content").text());
 })
 .on("click","#heart2",function(){
 	$(this).hide();
@@ -250,9 +255,11 @@ $(document)
 	}else if($("#img5").is(":visible")){
 		$("#img5").hide();
 		$("#img4").show();
-	}  
-	
+	} 
 })
+.on("click","#list",function(){
+	location.href="/app/sList";
+})	
 
 </script>
 </html>
