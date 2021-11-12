@@ -51,6 +51,9 @@ crossorigin="anonymous"></script>
   		transform:scale(1.2);
 	 	cursor: pointer;
 	 }
+	 #f1{
+	 	
+	 }
 </style>
 <body >
     <header >
@@ -100,7 +103,7 @@ crossorigin="anonymous"></script>
      <div id="mainC">3
      	<form action="/app/shareSava" method="post" enctype="multipart/form-data">
 	     	<div id="mainC_1" style="width: 150%;height: 50%;background: white;position: absolute;left: -25%;">
-		     	<div id="f1" style="text-align: center;margin-top: 20%">
+		     	<div id="f1" style="text-align: center;margin-top: 20%;background-image:url('../resources/${boardList.img_1}');  ">
 			     	<label for="img_1" class="form-label">img_1</label>
 			     	<br><br><br><br>
 					<input class="form-control form-control-sm" id="img_1" name="img_1" type="file" style="height: 32px;font-size:12px;padding:8px;width: 80%;margin-left:10%;">
@@ -128,14 +131,16 @@ crossorigin="anonymous"></script>
 	     	</div>
 	     	<div id="mainC_2" style="width: 200%;position: absolute;top:62%;left:-50%">
 	     		<div class="form-floating">
-				  <input type="text" class="form-control" name="content" id="content" style="height: 90px;font-size: 18px;">
+				  <input type="text" class="form-control" name="content" id="content" style="height: 90px;font-size: 18px;" value="${boardList.content}">
 				  <label for="content">#content</label>
 				</div>
 				<br>
 				<div class="form-floating">
-				  <input type="text" class="form-control" name="address" id="address" style="height: 50px;font-size: 18px;">
+				  <input type="text" class="form-control" name="address" id="address" style="height: 50px;font-size: 18px;" value="${boardList.address}">
 				  <label for="address">#지역</label>
 				</div>
+				 writer:<input type="text" name="writer" id="writer" value="${boardList.writer}">
+	     		sbbs_id:<input type="text" name="sbbs_id" id="sbbs_id" value="${boardList.sbbs_id }">
 	     	</div>
      	</form>
     </div>
@@ -145,10 +150,10 @@ crossorigin="anonymous"></script>
 			</svg>
      </div>
     <div id="mainE">5
-    	 sbbs_id:<input type="text"  disabled="disabled"><br>
-		     writer:<input type="text" disabled="disabled"><br>
-     		created:<input type="text" disabled="disabled"><br>
-     		heart:<input type="text" disabled="disabled"><br>
+    	 
+		    
+     		created:<input type="text" disabled="disabled" value="${boardList.created }"><br>
+     		heart:<input type="text" disabled="disabled" value="${boardList.heart }"><br>
      </div>  		
     </section>
 </body>

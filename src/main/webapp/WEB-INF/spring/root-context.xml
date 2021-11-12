@@ -12,7 +12,7 @@
 	  </bean>
   
 	  <!--  파일업로드 디렉토리 설정 -->
-	  <!-- <bean id="uploadPath" class="java.lang.String">
+	 <!--   <bean id="uploadPath" class="java.lang.String">
 	    <constructor-arg value="C:\\eclipseno\\workspace\\MoonShop\\src\\main\\webapp\\resources"/>
-	  </bean> -->
+	  </bean>  -->
 </beans>

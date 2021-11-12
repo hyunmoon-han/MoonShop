@@ -119,7 +119,7 @@
 			 	<div style="height: 12%;background: white;position: relative;">
 			 		<div style="width: 11%;height: 75%;background: black;border-radius: 50%;position: absolute;left: 5%;top:12%;"></div>
       				<div><span style="position: absolute;left: 18%;top:15%;font-size: 20px;">H.moon</span><br><span style="position: absolute;left: 30%;top:62%;font-size: 13px;">South Korean jeju</span></div>
-      				<svg style="width: 8%;height:50%;position: absolute;right: 12px;top:30%;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+      				<svg  class="sU" style="width: 8%;height:50%;position: absolute;right: 12px;top:30%;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
 					  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
 					</svg>
        				<svg style="width: 9%;height:12%;position: absolute;right: 12px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
@@ -137,7 +137,7 @@
 				 <div style="height: 12%;background: white;position: relative;">
 					 <div style="width: 11%;height: 75%;background: black;border-radius: 50%;position: absolute;left: 5%;top:12%;"></div>
       				<div><span style="position: absolute;left: 18%;top:15%;font-size: 20px;">${boardList.writer}</span><br><span style="position: absolute;left: 30%;top:62%;font-size: 13px;">${boardList.address }</span></div>
-      				<svg style="width: 8%;height:50%;position: absolute;right: 12px;top:30%;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+      				<svg class="sU" title="${boardList.sbbs_id}" style="width: 8%;height:50%;position: absolute;right: 12px;top:30%;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
 					  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
 					</svg>
        				<svg style="width: 9%;height:12%;position: absolute;right: 12px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
@@ -157,7 +157,7 @@
       			<div style="height: 12%;background: white;position: relative;">
       				<div style="width: 11%;height: 75%;background: black;border-radius: 50%;position: absolute;left: 5%;top:12%;"></div>
       				<div><span style="position: absolute;left: 18%;top:15%;font-size: 20px;">${boardList.writer}</span><br><span style="position: absolute;left: 30%;top:62%;font-size: 13px;">${boardList.address }</span></div>
-      				<svg style="width: 8%;height:50%;position: absolute;right: 12px;top:30%;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+      				<svg class="sU" title="${boardList.sbbs_id}" style="width: 8%;height:50%;position: absolute;right: 12px;top:30%;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
 					  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
 					</svg>
 					
@@ -169,17 +169,21 @@
     </div>
      <div id="mainD">4
        		<div id="mainD_1">
+       		<c:forEach items="${boardList}" var="boardList">
+	     		<c:if test="${boardList.sbbs_id eq 11}">
        			<div style="height: 12%;background: white;position: relative;">
        				<div style="width: 11%;height: 75%;background: black;border-radius: 50%;position: absolute;left: 5%;top:12%;"></div>
-      				<div><span style="position: absolute;left: 18%;top:15%;font-size: 20px;">H.moon</span><br><span style="position: absolute;left: 30%;top:62%;font-size: 13px;">South Korean jeju</span></div>
-      				<svg style="width: 8%;height:50%;position: absolute;right: 12px;top:30%;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+      				<div><span style="position: absolute;left: 18%;top:15%;font-size: 20px;">${boardList.writer}</span><br><span style="position: absolute;left: 30%;top:62%;font-size: 13px;">${boardList.address }</span></div>
+      				<svg class="sU" title="${boardList.sbbs_id}" style="width: 8%;height:50%;position: absolute;right: 12px;top:30%;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
 					  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
 					</svg>
        				<svg style="width: 9%;height:12%;position: absolute;right: 12px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
 					  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
 					</svg> 
        			</div>
-       			<img id="mainD_V" alt="4" src="" style ="width: 100%;height: 92%">
+       			<img id="mainD_V" alt="${boardList.sbbs_id}" src="./resources/${boardList.img_1}" style ="width: 100%;height: 92%" title="">
+	       		</c:if>
+	    	  </c:forEach>
        		</div>
        </div>
     <div id="mainE">5
@@ -212,6 +216,11 @@
 	})
 	.on("click","#cur",function(){
 		location.href="/app/shareInsert";
+	})
+	.on("click",".sU",function(){
+		a=$(this).attr("title");
+		console.log(a);
+		location.href="/app//shareUpdate/"+a;
 	})
 </script>
 </html>

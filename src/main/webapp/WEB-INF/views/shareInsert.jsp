@@ -70,6 +70,8 @@ crossorigin="anonymous"></script>
      <div id="mainA" >1
      <input type="button" value="수정" id="up">
      <input type="button" value="list" id="list">
+     <input type="button" value="완료" id="subM">
+     <input type="button" value="메뉴" id="menu">
        		<!-- <form action="/app/shareSava" method="post" enctype="multipart/form-data">
      			<div class="form-floating">
 				  <textarea class="form-control" placeholder="content" name="content" id="content" style="height: 100px"></textarea>
@@ -98,31 +100,31 @@ crossorigin="anonymous"></script>
 			</svg>	
        </div>
      <div id="mainC">3
-     	<form action="/app/shareSava" method="post" enctype="multipart/form-data">
+     	<form action="/app/shareSave" method="post" enctype="multipart/form-data">
 	     	<div id="mainC_1" style="width: 150%;height: 50%;background: white;position: absolute;left: -25%;">
 		     	<div id="f1" style="text-align: center;margin-top: 20%">
-			     	<label for="img_1" class="form-label">img_1</label>
+			     	<label for="img_1" class="form-label">main_1</label>
 			     	<br><br><br><br>
 					<input class="form-control form-control-sm" id="img_1" name="img_1" type="file" style="height: 32px;font-size:12px;padding:8px;width: 80%;margin-left:10%;">
 				</div>
 				<div id="f2" style="text-align: center;margin-top: 20%">
-			     	<label for="img_2" class="form-label">img_2</label>
-			     	<br><br><br>
+			     	<label for="img_2" class="form-label">main_2</label>
+			     	<br><br><br><br>
 					<input class="form-control form-control-sm" id="img_2" name="img_2" type="file" style="height: 32px;font-size:12px;padding:8px;width: 80%;margin-left:10%;">
 				</div>
 				<div id="f3" style="text-align: center;margin-top: 20%">
-			     	<label for="img_3" class="form-label">img_3</label>
-			     	<br><br><br>
+			     	<label for="img_3" class="form-label">main_3</label>
+			     	<br><br><br><br>
 					<input class="form-control form-control-sm" id="img_3" name="img_3" type="file" style="height: 32px;font-size:12px;padding:8px;width: 80%;margin-left:10%;">
 				</div>  
 				<div id="f4" style="text-align: center;margin-top: 20%">
-			     	<label for="img_4" class="form-label">img_4</label>
-			     	<br><br><br>
+			     	<label for="img_4" class="form-label">main_4</label>
+			     	<br><br><br><br>
 					<input class="form-control form-control-sm" id="img_4" name="img_4" type="file" style="height: 32px;font-size:12px;padding:8px;width: 80%;margin-left:10%;">
 				</div>  
 				<div id="f5" style="text-align: center;margin-top: 20%">
-			     	<label for="img_5" class="form-label">img_5</label>
-			     	<br><br><br>
+			     	<label for="img_5" class="form-label">main_5</label>
+			     	<br><br><br><br>
 					<input class="form-control form-control-sm" id="img_5" name="img_5" type="file" style="height: 32px;font-size:12px;padding:8px;width: 80%;margin-left:10%;">
 				</div>
 	     	</div>
@@ -136,6 +138,8 @@ crossorigin="anonymous"></script>
 				  <input type="text" class="form-control" name="address" id="address" style="height: 50px;font-size: 18px;">
 				  <label for="address">#지역</label>
 				</div>
+				
+				writer:<input type="text" value="${userid }" name="writer" id="writer">
 	     	</div>
      	</form>
     </div>
@@ -146,7 +150,7 @@ crossorigin="anonymous"></script>
      </div>
     <div id="mainE">5
     	 sbbs_id:<input type="text"  disabled="disabled"><br>
-		     writer:<input type="text" disabled="disabled"><br>
+		     <br>
      		created:<input type="text" disabled="disabled"><br>
      		heart:<input type="text" disabled="disabled"><br>
      </div>  		
@@ -156,13 +160,60 @@ crossorigin="anonymous"></script>
 	$(document)
 	.ready(function(){
 		$("#f2,#f3,#f4,#f5").hide();
-		
 	})
 	.on("click","#up",function(){
 		location.href="/app/shareUpdate";
 	})
 	.on("click","#list",function(){
 		location.href="/app/sList";
+	})
+	.on("click","#p2",function(){
+		if($("#f1").is(":visible")){
+			$("#f1").hide();
+			$("#f2").show();
+		}else if($("#f2").is(":visible")){
+			$("#f2").hide();
+			$("#f3").show();
+		}else if($("#f3").is(":visible")){
+			$("#f3").hide();
+			$("#f4").show();
+		}else if($("#f4").is(":visible")){
+			$("#f4").hide();
+			$("#f5").show();
+		}
+	})
+	.on("click","#p1",function(){
+		if($("#f2").is(":visible")){
+			$("#f2").hide();
+			$("#f1").show();
+		}else if($("#f3").is(":visible")){
+			$("#f3").hide();
+			$("#f2").show();
+		}else if($("#f4").is(":visible")){
+			$("#f4").hide();
+			$("#f3").show();
+		}else if($("#f5").is(":visible")){
+			$("#f5").hide();
+			$("#f4").show();
+		} 
+	})
+	.on("click","#subM",function(){
+		if($("#img_1").val()=='' ||$("#img_2").val()=='' ||$("#img_3").val()=='' ||$("#img_4").val()=='' ||$("#img_5").val()==''){
+			alert("5개의 업로드 사진 중  빈 사진이 존재 합니다. 다시 확인해주세요.");
+			return false;
+		}
+		if($("#content").val()==''){
+			alert("내용이 비었습니다.내용을 입력하세요.");
+			return false;
+		}
+		if($("#address").val()==''){
+			alert("주소가 비었습니다. 주소를 입력하세요.");
+			return false;
+		}
+		$('form').submit();
+	})
+	.on("click","#menu",function(){
+		location.href="/app/menu";
 	})
 </script>
 </html>

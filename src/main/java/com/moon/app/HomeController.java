@@ -182,6 +182,7 @@ public class HomeController {
 		
 		return "redirect:/board_list";
 	}
+	
 	//게시물 작성 페이지이동
 	@RequestMapping("/board_insert")
 	public String board_insert() {

@@ -3,7 +3,13 @@
  	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.moon.app.ShareBoardService">
-
+	<update id="sBoardUpdate">
+		
+	</update>
+	<insert id="sBoardInsert">
+		insert into sbbs (sbbs_id,writer,content,address,img_1,img_2,img_3,img_4,img_5,created)values
+		(seq_sbbs_id.nextval,#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7},#{param8},to_char(sysdate,'YYYY/MM/DD'))
+	</insert>
 	<select id="ShareReply" resultType="com.moon.app.ShareReplyVO">
 		select * from sreply where sbbs_id=#{param1} 
 	</select>
