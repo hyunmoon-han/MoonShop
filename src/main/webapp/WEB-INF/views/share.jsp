@@ -90,6 +90,10 @@
  	z-index:12;
  	cursor: pointer;
  }
+ .sU:hover{
+ 	transform:scale(1.3);
+ 	z-index:12;
+ }
  #mainA_1:hover{
  	 z-index:12;
  	 transform: translateX( 120px );
@@ -116,18 +120,21 @@
 				  <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/>
 				</svg>
 			 <div id="mainA_1">
-			 	<div style="height: 12%;background: white;position: relative;">
-			 		<div style="width: 11%;height: 75%;background: black;border-radius: 50%;position: absolute;left: 5%;top:12%;"></div>
-      				<div><span style="position: absolute;left: 18%;top:15%;font-size: 20px;">H.moon</span><br><span style="position: absolute;left: 30%;top:62%;font-size: 13px;">South Korean jeju</span></div>
-      				<svg  class="sU" style="width: 8%;height:50%;position: absolute;right: 12px;top:30%;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-					  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
-					</svg>
-       				<svg style="width: 9%;height:12%;position: absolute;right: 12px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-					  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
-					</svg>
-       			</div>
-       			<img id="mainA_V" alt="3" src="./resources/s7.jpg" style ="width: 100%;height: 92%">
-				
+			 	<c:forEach items="${boardList}" var="boardList">
+	     			<c:if test="${boardList.sbbs_id eq 8}">
+					 	<div style="height: 12%;background: white;position: relative;">
+					 		<div style="width: 11%;height: 75%;background: black;border-radius: 50%;position: absolute;left: 5%;top:12%;"></div>
+		      				<div><span style="position: absolute;left: 18%;top:15%;font-size: 20px;">${boardList.writer}</span><br><span style="position: absolute;left: 30%;top:62%;font-size: 13px;">${boardList.address }</span></div>
+		      				<svg title="${boardList.sbbs_id}" class="sU" style="width: 8%;height:50%;position: absolute;right: 12px;top:30%;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+							  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+							</svg>
+		       				<svg style="width: 9%;height:12%;position: absolute;right: 12px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+							  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+							</svg>
+		       			</div>
+		       			<img id="mainA_V" alt="${boardList.sbbs_id}" src="./resources/${boardList.img_1}" style ="width: 100%;height: 92%" >
+					</c:if>
+	    	  </c:forEach>
 			</div>
        </div>
      <div id="mainB" >2
@@ -170,7 +177,7 @@
      <div id="mainD">4
        		<div id="mainD_1">
        		<c:forEach items="${boardList}" var="boardList">
-	     		<c:if test="${boardList.sbbs_id eq 11}">
+	     		<c:if test="${boardList.sbbs_id eq 3}">
        			<div style="height: 12%;background: white;position: relative;">
        				<div style="width: 11%;height: 75%;background: black;border-radius: 50%;position: absolute;left: 5%;top:12%;"></div>
       				<div><span style="position: absolute;left: 18%;top:15%;font-size: 20px;">${boardList.writer}</span><br><span style="position: absolute;left: 30%;top:62%;font-size: 13px;">${boardList.address }</span></div>
@@ -181,7 +188,7 @@
 					  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
 					</svg> 
        			</div>
-       			<img id="mainD_V" alt="${boardList.sbbs_id}" src="./resources/${boardList.img_1}" style ="width: 100%;height: 92%" title="">
+       			<img id="mainD_V" alt="${boardList.sbbs_id}" src="./resources/${boardList.img_1}" style ="width: 100%;height: 92%" title="${boardList.sbbs_id}">
 	       		</c:if>
 	    	  </c:forEach>
        		</div>
@@ -192,7 +199,7 @@
 			</svg>
        		<div id="mainE_1">
        			<div style="height: 12%;background: white;">
-       				...
+       				
        			</div>
        			<div style="height: 92%;position: relative;">
        				<svg id="cur" style="width:35%; height: 35%;position: absolute;left:35%;top:27%" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">

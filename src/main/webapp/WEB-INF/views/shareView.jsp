@@ -17,6 +17,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+       <!-- 부트스트랩 js -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" 
+	integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" 
+	crossorigin="anonymous"></script>
     <title>Moon</title>
 </head>
 <style>
@@ -83,7 +87,8 @@
     <section>
     
 	     <div id="mainA" style="position: relative;">
-	     <input id="list" type="button" value="목록"> 
+	     <input id="list" type="button" value="목록">
+	     <button style="display: none" id="zz" data-bs-toggle="modal" data-bs-target="#exampleModal"></button> 
      		<svg  class="pass" id="p1"  style="width: 15%;height:10%;position: absolute;top: 40% ;right: 0;z-index:15" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
 			  <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/>
 			</svg>	
@@ -103,14 +108,18 @@
       			
       			<div style="background: white;height: 34%;position: relative;">
       				<div>
+      				<!-- 좋아요 버튼 1-->
       					<svg id="heart1" style="width: 25px;height: 28px;margin-top:10px;margin-left:17px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
 						  <path  d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
 						</svg>
+						<!-- 좋아요 버튼2 -->
 						<svg id="heart2" style="width: 25px;height: 28px;margin-top:10px;margin-left:17px;color:#f72e2e;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
 						  <path  fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
 						</svg> 
-						<svg id="talk" style="width: 25px;height: 28px;margin-top:5px;margin-left:12px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat" viewBox="0 0 16 16">
-						  <path d="M2.678 11.894a1 1 0 0 1 .287.801 10.97 10.97 0 0 1-.398 2c1.395-.323 2.247-.697 2.634-.893a1 1 0 0 1 .71-.074A8.06 8.06 0 0 0 8 14c3.996 0 7-2.807 7-6 0-3.192-3.004-6-7-6S1 4.808 1 8c0 1.468.617 2.83 1.678 3.894zm-.493 3.905a21.682 21.682 0 0 1-.713.129c-.2.032-.352-.176-.273-.362a9.68 9.68 0 0 0 .244-.637l.003-.01c.248-.72.45-1.548.524-2.319C.743 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.52.263-1.639.742-3.468 1.105z"/>
+						<!-- 댓글달기 버튼 -->
+						<svg id="talk" style="width: 25px;height: 28px;margin-top:5px;margin-left:12px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots" viewBox="0 0 16 16">
+						  <path d="M5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+						  <path d="m2.165 15.803.02-.004c1.83-.363 2.948-.842 3.468-1.105A9.06 9.06 0 0 0 8 15c4.418 0 8-3.134 8-7s-3.582-7-8-7-8 3.134-8 7c0 1.76.743 3.37 1.97 4.6a10.437 10.437 0 0 1-.524 2.318l-.003.011a10.722 10.722 0 0 1-.244.637c-.079.186.074.394.273.362a21.673 21.673 0 0 0 .693-.125zm.8-3.108a1 1 0 0 0-.287-.801C1.618 10.83 1 9.468 1 8c0-3.192 3.004-6 7-6s7 2.808 7 6c0 3.193-3.004 6-7 6a8.06 8.06 0 0 1-2.088-.272 1 1 0 0 0-.711.074c-.387.196-1.24.57-2.634.893a10.97 10.97 0 0 0 .398-2z"/>
 						</svg>
 						<svg style="width: 25px;height: 28px;margin-right:15px;margin-top:10px;float: right;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmark-heart" viewBox="0 0 16 16">
 						  <path  fill-rule="evenodd" d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z" style="color:red;"/>
@@ -130,7 +139,7 @@
 						<a id="reY" href="#scrollspyHeading2">댓글 100개 모두 보기</a>
 					</div>
 					<div id="scrollspyHeading2">
-						<table id="tbl1" style="background: antiquewhite;width:95%;margin-left:10px;height: 75px;font-size: 17px;">
+						<table id="tbl1" style="background: #fffcf7;;width:95%;margin-left:10px;height: 75px;font-size: 17px;">
 						<c:forEach items="${boardReply}" var="boardReply">
 							<tr style="font-size: 15px">
 								<td rowspan="2" style="width:15%"><div style="width: 80%;height: 80%;background: black;border-radius: 50%;margin-left:5px"></div>
@@ -145,10 +154,10 @@
 								<td>답글달기</td>
 								<td>${boardReply.sreply_ids}</td>
 								<td>
-									<svg id="heartS1" style="width: 15px;height: 15px;margin-bottom:5px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+									<svg class="heartS1" style="width: 15px;height: 15px;margin-bottom:5px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
 									  <path  d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
 									</svg>
-									<svg id="heartS2" style="width: 15px;height: 15px;margin-bottom:5px;color:#f72e2e;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+									<svg class="heartS2" style="width: 15px;height: 15px;margin-bottom:5px;color:#f72e2e;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
 									  <path  fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
 									</svg> 
 								</td>
@@ -170,7 +179,37 @@
 			</svg>
 	     </div>
 	    <div id="mainE">5
-	       		
+	    	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" >
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header"style="padding: 15px">
+				        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				      </div>
+				      <div class="modal-body" style="padding: 10px">
+				        <form>
+				          <div>
+				            <label for="textName" class="col-form-label">Recipient:</label>
+				            <input type="text" class="form-control" id="textName" readonly="readonly" value="@${boardView.writer}" style="font-size: 18px;padding: 0">
+				          </div>
+				          <div >
+				            <label for="rText" class="col-form-label">Message:</label>
+				            <form id="form_1" action="/app/boardReply_U" method="post">
+					            <textarea class="form-control" id="rText" style="padding: 0;font-size: 18px"></textarea>
+					            <input type="text" value="${userid}" id="writer">
+					            <input type="text" value="${boardView.sbbs_id}" id="sbbs_id">
+					            <input type="text" value="1" id="sreply_ids">
+				            </form>
+				          </div>
+				        </form>
+				      </div>
+				      <div class="modal-footer">
+				      	<button type="button"  data-bs-dismiss="modal">Close</button>
+				      	<button id="replySu" type="button"  data-bs-dismiss="modal">Send message</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
 	    </div> 
     </section>
 </body>
@@ -178,7 +217,7 @@
 $(document)
 .ready(function(){
 	$("#heart2").hide();
-	$("#heartS2").hide();
+	$(".heartS2").hide();
 	$("#scrollspyHeading1").hide();
 	//$("#scrollspyHeading2").hide();
 	$("#img2").hide();
@@ -219,13 +258,13 @@ $(document)
 		$("#scrollspyHeading2").show();
 	} 
 })
-.on("click","#heartS1",function(){
+.on("click",".heartS1",function(){
 	$(this).hide();
-	$("#heartS2").show();
+	$(".heartS2").show();
 })
-.on("click","#heartS2",function(){
+.on("click",".heartS2",function(){
 	$(this).hide();
-	$("#heartS1").show();
+	$(".heartS1").show();
 })
 .on("click","#p2",function(){
 	if($("#img1").is(":visible")){
@@ -249,17 +288,37 @@ $(document)
 	}else if($("#img3").is(":visible")){
 		$("#img3").hide();
 		$("#img2").show();
-	}else if($("#img4").is(":visible")){
+	}else if($("#img4").is(":visible")){	
 		$("#img4").hide();
 		$("#img3").show();
 	}else if($("#img5").is(":visible")){
 		$("#img5").hide();
 		$("#img4").show();
-	} 
+	}
 })
 .on("click","#list",function(){
 	location.href="/app/sList";
 })	
-
+.on("click","#talk",function(){
+	$("#zz").click();
+})
+.on("click","#replySu",function(){
+	a=confirm("댓글을 작성하시겠습니까?");
+	sbbs_id=$("#sbbs_id").val();
+	writer=$("#writer").val();
+	sreply_ids=$("#sreply_ids").val();
+	rText=$("#rText").val();
+	if(a){
+		 $.post("http://localhost:8080/app/boardReply_I",
+				{sbbs_id:sbbs_id,writer:writer,sreply_ids:sreply_ids,rText:rText},
+				function(result){
+					if(result=="ok"){
+						alert("댓글 등록이 완료됬습니다.");
+						location.reload();
+					}
+				},"text");
+	}else return false;
+	
+})
 </script>
 </html>

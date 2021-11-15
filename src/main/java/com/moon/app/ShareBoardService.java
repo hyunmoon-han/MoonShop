@@ -3,6 +3,10 @@ package com.moon.app;
 import java.util.ArrayList;
 
 public interface ShareBoardService {
+	//댓글 추가
+	public void sboardReply_I(int sbbs_id,int sreply_ids,String content,String writer);
+	//게시물 삭제
+	public void sBoardDL(String sbbs_id);
 	public ArrayList<ShareBoardVO> sBoardALL();
 	public ShareBoardVO sBoardView(int sbbs_id);
 	public ArrayList<ShareReplyVO>ShareReply(int sbbs_id);

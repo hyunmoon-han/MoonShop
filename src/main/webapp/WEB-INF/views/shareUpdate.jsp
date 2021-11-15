@@ -51,9 +51,11 @@ crossorigin="anonymous"></script>
   		transform:scale(1.2);
 	 	cursor: pointer;
 	 }
-	 #f1{
-	 	
-	 }
+	#imgD_1:hover,#imgD_2:hover,#imgD_3:hover,#imgD_4:hover,#imgD_5:hover{
+		cursor: pointer;
+		transform:scale(1.1);
+	}
+	
 </style>
 <body >
     <header >
@@ -70,66 +72,66 @@ crossorigin="anonymous"></script>
 		</div>
     </header>
     <section>
-     <div id="mainA" >1
-     수정창이야
-     <input type="button" value="list" id="list">
-       		<!-- <form action="/app/shareSava" method="post" enctype="multipart/form-data">
-     			<div class="form-floating">
-				  <textarea class="form-control" placeholder="content" name="content" id="content" style="height: 100px"></textarea>
-				  <label for="content">content</label>
-				</div>
-	     		<div class="form-floating">
-				  <textarea class="form-control" placeholder="지역" name="address" id="address" style="height: 100px"></textarea>
-				  <label for="address">address</label>
-				</div>
-			  <label for="img_1" class="form-label">img_1</label>
-			  <input class="form-control form-control-sm" id="img_1" name="img_1" type="file" style="height: 32px;font-size:12px;padding:8px;">
-	     		<label for="img_2" class="form-label">img_2</label>
-			  <input class="form-control form-control-sm" id="img_2" name="img_2" type="file" style="height: 32px;font-size:12px;padding:8px;">
-	     		<label for="img_3" class="form-label">img_3</label>
-			  <input class="form-control form-control-sm" id="img_3" name="img_3" type="file" style="height: 32px;font-size:12px;padding:8px;">
-	     		<label for="img_4" class="form-label">img_4</label>
-			  <input class="form-control form-control-sm" id="img_4" name="img_4" type="file" style="height: 32px;font-size:12px;padding:8px;">
-	     		<label for="img_5" class="form-label">img_5</label>
-			  <input class="form-control form-control-sm" id="img_5" name="img_5" type="file" style="height: 32px;font-size:12px;padding:8px;">
-	     		
-     		</form>	 -->
+     <div id="mainA" >
+     	<label for="img_1" class="form-label" style="margin: 0;margin-left:35%">img_1</label>
+     	<svg id="check_1" style="width: 22%;height: 10%;color: green;position: absolute;left:34%;top:25%;z-index: 2;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+		  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+		</svg>
+	     <div style="width: 95%;height:50%;background-color: white;">
+	     	<img id="i1" alt="" src="../resources/${boardList.img_1}" height="100%" width="100%" style="opacity: 0.4;" >
+	     </div>
+	     <svg title="1" id="imgD_1"style="width: 20px;height: 25px;margin-left:40% " xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+		  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+		  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+		</svg>
+		<svg id="imgC_1"style="width: 22%;height: 10%;color: green;position: absolute;left:34%;top:25%;z-index: 2;" " stxmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+		  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+		</svg>
+ 	     <div style="height: 6%; width: 500%;position: relative;">
+		     <form action="/app/shareSava" method="post" enctype="multipart/form-data">
+		     	<input class="form-control form-control-sm" id="img_1" name="img_1" type="file" style="height: 32px;font-size:12px;padding:8px;width: 15%;margin-left:2%;" value="${boardList.img_2}">
+		     	<input class="form-control form-control-sm" id="img_2" name="img_2" type="file" style="height: 32px;font-size:12px;padding:8px;width: 15%;margin-left:2%;position: absolute;top: 1%;left: 20%">
+		     	<input class="form-control form-control-sm" id="img_3" name="img_3" type="file" style="height: 32px;font-size:12px;padding:8px;width: 15%;margin-left:2%;position: absolute;top: 1%;left: 40%">
+		     	<input class="form-control form-control-sm" id="img_4" name="img_4" type="file" style="height: 32px;font-size:12px;padding:8px;width: 15%;margin-left:2%;position: absolute;top: 1%;left: 60%">
+		     	<input class="form-control form-control-sm" id="img_5" name="img_5" type="file" style="height: 32px;font-size:12px;padding:8px;width: 15%;margin-left:2%;position: absolute;top: 1%;left: 80%">
+	     	</form>
+	     </div>
+     	<input type="button" value="list" id="list">
+     	<input type="text" id="aa" value="${boardList.img_2}">
       </div>
-     <div id="mainB" >2
-     		<svg  class="pass" id="p1"  style="width: 15%;height:10%;position: absolute;top: 25% ;right: 30%;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
-			  <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223z"/>
-			</svg>	
-       </div>
-     <div id="mainC">3
+     <div id="mainB" >
+     	<label for="img_2" class="form-label" style="margin: 0;margin-left:35%">img_2</label>
+     	<svg id="check_2" style="width: 22%;height: 10%;color: green;position: absolute;left:34%;top:25%;z-index: 2;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+		  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+		</svg>
+     	<div style="width: 95%;height:50%;background-color: white;">
+     		<img id="i2" alt="" src="../resources/${boardList.img_2}" height="100%" width="100%" style="opacity: 0.4;">
+   		</div>
+   		<svg id="imgC_2"style="width: 22%;height: 10%;color: green;position: absolute;left:34%;top:25%;z-index: 2;" " stxmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+		  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+		</svg>
+   	 	<svg title="2" id="imgD_2"style="width: 20px;height: 25px;margin-left:40% " xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+		  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+		  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+		</svg>	
+     </div>
+     <div id="mainC">
+     	<label for="img_3" class="form-label" style="margin: 0;margin-left:35%">img_3</label>
+	     <svg id="check_3" style="width: 22%;height: 10%;color: green;position: absolute;left:34%;top:25%;z-index: 2;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+		  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+		</svg>
+	     <div style="width: 95%;height:50%;background-color: white;">
+	     	<img id="i3" alt="" src="../resources/${boardList.img_3}" style="width: 100%;height: 100%;opacity: 0.4;">
+		</div>
+		<svg id="imgC_3"style="width: 22%;height: 10%;color: green;position: absolute;left:34%;top:25%;z-index: 2;" " stxmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+		  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+		</svg>
+		<svg title="3" id="imgD_3"style="width: 20px;height: 25px;margin-left:40% " xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+		  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+		  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+		</svg>	
      	<form action="/app/shareSava" method="post" enctype="multipart/form-data">
-	     	<div id="mainC_1" style="width: 150%;height: 50%;background: white;position: absolute;left: -25%;">
-		     	<div id="f1" style="text-align: center;margin-top: 20%;background-image:url('../resources/${boardList.img_1}');  ">
-			     	<label for="img_1" class="form-label">img_1</label>
-			     	<br><br><br><br>
-					<input class="form-control form-control-sm" id="img_1" name="img_1" type="file" style="height: 32px;font-size:12px;padding:8px;width: 80%;margin-left:10%;">
-				</div>
-				<div id="f2" style="text-align: center;margin-top: 20%">
-			     	<label for="img_2" class="form-label">img_2</label>
-			     	<br><br><br>
-					<input class="form-control form-control-sm" id="img_2" name="img_2" type="file" style="height: 32px;font-size:12px;padding:8px;width: 80%;margin-left:10%;">
-				</div>
-				<div id="f3" style="text-align: center;margin-top: 20%">
-			     	<label for="img_3" class="form-label">img_3</label>
-			     	<br><br><br>
-					<input class="form-control form-control-sm" id="img_3" name="img_3" type="file" style="height: 32px;font-size:12px;padding:8px;width: 80%;margin-left:10%;">
-				</div>  
-				<div id="f4" style="text-align: center;margin-top: 20%">
-			     	<label for="img_4" class="form-label">img_4</label>
-			     	<br><br><br>
-					<input class="form-control form-control-sm" id="img_4" name="img_4" type="file" style="height: 32px;font-size:12px;padding:8px;width: 80%;margin-left:10%;">
-				</div>  
-				<div id="f5" style="text-align: center;margin-top: 20%">
-			     	<label for="img_5" class="form-label">img_5</label>
-			     	<br><br><br>
-					<input class="form-control form-control-sm" id="img_5" name="img_5" type="file" style="height: 32px;font-size:12px;padding:8px;width: 80%;margin-left:10%;">
-				</div>
-	     	</div>
-	     	<div id="mainC_2" style="width: 200%;position: absolute;top:62%;left:-50%">
+	     	<div id="mainC_2" style="width: 200%;position: absolute;top:67%;left:-50%">
 	     		<div class="form-floating">
 				  <input type="text" class="form-control" name="content" id="content" style="height: 90px;font-size: 18px;" value="${boardList.content}">
 				  <label for="content">#content</label>
@@ -139,33 +141,82 @@ crossorigin="anonymous"></script>
 				  <input type="text" class="form-control" name="address" id="address" style="height: 50px;font-size: 18px;" value="${boardList.address}">
 				  <label for="address">#지역</label>
 				</div>
-				 writer:<input type="text" name="writer" id="writer" value="${boardList.writer}">
-	     		sbbs_id:<input type="text" name="sbbs_id" id="sbbs_id" value="${boardList.sbbs_id }">
+				<input type="hidden" name="writer" id="writer" value="${boardList.writer}">
+	     		<input type="hidden" name="sbbs_id" id="sbbs_id" value="${boardList.sbbs_id }">
 	     	</div>
      	</form>
     </div>
-     <div id="mainD">4
-		    <svg class="pass" id="p2" style="width: 15%;height:10%;position: absolute;left:30%;top:25%;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
-			  <path fill-rule="evenodd" d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z"/>
-			</svg>
+     <div id="mainD">
+     	<label for="img_4" class="form-label" style="margin: 0;margin-left:35%">img_4</label>
+	     <svg id="check_4" style="width: 22%;height: 10%;color: green;position: absolute;left:34%;top:25%;z-index: 2;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+		  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+		</svg>
+	     <div style="width: 95%;height:50%;background-color: white;">
+	     	<img id="i4" alt="" src="../resources/${boardList.img_4}" height="100%" width="100%" style="opacity: 0.4;">
+		</div>
+		<svg id="imgC_4"style="width: 22%;height: 10%;color: green;position: absolute;left:34%;top:25%;z-index: 2;" " stxmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+		  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+		</svg>
+		<svg title="4" id="imgD_4"style="width: 20px;height: 25px;margin-left:40% " xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+		  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+		  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+		</svg>	
      </div>
-    <div id="mainE">5
-    	 
-		    
+    <div id="mainE">
+    	<label for="img_5" class="form-label" style="margin: 0;margin-left:35%">img_5</label>
+	    <svg id="check_5" style="width: 22%;height: 10%;color: green;position: absolute;left:34%;top:25%;z-index: 2;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+		  <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+		</svg>
+	    <div style="width: 95%;height:50%;background-color: white;">
+	    	<img id="i5" alt="" src="../resources/${boardList.img_5}" height="100%" width="100%" style="opacity: 0.4;">
+	     </div>
+	     <svg id="imgC_5"style="width: 22%;height: 10%;color: green;position: absolute;left:34%;top:25%;z-index: 2;" " stxmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+		  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+		</svg>
+	     <svg title="5" id="imgD_5"style="width: 20px;height: 25px;margin-left:40% " xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+		  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+		  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+		</svg>	
+    	 	<br><br><br>
      		created:<input type="text" disabled="disabled" value="${boardList.created }"><br>
      		heart:<input type="text" disabled="disabled" value="${boardList.heart }"><br>
+     		<input type="button" value="수정" id="sUp">
+     		<input type="button" value="삭제" id="sDl">  
      </div>  		
     </section>
 </body>
 <script>
 	$(document)
 	.ready(function(){
-		$("#f2,#f3,#f4,#f5").hide();
-		
+		$("#imgC_1,#imgC_2,#imgC_3,#imgC_4,#imgC_5").hide();
 	})
 	.on("click","#list",function(){
 		location.href="/app/sList";
 	})
-	
+	.on("click","#imgD_1,#imgD_2,#imgD_3,#imgD_4,#imgD_5",function(){
+		a=confirm("업로드한 사진을 삭제하시겠습니까?");
+		c=$(this).attr("title");
+		console.log(c);
+		 if(a){
+			for(b=1;b<=5;b++){
+				if(b==c){
+					$("#check_"+b+"").hide();
+					$("#imgC_"+b+"").show();
+					$("#i"+c+"").hide();
+					return false;
+				}
+			}
+		 }		 
+	}) 
+	.on("click","#sDl",function(){
+		check=confirm("이 게시물을 정말 삭제하시겠습니까?");
+		if(check){
+			$("form").attr("action","/app/sBoardDel");
+			$("form").attr("method","post")
+			$("form").submit();
+		}else{
+			return false;
+		}
+	})
 </script>
 </html>

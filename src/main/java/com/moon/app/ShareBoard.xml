@@ -3,6 +3,17 @@
  	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.moon.app.ShareBoardService">
+	<!-- 댓글달기 -->
+	<insert id="sboardReply_I">
+		insert into sreply (sbbs_id,sreply_id,sreply_ids,content,writer,created)values
+		(#{param1},seq_sreply_id.nextval,#{param2},#{param3},#{param4},to_char(sysdate,'YYYY/MM/DD'))
+	</insert>
+	<!--  -->
+	<!-- 게시물 삭제 -->
+	<delete id="sBoardDL">
+		delete from sbbs where sbbs_id=#{param1}
+	</delete>
+	
 	<update id="sBoardUpdate">
 		
 	</update>

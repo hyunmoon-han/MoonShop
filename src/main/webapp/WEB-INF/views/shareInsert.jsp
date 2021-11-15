@@ -68,7 +68,6 @@ crossorigin="anonymous"></script>
     </header>
     <section>
      <div id="mainA" >1
-     <input type="button" value="수정" id="up">
      <input type="button" value="list" id="list">
      <input type="button" value="완료" id="subM">
      <input type="button" value="메뉴" id="menu">
@@ -160,9 +159,6 @@ crossorigin="anonymous"></script>
 	$(document)
 	.ready(function(){
 		$("#f2,#f3,#f4,#f5").hide();
-	})
-	.on("click","#up",function(){
-		location.href="/app/shareUpdate";
 	})
 	.on("click","#list",function(){
 		location.href="/app/sList";
