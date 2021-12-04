@@ -218,5 +218,8 @@ crossorigin="anonymous"></script>
 			return false;
 		}
 	})
+	.on("click","#logout",function(){
+		location.replace("/app/logout");
+	})
 </script>
 </html>

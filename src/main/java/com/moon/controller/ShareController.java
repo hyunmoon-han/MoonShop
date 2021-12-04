@@ -55,8 +55,8 @@ public class ShareController {
 	public String boardImg_D(HttpServletRequest hsr) {
 		return "success";
 	}
-	//String uploadPath="C:\\eclipseno\\workspace\\MoonShop\\src\\main\\webapp\\resources";
-	String uploadPath="C:\\egov\\workspace\\MoonShop\\src\\main\\webapp\\resources";
+	String uploadPath="C:\\eclipseno\\workspace\\MoonShop\\src\\main\\webapp\\resources";
+	//String uploadPath="C:\\egov\\workspace\\MoonShop\\src\\main\\webapp\\resources";
 	@RequestMapping(value="/shareSave",method=RequestMethod.POST)
 	public String shareSave(HttpServletRequest hsr,MultipartFile img_1,MultipartFile img_2,MultipartFile img_3,MultipartFile img_4,MultipartFile img_5) {
 		//이미지 업로드 파일

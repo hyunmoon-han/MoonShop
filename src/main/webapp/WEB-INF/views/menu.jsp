@@ -33,7 +33,7 @@
         height: 88%;
         display: grid;
         grid-template-columns: 0.7fr 7fr;
-        background-color: rgba(144, 88, 88, 0.319); 
+        background-color: blanchedalmond; 
     }
     ul li{
         list-style-type: none;
@@ -179,7 +179,7 @@
             <div id="nav">
                 <ul>
                     <li><a href="/app/coffee">Coffee</a></li>
-                    <li>2</li>
+                    <li><a href="/app/sList">Album</a></li>
                     <li>3</li>
                     <li>4</li>
                     <li>5</li>

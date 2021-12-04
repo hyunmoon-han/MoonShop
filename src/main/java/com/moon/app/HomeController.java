@@ -114,7 +114,7 @@ public class HomeController {
 		MemberService memberService=sqlSession.getMapper(MemberService.class);
 		memberService.memberInt(name, gender, userid, email, mobile, passcode);
 
-		return "redirect:/newbie2";
+		return "redirect:/login";
 	}
 	
 	@RequestMapping("/newbie2")

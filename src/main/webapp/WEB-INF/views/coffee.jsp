@@ -105,7 +105,7 @@
             <div id="nav">
                 <ul>
                     <li>Coffee</li>
-                    <li>2</li>
+                    <li><a href="/app/sList">Album</a></li>
                     <li>3</li>
                     <li>4</li>
                     <li>5</li>
@@ -243,6 +243,6 @@ $(document)
 })
 .on("click","#logout",function(){
 		location.replace("/app/logout");
-	})
+})
 </script>
 </html>

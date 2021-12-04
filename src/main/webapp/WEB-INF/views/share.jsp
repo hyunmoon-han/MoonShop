@@ -121,7 +121,7 @@
 				</svg>
 			 <div id="mainA_1">
 			 	<c:forEach items="${boardList}" var="boardList">
-	     			<c:if test="${boardList.sbbs_id eq 8}">
+	     			<c:if test="${boardList.sbbs_id eq 22}">
 					 	<div style="height: 12%;background: white;position: relative;">
 					 		<div style="width: 11%;height: 75%;background: black;border-radius: 50%;position: absolute;left: 5%;top:12%;"></div>
 		      				<div><span style="position: absolute;left: 18%;top:15%;font-size: 20px;">${boardList.writer}</span><br><span style="position: absolute;left: 30%;top:62%;font-size: 13px;">${boardList.address }</span></div>
@@ -177,7 +177,7 @@
      <div id="mainD">4
        		<div id="mainD_1">
        		<c:forEach items="${boardList}" var="boardList">
-	     		<c:if test="${boardList.sbbs_id eq 3}">
+	     		<c:if test="${boardList.sbbs_id eq 21}">
        			<div style="height: 12%;background: white;position: relative;">
        				<div style="width: 11%;height: 75%;background: black;border-radius: 50%;position: absolute;left: 5%;top:12%;"></div>
       				<div><span style="position: absolute;left: 18%;top:15%;font-size: 20px;">${boardList.writer}</span><br><span style="position: absolute;left: 30%;top:62%;font-size: 13px;">${boardList.address }</span></div>
@@ -228,6 +228,9 @@
 		a=$(this).attr("title");
 		console.log(a);
 		location.href="/app//shareUpdate/"+a;
+	})
+	.on("click","#logout",function(){
+		location.replace("/app/logout");
 	})
 </script>
 </html>

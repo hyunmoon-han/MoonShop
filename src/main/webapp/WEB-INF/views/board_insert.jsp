@@ -108,7 +108,7 @@
             <div id="nav">
                 <ul>
                     <li><a href="/app/coffee">Coffee</a></li>
-                    <li>2</li>
+                    <li><a href="/app/sList">Album</a></li>
                     <li>3</li>
                     <li>4</li>
                     <li>5</li>

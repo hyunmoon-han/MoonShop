@@ -86,7 +86,7 @@
             <div id="nav">
                 <ul>
                     <li><a href="/app/coffee">Coffee</a></li>
-                    <li><a href="/app/sList">사진첩</a></li>
+                    <li><a href="/app/sList">Album</a></li>
                     <li>3</li>
                     <li>4</li>
                     <li>5</li>

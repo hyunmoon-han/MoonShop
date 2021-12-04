@@ -196,9 +196,9 @@
 				            <label for="rText" class="col-form-label">Message:</label>
 				            <form id="form_1" action="/app/boardReply_U" method="post">
 					            <textarea class="form-control" id="rText" style="padding: 0;font-size: 18px"></textarea>
-					            <input type="text" value="${userid}" id="writer">
-					            <input type="text" value="${boardView.sbbs_id}" id="sbbs_id">
-					            <input type="text" value="1" id="sreply_ids">
+					            <input type="hidden" value="${userid}" id="writer">
+					            <input type="hidden" value="${boardView.sbbs_id}" id="sbbs_id">
+					            <input type="hidden" value="1" id="sreply_ids">
 				            </form>
 				          </div>
 				        </form>
@@ -319,6 +319,9 @@ $(document)
 				},"text");
 	}else return false;
 	
+})
+.on("click","#logout",function(){
+		location.replace("/app/logout");
 })
 </script>
 </html>

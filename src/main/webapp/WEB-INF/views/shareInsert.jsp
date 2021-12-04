@@ -211,5 +211,8 @@ crossorigin="anonymous"></script>
 	.on("click","#menu",function(){
 		location.href="/app/menu";
 	})
+	.on("click","#logout",function(){
+		location.replace("/app/logout");
+})
 </script>
 </html>
