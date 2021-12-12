@@ -33,26 +33,29 @@
         height: 88%;
         display: grid;
         grid-template-columns: 0.7fr 7fr;
-        background-color: rgba(144, 88, 88, 0.319); 
+        background-color: blanchedalmond; 
     }
     ul li{
         list-style-type: none;
         text-align: center;
+        background: blanchedalmond;
+        font-size: 27px;
     }
     ul {
     	padding-left: 0px;
     }
     #sub{
-        background-color: rgb(214, 214, 143);
+        background-color:blanchedalmond;
         width: 100%;
         height: 100%;
     }
     #nav{
-        background-color: khaki;
+        background-color: blanchedalmond;
     }
     
     #main{
         height: 100%;
+        background: blanchedalmond;
     }
     #main_m{
         width: 80%;
@@ -91,6 +94,11 @@
     .page-link {
      padding: 0rem 0rem;
 	}
+	a{
+		color:#73a1e5;
+		font-size:22px;
+		text-decoration-line: blink;
+	}
 </style>
 <body>
     <header>
@@ -98,7 +106,7 @@
 			 <span style="text-align: center;position: absolute; left: 14%; top: 15px;font-size: 40px">1854<br>
 			<span style="font-size: 28px;position: absolute;top: 28px;left: 20px;">Shop</span></span>
 		</div>
-		<input id="logout"type="button" value="로그아웃" style="float: right;position: absolute;right: 10px;top: 20px;">
+		<input id="logout"type="button" value="로그아웃" style="float: right;position: absolute;right: 10px;top: 20px;font-size: 15px;top: 4%;">
     </header>
     <section>
         <div id="sub" class="">
@@ -125,9 +133,9 @@
             </div>
         </div>
         <div id="main">
-            <h3 style="text-align: center; background-color: lightgreen;">Menu</h1>
+            <h3 style="text-align: center; background-color: blanchedalmond;">Menu</h1>
             <div id="main_m">
-               <ul style="width: 100%;">
+               <ul style="width: 100%; background-color: blanchedalmond">
                    <li>
                        <dl>
                            <dt id="oo">

@@ -36,27 +36,29 @@
         height: 88%;
         display: grid;
         grid-template-columns: 0.7fr 7fr;
-        background-color: rgba(144, 88, 88, 0.319); 
+        background-color: blanchedalmond; 
     }
     ul li{
         list-style-type: none;
         text-align: center;
+        background: blanchedalmond;
+        font-size: 27px;
     }
     ul {
     	padding-left: 0px;
     }
     #sub{
-        background-color: rgb(214, 214, 143);
+        background-color: blanchedalmond;
         width: 100%;
         height: 100%;
     }
     #nav{
-        background-color: khaki;
+        background-color: blanchedalmond;
     }
     
     #main{
         height: 100%;
-        background-color: white;
+        background-color: blanchedalmond;
     }
     #cap{
     	width: 30%;
@@ -65,6 +67,11 @@
     }
     .page-link {
      padding: 0rem 0rem;
+	}
+	a{
+		color:#73a1e5;
+		font-size:22px;
+		text-decoration-line: blink;
 	}
 </style>
 <body>
@@ -106,7 +113,7 @@
             </div>
         </div>
         <div id="main" style="font-size:15px">
-            <h3 style="text-align: center; background-color: lightgreen;">자유 게시판</h3>
+            <h3 style="text-align: center; background-color: blanchedalmond;">자유 게시판</h3>
             <div class="container" >
            		<div style="float: right;">
 	            	<form action="/app/selBtn" method="post" >
@@ -147,7 +154,7 @@
              </div>
              
              <input id="insert" type="button" value="글쓰기" style="float: right; margin-right: 90px" >  
-           	<input id="bbsCode"type="text">
+           	<input id="bbsCode" type="hidden">
             
         </div>
         

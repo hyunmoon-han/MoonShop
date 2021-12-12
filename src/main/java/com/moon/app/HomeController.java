@@ -148,7 +148,8 @@ public class HomeController {
 	}
 	//게시물 저장
 	//@Resource(name="uploadPath")
-	String uploadPath="C:\\eclipseno\\workspace\\MoonShop\\src\\main\\webapp\\resources";
+	//String uploadPath="C:\\eclipseno\\workspace\\MoonShop\\src\\main\\webapp\\resources";
+	String uploadPath="C:\\egov\\workspace\\MoonShop\\src\\main\\webapp";
 	@RequestMapping(value="/board_Save",method=RequestMethod.POST)
 	public String board_Save(HttpServletRequest hsr,MultipartFile img_log) {
 		//이미지 업로드 파일

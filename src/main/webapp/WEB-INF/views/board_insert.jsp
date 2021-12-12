@@ -33,33 +33,40 @@
         height: 88%;
         display: grid;
         grid-template-columns: 0.7fr 7fr;
-        background-color: rgba(144, 88, 88, 0.319); 
+        background-color: blanchedalmond; 
     }
     ul li{
         list-style-type: none;
         text-align: center;
+        background: blanchedalmond;
+        font-size: 27px;
     }
     ul {
     	padding-left: 0px;
     }
     #sub{
-        background-color: rgb(214, 214, 143);
+        background-color: blanchedalmond;
         width: 100%;
         height: 100%;
     }
     #nav{
-        background-color: khaki;
+        background-color: blanchedalmond;
     }
     
     #main{
         height: 100%;
-        background-color: white;
+        background-color: blanchedalmond;
     }
     #cap{
     	width: 30%;
     	height: 5%;
     	margin: 0 auto;
     }
+    a{
+		color:#73a1e5;
+		font-size:22px;
+		text-decoration-line: blink;
+	}
     .page-link {
      padding: 0rem 0rem;
 	}
@@ -128,7 +135,7 @@
             </div>
         </div>
         <div id="main" style="font-size:15px">
-            <h3 style="text-align: center; background-color: lightgreen;">게시물 작성</h3>
+            <h3 style="text-align: center; background-color: blanchedalmond;">게시물 작성</h3>
             <div class="container">
 	           <table  style="padding-top:50px" align = center width=95% border=1 cellpadding=2 >
                 	<tr>

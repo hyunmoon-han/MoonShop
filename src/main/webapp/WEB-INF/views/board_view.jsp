@@ -39,33 +39,40 @@
         height: 88%;
         display: grid;
         grid-template-columns: 0.7fr 7fr;
-        background-color: rgba(144, 88, 88, 0.319); 
+        background-color: blanchedalmond; 
     }
     ul li{
         list-style-type: none;
         text-align: center;
+        background: blanchedalmond;
+        font-size: 27px;
     }
     ul {
     	padding-left: 0px;
     }
     #sub{
-        background-color: rgb(214, 214, 143);
+        background-color: blanchedalmond;
         width: 100%;
         height: 100%;
     }
     #nav{
-        background-color: khaki;
+        background-color: blanchedalmond;
     }
     
     #main{
         height: 100%;
-        background-color: white;
+        background-color: blanchedalmond;
     }
     #cap{
     	width: 30%;
     	height: 5%;
     	margin: 0 auto;
     }
+     a{
+		color:#73a1e5;
+		font-size:22px;
+		text-decoration-line: blink;
+	}
     .page-link {
      padding: 0rem 0rem;
 	}
@@ -121,7 +128,7 @@
         <div id="sub" class="">
             <div id="nav">
                 <ul>
-                    <li>Coffee</li>
+                    <li><a href="/app/coffee">Coffee</li>
                     <li><a href="/app/sList">Album</a></li>
                     <li>3</li>
                     <li>4</li>
@@ -142,7 +149,7 @@
             </div>
         </div>
         <div id="main" style="font-size:15px">
-            <h3 style="text-align: center; background-color: lightgreen;">게시물 보기</h3>
+            <h3 style="text-align: center; background-color: blanchedalmond;">View</h3>
              <div class="container">
              <p style="margin: 0;padding-left:30px;font-size:18px">day: &nbsp;${board.created}&nbsp;&nbsp;~&nbsp;&nbsp;${board.updated}</p>
 	           <table  style="padding-top:50px" align = center width=95% border=1 cellpadding=2 >
@@ -196,7 +203,7 @@
                 	</tr>
                 	
         		</table>
-        		<input type="button" value="댓글" id="Rbtn">
+        		<input type="button" value="댓글" id="Rbtn" style="margin-left: 25px;margin-top: 8px">
         		<table style="width: 70%" id="tbl10">
 	           		<tr>
 	           			<td style="width:40px;padding-bottom: 90px">댓글:</td>
@@ -205,7 +212,8 @@
 	           		</tr>
 	           		<tr>
 	           			<td></td>
-	           			<td style="text-align: right;"><input id="btnRe" type="button" value="댓글등록"><input  id="replyALL"type=button value="댓글 보기" style="margin-left: 7px"></td>
+	           			<td style="text-align: right;"><input id="btnRe" type="button" value="Insert">
+	           			<input  id="replyALL"type=button value="View" style="margin-left: 7px"></td>
 	           			<td></td>
 	           		</tr>
            		</table>  
@@ -301,8 +309,8 @@
 									</tr>
 									
 								</table>
-					<input type="text" id="oo">
-					<input type="text" id="uu">
+					<input type="hidden" id="oo">
+					<input type="hidden" id="uu">
 				</div> 
 			</div>
     </section>
