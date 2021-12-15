@@ -73,7 +73,7 @@ $(document)
 			return false;
 		}else{
 			alert("로그인에 성공했습니다.");
-			location.replace("/app/board_list");
+			location.replace("/app/Main");
 		}
 	},"text");
 })

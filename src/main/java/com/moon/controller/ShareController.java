@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -28,6 +29,14 @@ public class ShareController {
 	private static final Logger logger = LoggerFactory.getLogger(ShareController.class);
 	@Autowired
 	private SqlSession sqlSession;
+
+	/*
+	 * @RequestMapping("/Main") public String Main(HttpServletRequest hsr) {
+	 * HttpSession session=hsr.getSession(); String
+	 * loginid=(String)session.getAttribute("userid");
+	 * if(loginid.equals("")||loginid==null) { return "redirect:/login"; } return
+	 * "Main"; }
+	 */
 	//댓글달기
 	@ResponseBody
 	@RequestMapping(value="/boardReply_I",method=RequestMethod.POST)

@@ -35,6 +35,8 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	@Autowired
 	private SqlSession sqlSession;
+	
+	
 	//댓글기능
 	@ResponseBody
 	@RequestMapping(value="/ReplyControl",method=RequestMethod.POST)
@@ -94,6 +96,17 @@ public class HomeController {
 			return "0";
 		}
 	
+	}
+	@RequestMapping("/Main")
+	public String Main(HttpServletRequest hsr) {
+		HttpSession session=hsr.getSession();
+		String loginid=(String)session.getAttribute("userid");
+		if(loginid==null) {
+			return "redirect:/login";
+		}else {
+			return "Main";
+		}
+		
 	}
 	//로그인
 	@RequestMapping("/login")
