@@ -154,7 +154,7 @@
              </div>
              
              <input id="insert" type="button" value="글쓰기" style="float: right; margin-right: 90px" >  
-           	<input id="bbsCode" type="hidden">
+           	<input id="bbsCode" type="text">
             
         </div>
         

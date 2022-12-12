@@ -151,7 +151,7 @@
         <div id="main" style="font-size:15px">
             <h3 style="text-align: center; background-color: blanchedalmond;">View</h3>
              <div class="container">
-             <p style="margin: 0;padding-left:30px;font-size:18px">day: &nbsp;${board.created}&nbsp;&nbsp;~&nbsp;&nbsp;${board.updated}</p>
+             <p style="margin: 0;padding-left:30px;font-size:18px">First:&nbsp;${board.created}&nbsp;&nbsp;&nbsp;&nbsp;Last:${board.updated}</p>
 	           <table  style="padding-top:50px" align = center width=95% border=1 cellpadding=2 >
                 	<tr>
                 		<td height=20 align= center bgcolor=#ccc><font color=white> 보기</font></td>
@@ -190,16 +190,16 @@
 		                        <td><input type="text" class="" name ="updated"  value="${board.updated}"readonly="readonly"></input></td>
 	                        </tr> --%>
                         </table>
-               			<input  id="bbs_id" type="hidden" value="${board.bbs_id}">
-               			<input  id="userid" type="hidden" value="${userid}">
+               			<input  id="bbs_id" type="text" value="${board.bbs_id}">
+               			<input  id="userid" type="text" value="${userid}">
                 		<div style="text-align: center;">
+                		<%--접속아이디랑 작성자 아이디랑 같으면 수정버튼표시 --%>
 			             <c:if test="${userid eq board.writer}">
 			             	<input id="update_View" type="button" value="수정페이지">	
 			             </c:if>
 			             	<input id="list" type="button" value="목록" >
 			           	</div>
 	                	</td>
-	                	
                 	</tr>
                 	
         		</table>
@@ -294,7 +294,7 @@
 							<td><input type="text" id="kk" style="width: 70px;"></td>
 							<td colspan="2"><div style="float:right;"><input type="button" value="취소" ><input type="button" value="답글"></div></td>
 						</tr>
-					</table>
+					</table> 
 					<br>
 					<table style="width:100%" id="tblRS"> 
 									<tr>
@@ -309,8 +309,8 @@
 									</tr>
 									
 								</table>
-					<input type="hidden" id="oo">
-					<input type="hidden" id="uu">
+					<input type="text" id="oo">
+					<input type="text" id="uu">
 				</div> 
 			</div>
     </section>

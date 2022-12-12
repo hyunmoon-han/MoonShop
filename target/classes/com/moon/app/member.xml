@@ -13,5 +13,9 @@
 	<insert id="memberInt">
 		insert into member10 (name,gender,userid,email,mobile,passcode)values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
 	</insert>
-
+	
+	<!-- 유저아이디로 이름찾기 -->
+	<select id="membername" resultType="String">
+		select name from member10 where userid=#{param}
+	</select>
 </mapper>	

@@ -58,6 +58,7 @@ body,html{
 </div>	
 </body>
 <script>
+
 $(document)
 .on("click","#ss",function(){
 	location.href="/app/newbie2";

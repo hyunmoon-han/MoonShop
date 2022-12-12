@@ -6,5 +6,6 @@ public interface MemberService {
 	
 	//회원 가입
 	public void memberInt(String name,String gender,String userid,String email,String mobile,String passcode);
-	
+	//연습 id로 등록된 이름 가져오기
+	public String membername(String userid);
 }

@@ -158,8 +158,8 @@
 	            </table>
              </div>
              <input id="insert" type="button" value="글쓰기" style="float: right; margin-right: 90px" >  
-           	<input id="bbsCode"type="hidden" >
-           	<input id="di" type="hidden" value="">
+           	<input id="bbsCode"type="text" >
+           	<input id="di" type="text" value="">
             
         </div>
         
@@ -178,6 +178,7 @@
 				$(this).html($(this).text().substr(0,13)+"....");
 			}
 		}),
+		//검색조건 저장
 		$("#selCheck").val('${pageVO.search_type}').prop("selected",true);
 		if($("#selCheck").val()=='D'){
 			$("#selText").val('');
@@ -203,6 +204,7 @@
 	.on("click","#logout",function(){
 		location.replace("/app/logout");
 	})
+	//전체검색시 검색내용삭제및 disabled처리
 	.on("mouseout","#selCheck",function(){
 		if($("#selCheck").val()=='D'){
 			$("#selText").attr("disabled",true);

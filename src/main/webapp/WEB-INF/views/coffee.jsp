@@ -99,10 +99,13 @@
 		font-size:22px;
 		text-decoration-line: blink;
 	}
+	.home{
+			cursor: pointer;
+		}
 </style>
 <body>
     <header>
-    	<div style="background-color: #fff8ed; width: 120px;height: 100%;position: relative; left: 12%; border-radius: 70px">
+    	<div class="home" style="background-color: #fff8ed; width: 120px;height: 100%;position: relative; left: 12%; border-radius: 70px">
 			 <span style="text-align: center;position: absolute; left: 14%; top: 15px;font-size: 40px">1854<br>
 			<span style="font-size: 28px;position: absolute;top: 28px;left: 20px;">Shop</span></span>
 		</div>
@@ -139,10 +142,10 @@
                    <li>
                        <dl>
                            <dt id="oo">
-                               <img width="150" height="150" src="	http://www.megacoffee.me/images/menu/smoothie/11s.jpg" border="0" title="">
+                               <img width="150" height="150" src="" border="0" title="">
                            </dt>
                            <dd>
-                              	플레인퐁크러쉬
+                              	메뉴
                            </dd>
                        </dl>
                     </li>
@@ -251,6 +254,9 @@ $(document)
 })
 .on("click","#logout",function(){
 		location.replace("/app/logout");
+})
+.on("click",".home span",function(){
+	location.href="/app/Main";
 })
 </script>
 </html>

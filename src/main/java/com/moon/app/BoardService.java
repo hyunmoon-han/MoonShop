@@ -1,11 +1,10 @@
-package com.moon.app;
+ package com.moon.app;
 
 import java.util.ArrayList;
 
 public interface BoardService {
 	//검색
 	public ArrayList<Board> btnSel(PageVO pageVO);
-	
 	//게시물 추가
 	public void bbs_insert(String writer,String title,String content,String img_loc);
 	//게시물 리스트

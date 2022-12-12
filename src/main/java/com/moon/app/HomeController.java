@@ -36,7 +36,6 @@ public class HomeController {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	
 	//댓글기능
 	@ResponseBody
 	@RequestMapping(value="/ReplyControl",method=RequestMethod.POST)
@@ -61,7 +60,7 @@ public class HomeController {
 	}
 	//----검색기능---
 	@RequestMapping(value="/selBtn",method=RequestMethod.POST)
-	public String selBtn(HttpServletRequest hsr,Model model,@ModelAttribute("pageVO")PageVO pageVO) {
+	public String selBtn(HttpServletRequest hsr,Model model,@ModelAttribute PageVO pageVO) {
 		String keyword=hsr.getParameter("search_keyword");
 		BoardService boardService=sqlSession.getMapper(BoardService.class);
 		ArrayList<Board> list=boardService.btnSel(pageVO);
@@ -91,6 +90,7 @@ public class HomeController {
 		if(n>0) {
 			HttpSession session=hsr.getSession();
 			session.setAttribute("userid", userid);
+			session.setAttribute(passcode, session);
 			return "1";
 		}else {
 			return "0";
@@ -98,9 +98,13 @@ public class HomeController {
 	
 	}
 	@RequestMapping("/Main")
-	public String Main(HttpServletRequest hsr) {
+	public String Main(HttpServletRequest hsr,Model model) {
 		HttpSession session=hsr.getSession();
 		String loginid=(String)session.getAttribute("userid");
+		//유저아이디로 이름찾기
+		MemberService memberService=sqlSession.getMapper(MemberService.class);
+		String name=memberService.membername(loginid);
+		model.addAttribute("name", name);
 		if(loginid==null) {
 			return "redirect:/login";
 		}else {
@@ -129,12 +133,12 @@ public class HomeController {
 
 		return "redirect:/login";
 	}
-	
+	//회원가입 페이지 이동2
 	@RequestMapping("/newbie2")
 	public String newbie2() {
 		return "newbie2";
 	}
-	//회원가입 페이지 이동
+	//회원가입 페이지 이동1
 	@RequestMapping("/newbie")
 	public String newbie() {
 		return "newbie";
@@ -162,7 +166,7 @@ public class HomeController {
 	//게시물 저장
 	//@Resource(name="uploadPath")
 	//String uploadPath="C:\\eclipseno\\workspace\\MoonShop\\src\\main\\webapp\\resources";
-	String uploadPath="C:\\egov\\workspace\\MoonShop\\src\\main\\webapp";
+	String uploadPath="C:\\eclipseno\\workspace\\MoonShop\\src\\main\\webapp\\resources";
 	@RequestMapping(value="/board_Save",method=RequestMethod.POST)
 	public String board_Save(HttpServletRequest hsr,MultipartFile img_log) {
 		//이미지 업로드 파일

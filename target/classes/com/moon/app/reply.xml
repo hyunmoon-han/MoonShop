@@ -21,6 +21,6 @@
 		insert into reply (reply_id,bbs_id,content,writer,created,updated)
 		values(seq_reply_id.nextval,#{bbs_id},#{content},#{writer},to_char(sysdate,'YYYY/MM/DD'),to_char(sysdate,'YYYY/MM/DD'))
 	</insert>
-
+	
 </mapper>	
 	

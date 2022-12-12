@@ -45,18 +45,21 @@
 			font-size:22px;
 			text-decoration-line: blink;
 		}
+		.home{
+			cursor: pointer;
+		}
 	</style>
 	
 	
 <body>
 <header style="position: relative;">
-	<div style="background-color: #fff8ed; width: 120px;height: 100%;position: relative; left: 12%; border-radius: 70px">
+	<div class="home" style="background-color: #fff8ed; width: 120px;height: 100%;position: relative; left: 12%; border-radius: 70px">
 		 <span style="text-align: center;position: absolute; left: 14%; top: 15px;font-size: 40px">1854<br>
 		<span style="font-size: 28px;position: absolute;top: 28px;left: 20px;">Shop</span></span>
 	</div>
 	<div style="position: absolute;right: 1%;top:62%;font-size: 20px;">
 		<ul style="list-style: none">
-			<li style="font-size: 15px;">${userid}님 환영합니다.</li>
+			<li style="font-size: 15px;">${name}님 환영합니다.</li>
 			<li><a href="/app/board_list">Review</a></li>
 			<li><a href="/app/board_list">Q&A</a></li>
 			<li><a href="/app/sList">Album</a></li>
@@ -68,7 +71,7 @@
 		<svg id="search" style="width: 20px;height: 20px " xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
 		  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
 		</svg>
-		<input type="type" style="border:none;border-bottom:solid 1px; background:blanchedalmond;width:58%;outline: none;font-size:15px" placeholder="Search">
+		<input type="type" style="border:none;border-bottom:solid 1px; background:blanchedalmond;width:30%;outline: none;font-size:15px" placeholder="Search">
 	</div>
 </header>
 
@@ -116,11 +119,17 @@
 
 <footer style="position: relative;">
 	<div style="font-size: 15px;">
-		<span>주소: 충청남도 천안시 서북구 두정동</span>
+		<span>주소: 서울 특별시 관악구 신림동</span>
 	</div>
 	<div style="position: absolute;font-size: 22px;left:48%;top: 20%;">
 		<span>Moon</span>
 	</div>
 </footer>
 </body>
+<script>
+$(document)
+.on("click",".home span",function(){
+	location.href="/app/Main";
+})
+</script>
 </html>

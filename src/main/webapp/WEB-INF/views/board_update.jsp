@@ -112,7 +112,7 @@
         <div id="main" style="font-size:15px">
             <h3 style="text-align: center; background-color: blanchedalmond;">게시물 수정</h3>
             <div class="container">
-               <p style="margin: 0;padding-left:30px;font-size:18px">day: &nbsp;${board.created}&nbsp;&nbsp;~&nbsp;&nbsp;${board.updated}</p>
+               <p style="margin: 0;padding-left:30px;font-size:18px">First: &nbsp;${board.created}&nbsp;&nbsp;&nbsp;&nbsp;Last:${board.updated}</p>
 	           <table  style="padding-top:50px" align = center width=95% border=1 cellpadding=2 >
                 	<tr>
                 		<td height=20 align= center bgcolor=#ccc><font color=white> 글쓰기</font></td>
